@@ -1,18 +1,27 @@
+import java.util.Date;
+
 public class Goal {
-
-	public void create() {
+	int goalID;
+	int numberOfActivities;
+	int numberOfDays;
+	int userID;
+	Date stateDate;
+	Date endDate;
+	boolean wasAchieved;
+	
+	public void createGoal() {
 
 	}
 
-	public void read() {
+	public void readGoal() {
 
 	}
 
-	public boolean update() {
+	public boolean updateGoal() {
 		return false;
 	}
 
-	public boolean delete() {
+	public boolean deleteGoal() {
 		return false;
 	}
 }

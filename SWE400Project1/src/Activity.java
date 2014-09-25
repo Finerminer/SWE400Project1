@@ -2,23 +2,24 @@ import java.util.Date;
 
 
 public class Activity {
+	int userID;
 	Date date;
 	String activityType;
 	int caloriesBurned;
 	
-	public void create() {
+	public void createActivity() {
 
 	}
 
-	public void read() {
+	public void readActivity() {
 
 	}
 
-	public boolean update() {
+	public boolean updateActivity() {
 		return false;
 	}
 
-	public boolean delete() {
+	public boolean deleteActivity() {
 		return false;
 	}
 	
