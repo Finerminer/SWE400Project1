@@ -4,25 +4,28 @@ import java.util.Date;
 public class Person {
 	ArrayList<Activity> activity = new ArrayList<Activity>();
 	ArrayList<Goal> goal = new ArrayList<Goal>();
-	String userName;
+	FriendList friends = new FriendList();
+	
+	String username;
 	String password;
 	int userID;
 	String firstName;
 	String lastName;
 
-	public void createPerson() {
-
-	}
-
-	public void readPerson() {
-
-	}
-
-	public boolean updatePerson() {
+	public boolean addPerson(int userID, String firstName, String lastName, String username, String password) {
 		return false;
 	}
 
-	public boolean deletePerson() {
+	public Person getPerson(int userID) {
+		return null;
+
+	}
+
+	public boolean updatePerson(int userID, String firstName, String lastName, String username, String password) {
+		return false;
+	}
+
+	public boolean deletePerson(int userID) {
 		return false;
 	}
 
@@ -31,7 +34,11 @@ public class Person {
 		return false;
 	}
 	
-	public Person getUser(int userID){
-		return null;
+	public boolean addGoal(int goalID, int userID, int numberOfActivities, int numberOfDays, Date startDate, Date endDate){
+		return false;
+	}
+	
+	public boolean addFriend(int userID, int friendID){
+		return false;
 	}
 }
