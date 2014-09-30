@@ -3,8 +3,6 @@ import java.util.ArrayList;
 import java.util.Date;
 
 public class Person {
-	private ArrayList<Activity> activities = new ArrayList<Activity>();
-	private ArrayList<Goal> goals = new ArrayList<Goal>();
 	private ArrayList<Friend> friends = new ArrayList<Friend>();
 	
 	private PersonGateway pg = new PersonGateway(); 
@@ -48,14 +46,6 @@ public class Person {
 	
 	public ArrayList<Friend> getFriends(){
 		return friends;
-	}
-	
-	public ArrayList<Goal> getGoals(){
-		return goals;
-	}
-	
-	public ArrayList<Activity> getActivities(){
-		return activities;
 	}
 	
 	public void setUsername(String username) {
