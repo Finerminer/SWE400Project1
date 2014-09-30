@@ -1,6 +1,6 @@
 package domainModel;
 import java.util.Date;
-import java.util.List;
+import java.util.ArrayList;
 
 
 public class Activity {
@@ -15,8 +15,8 @@ public class Activity {
 		act.createActivity(activityID, userID, date, activityType, caloriesBurned);
 	}
 
-	public List<Activity> readActivity() {
-		List<Activity> activities = act.readActivity(userID);
+	public ArrayList<Activity> readActivity() {
+		ArrayList<Activity> activities = act.readActivity(userID);
 		return activities;
 	}
 

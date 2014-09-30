@@ -1,6 +1,6 @@
 package domainModel;
+import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
 
 
 public class ActivityGateway {
@@ -9,7 +9,7 @@ public class ActivityGateway {
 			String activityType, int caloriesBurned) {
 	}
 
-	public List<Activity> readActivity(int userID) {
+	public ArrayList<Activity> readActivity(int userID) {
 		return null;
 	}
 
