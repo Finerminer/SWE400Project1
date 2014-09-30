@@ -1,5 +1,7 @@
 package domainModel;
 
+import java.util.ArrayList;
+
 
 /**
  * 
@@ -15,12 +17,12 @@ public class PersonGateway {
 	private String firstName;
 	private String lastName;
 	
-	public PersonGateway find(int userID) { 
+	public Person find(int userID) { 
 		//TODO SQL With JDBC
 		return null;
 	}
 	
-	public PersonGateway findAll() {
+	public ArrayList<Person> findAll() {
 		//TODO SQL With JDBC
 		return null;
 	}
