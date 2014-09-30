@@ -1,3 +1,4 @@
+package domainModel;
 public class Friend {
 
 	int userID;
