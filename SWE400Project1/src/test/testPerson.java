@@ -10,6 +10,13 @@ public class testPerson {
 	@Test
 	public void testCreatePerson() {
 		Person p = new Person();
+		p.setFirstName("G");
+		p.setLastName("A");
+		p.setUsername("qwe");
+		p.setPassword("123");
+		p.addPerson();
+		MockPersonGateway.find(p.getUserID());
+		assertNotNull(p);
 		
 	}
 
@@ -22,13 +29,8 @@ class MockPersonGateway{
 	String firstName;
 	String lastName;
 	
-	public MockPersonGateway find(int userID) { 
-		//TODO SQL With JDBC
-		return null;
-	}
-	
-	public MockPersonGateway findAll() {
-		//TODO SQL With JDBC
+	public static MockPersonGateway find(int userID) {
+		
 		return null;
 	}
 

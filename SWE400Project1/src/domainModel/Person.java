@@ -3,43 +3,75 @@ import java.util.ArrayList;
 import java.util.Date;
 
 public class Person {
-	ArrayList<Activity> activities = new ArrayList<Activity>();
-	ArrayList<Goal> goals = new ArrayList<Goal>();
-	ArrayList<Friend> friends = new ArrayList<Friend>();
+	private ArrayList<Activity> activities = new ArrayList<Activity>();
+	private ArrayList<Goal> goals = new ArrayList<Goal>();
+	private ArrayList<Friend> friends = new ArrayList<Friend>();
 	
-	String username;
-	String password;
-	int userID;
-	String firstName;
-	String lastName;
+	private PersonGateway pg = new PersonGateway(); 
+	
+	private String username;
+	private String password;
+	private int userID;
+	private String firstName;
+	private String lastName;
 
-	public boolean addPerson(int userID, String firstName, String lastName, String username, String password) {
-		return false;
-	}
-
-	public Person getPerson(int userID) {
-		return null;
-
-	}
-
-	public boolean updatePerson(int userID, String firstName, String lastName, String username, String password) {
-		return false;
-	}
-
-	public boolean deletePerson(int userID) {
-		return false;
-	}
-
-	public boolean addActivity(int userID, Date date, String activityType,
-			int caloriesBurned) {
+	public boolean addPerson(){
+		pg.setUserID(getUserID());
+		pg.insert();
 		return false;
 	}
 	
-	public boolean addGoal(int goalID, int userID, int numberOfActivities, int numberOfDays, Date startDate, Date endDate){
+	public boolean removePerson(){
+		pg.delete();
 		return false;
 	}
 	
-	public boolean addFriend(int userID, int friendID){
-		return false;
+	public int getUserID(){
+		return userID;
 	}
+	
+	public String getFirstName(){
+		return firstName;
+	}
+	
+	public String getLastName(){
+		return lastName;
+	}
+	
+	public String getUsername(){
+		return username;
+	}
+	
+	public String getPassword(){
+		return password;
+	}
+	
+	public ArrayList<Friend> getFriends(){
+		return friends;
+	}
+	
+	public ArrayList<Goal> getGoals(){
+		return goals;
+	}
+	
+	public ArrayList<Activity> getActivities(){
+		return activities;
+	}
+	
+	public void setUsername(String username) {
+		this.username = username;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
+	}
+
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
+	}
+
 }
