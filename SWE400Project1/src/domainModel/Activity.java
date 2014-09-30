@@ -1,14 +1,15 @@
+package domainModel;
 import java.util.Date;
 import java.util.List;
 
 
 public class Activity {
-	int userID;
-	int activityID;
-	Date date;
-	String activityType;
-	int caloriesBurned;
-	ActivityGateway act = new ActivityGateway();
+	private int userID;
+	private int activityID;
+	private Date date;
+	private String activityType;
+	private int caloriesBurned;
+	private ActivityGateway act = new ActivityGateway();
 	
 	public void createActivity() {
 		act.createActivity(activityID, userID, date, activityType, caloriesBurned);

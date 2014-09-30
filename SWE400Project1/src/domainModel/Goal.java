@@ -1,3 +1,4 @@
+package domainModel;
 import java.util.Date;
 
 public class Goal {
