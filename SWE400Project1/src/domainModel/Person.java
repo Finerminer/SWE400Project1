@@ -3,9 +3,9 @@ import java.util.ArrayList;
 import java.util.Date;
 
 public class Person {
-	ArrayList<Activity> activity = new ArrayList<Activity>();
-	ArrayList<Goal> goal = new ArrayList<Goal>();
-	FriendList friends = new FriendList();
+	ArrayList<Activity> activities = new ArrayList<Activity>();
+	ArrayList<Goal> goals = new ArrayList<Goal>();
+	ArrayList<Friend> friends = new ArrayList<Friend>();
 	
 	String username;
 	String password;
