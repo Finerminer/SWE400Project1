@@ -8,7 +8,7 @@
 
 
 public class PersonGateway {
-	//Do we want a separate class for the purposes of Finding people in the DB? "PersonFinder" 
+	//Do we want a separate class for the purposes of Finding people in the DB? "PersonFinder" RYANWEAVER
 	// Do we need all these instance variables here AND in person? or should person contain a PersonGateway?
 	String username;
 	String password;
