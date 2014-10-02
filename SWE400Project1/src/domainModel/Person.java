@@ -6,6 +6,8 @@ public class Person {
 	
 	protected PersonMapper dm = new PersonMapper();
 	
+	protected UnitOfWork uow = new UnitOfWork();
+	
 	private String username;
 	private String password;
 	private int userID;
@@ -51,5 +53,26 @@ public class Person {
 
 	public void setDisplayName(String displayName) {
 		this.displayName = displayName;
+	}
+	
+	/**
+	 * Marks a person object as new
+	 */
+	private void markNew(){
+		UnitOfWork.getThread().registerNew(this);
+	}
+	
+	/**
+	 * Marks a person object as dirty
+	 */
+	private void markDirty(){
+		UnitOfWork.getThread().registerDirty(this);
+	}
+	
+	/**
+	 * Marks a person object as removed
+	 */
+	private void markRemoved(){
+		UnitOfWork.getThread().registerRemoved(this);
 	}
 }

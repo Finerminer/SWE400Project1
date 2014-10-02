@@ -1,12 +1,15 @@
 package domainModel;
 
 import java.util.ArrayList;
+import java.lang.*;
 
 public class UnitOfWork {
 	
 	private ArrayList<Person> newObjects = new ArrayList<Person>();
 	private ArrayList<Person> dirtyObjects = new ArrayList<Person>();
 	private ArrayList<Person> removedObjects = new ArrayList<Person>();
+	PersonMapper mapper = new PersonMapper();
+	private static ThreadLocal<UnitOfWork> thread = new ThreadLocal<UnitOfWork>();
 	
 	/**
 	 * Registers person as new by adding them to newObjects array list.
@@ -64,24 +67,51 @@ public class UnitOfWork {
 	}
 	
 	/**
-	 * 
+	 * Iterates through newObjects list and for each
+	 * person in list call mapper's insert method
+	 * and passes it the person user name, password, 
+	 * and display name
 	 */
 	private void insertNew() {
-		PersonMapper mapper = new PersonMapper();
 		for(Person p: newObjects)
 		{
 			mapper.insertPerson(p.getUsername(), p.getPassword(), p.getDisplayName());
 		}
 	}
 	
+	/**
+	 * Iterates through dirtyObjects list and for each
+	 * person in list call mapper's update method and 
+	 * passes it the person ?
+	 */
 	private void updateDirty() {
 		// TODO Auto-generated method stub
-		
 	}
 	
+	/**
+	 * Iterates through removedObjects list and for each
+	 * person in list call mapper's delete method and 
+	 * passes it the person's id
+	 */
 	private void deleteRemoved() {
-		// TODO Auto-generated method stub
-		
+		for(Person p: removedObjects)
+		{
+			mapper.deletePerson(p.getUserID());
+		}
 	}
-	
+
+	/**
+	 * @return thread the current thread for a UnitOfWork
+	 */
+	public static UnitOfWork getThread() {
+		return thread.get();
+	}
+
+	/**
+	 * Sets current thread for specific UnitOfWork
+	 * @param thread the current thread
+	 */
+	public static void setThread(ThreadLocal<UnitOfWork> thread) {
+		UnitOfWork.thread = thread;
+	}
 }
