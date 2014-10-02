@@ -1,21 +1,26 @@
 package domainModel;
 
 public class PersonMapper {
-	PersonGateway gate = new PersonGateway();
+	protected PersonGateway pGate = new PersonGateway();
+	protected FriendGateway fGate = new FriendGateway(); 
 	
 	public Person find(int userID){
-		if(gate.find(userID) == null)
+		if(pGate.find(userID) == null)
 			return null;
-		return gate.find(userID);
+		return pGate.find(userID);
 	}
 	
 	public boolean insertPerson(){
-		gate.insert();
+		pGate.insert();
 		return false;
 	}
 	
-	public boolean deletePerson(){
-		gate.delete();
+	public boolean deletePerson(int userID){
+		pGate.delete(userID);
 		return false;
+	}
+	
+	public void addFriend(int userID, int friendID){
+		fGate.addFriend(userID, friendID);
 	}
 }

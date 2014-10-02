@@ -1,11 +1,10 @@
 package domainModel;
 import java.util.ArrayList;
-import java.util.Date;
 
 public class Person {
 	private ArrayList<Friend> friends = new ArrayList<Friend>();
 	
-	private PersonMapper dm = new PersonMapper();
+	protected PersonMapper dm = new PersonMapper();
 	
 	private String username;
 	private String password;
@@ -19,7 +18,7 @@ public class Person {
 	}
 	
 	public boolean removePerson(){
-		dm.deletePerson();
+		dm.deletePerson(userID);
 		return false;
 	}
 	
