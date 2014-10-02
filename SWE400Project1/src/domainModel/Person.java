@@ -58,6 +58,7 @@ public class Person {
 	/**
 	 * Marks a person object as new
 	 */
+	@SuppressWarnings("unused")
 	private void markNew(){
 		UnitOfWork.getThread().registerNew(this);
 	}
@@ -65,6 +66,7 @@ public class Person {
 	/**
 	 * Marks a person object as dirty
 	 */
+	@SuppressWarnings("unused")
 	private void markDirty(){
 		UnitOfWork.getThread().registerDirty(this);
 	}
@@ -72,6 +74,7 @@ public class Person {
 	/**
 	 * Marks a person object as removed
 	 */
+	@SuppressWarnings("unused")
 	private void markRemoved(){
 		UnitOfWork.getThread().registerRemoved(this);
 	}
