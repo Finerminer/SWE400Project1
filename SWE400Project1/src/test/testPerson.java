@@ -17,6 +17,8 @@ public class testPerson {
 		p.setPassword("123");
 		p.setDisplayName("A");
 		p.addPerson();
+		
+		assertNotNull(p);
 		assertEquals(MockDatabase.username,"G");
 		assertEquals(MockDatabase.password,"123");
 		assertEquals(MockDatabase.displayName,"A");
