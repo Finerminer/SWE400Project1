@@ -5,7 +5,7 @@ import java.util.Date;
 public class Person {
 	private ArrayList<Friend> friends = new ArrayList<Friend>();
 	
-	private PersonGateway pg = new PersonGateway(); 
+	private PersonMapper dm = new PersonMapper();
 	
 	private String username;
 	private String password;
@@ -14,13 +14,12 @@ public class Person {
 	private String lastName;
 
 	public boolean addPerson(){
-		pg.setUserID(getUserID());
-		pg.insert();
+		dm.insertPerson();
 		return false;
 	}
 	
 	public boolean removePerson(){
-		pg.delete();
+		dm.deletePerson();
 		return false;
 	}
 	
