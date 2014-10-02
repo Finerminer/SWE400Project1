@@ -35,7 +35,7 @@ public class PersonGateway {
 		
 	}
 	
-	public void delete() {
+	public void delete(int userID) {
 		
 	}
 	
