@@ -11,7 +11,7 @@ public class Person {
 	private int userID;
 	private String displayName;
 
-	public boolean addPerson(String username, String password,String displayName){
+	public boolean addPerson(){
 		dm.insertPerson(username, password, displayName);
 		return false;
 	}
