@@ -9,5 +9,13 @@ public class PersonMapper {
 		return gate.find(userID);
 	}
 	
+	public boolean insertPerson(){
+		gate.insert();
+		return false;
+	}
 	
+	public boolean deletePerson(){
+		gate.delete();
+		return false;
+	}
 }
