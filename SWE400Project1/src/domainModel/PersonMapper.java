@@ -10,8 +10,8 @@ public class PersonMapper {
 		return pGate.find(userID);
 	}
 	
-	public boolean insertPerson(){
-		pGate.insert();
+	public boolean insertPerson(String username, String password,String displayName){
+		pGate.insert(username, password,displayName);
 		return false;
 	}
 	

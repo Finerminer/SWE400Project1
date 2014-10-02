@@ -9,11 +9,10 @@ public class Person {
 	private String username;
 	private String password;
 	private int userID;
-	private String firstName;
-	private String lastName;
+	private String displayName;
 
-	public boolean addPerson(){
-		dm.insertPerson();
+	public boolean addPerson(String username, String password,String displayName){
+		dm.insertPerson(username, password, displayName);
 		return false;
 	}
 	
@@ -24,14 +23,6 @@ public class Person {
 	
 	public int getUserID(){
 		return userID;
-	}
-	
-	public String getFirstName(){
-		return firstName;
-	}
-	
-	public String getLastName(){
-		return lastName;
 	}
 	
 	public String getUsername(){
@@ -53,13 +44,4 @@ public class Person {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-
-	public void setFirstName(String firstName) {
-		this.firstName = firstName;
-	}
-
-	public void setLastName(String lastName) {
-		this.lastName = lastName;
-	}
-
 }

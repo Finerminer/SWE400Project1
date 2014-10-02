@@ -22,7 +22,7 @@ public class PersonGateway {
 		return null;
 	}
 
-	public void insert(String username,String password,String firstName,String lastName) {
+	public void insert(String username,String password,String displayName) {
 		
 	}
 	
