@@ -1,48 +1,41 @@
 package test;
 
 import static org.junit.Assert.*;
+
 import org.junit.Test;
+
 import domainModel.Person;
+import domainModel.PersonMapper;
 
 
 public class testPerson {
 
 	@Test
 	public void testCreatePerson() {
-		Person p = new Person();
+		MockPerson p = new MockPerson();
 		p.setFirstName("G");
 		p.setLastName("A");
 		p.setUsername("qwe");
 		p.setPassword("123");
 		p.addPerson();
-		MockPersonGateway.find(p.getUserID());
+		p.getMockDataMapper().find(p.getUserID());
 		assertNotNull(p);
 		
 	}
 
 }
 
-class MockPersonGateway{
-	String username;
-	String password;
-	int userID;
-	String firstName;
-	String lastName;
+class MockDataMapper extends PersonMapper{
 	
-	public static MockPersonGateway find(int userID) {
-		
-		return null;
-	}
+}
 
-	public void insert() {
-		
+class MockPerson extends Person{
+	
+	public MockPerson(){
+		pg = new MockDataMapper();
 	}
 	
-	public void update() {
-		
-	}
-	
-	public void delete() {
-		
+	public PersonMapper getMockDataMapper(){
+		return pg;
 	}
 }
