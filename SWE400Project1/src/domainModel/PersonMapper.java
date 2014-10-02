@@ -1,7 +1,7 @@
 package domainModel;
 
 public class PersonMapper {
-	PersonGateway gate = new PersonGateway();
+	protected PersonGateway gate = new PersonGateway();
 	
 	public Person find(int userID){
 		if(gate.find(userID) == null)
