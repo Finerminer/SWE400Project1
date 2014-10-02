@@ -70,8 +70,7 @@ public class UnitOfWork {
 		PersonMapper mapper = new PersonMapper();
 		for(Person p: newObjects)
 		{
-			//insertPerson(String username, String password,String displayName){
-			//mapper.insertPerson(p.getUsername(), p.getPassword(), p.getDisplayName());
+			mapper.insertPerson(p.getUsername(), p.getPassword(), p.getDisplayName());
 		}
 	}
 	
