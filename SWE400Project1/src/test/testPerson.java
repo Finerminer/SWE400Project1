@@ -11,31 +11,41 @@ import domainModel.PersonMapper;
 public class testPerson {
 
 	@Test
-	public void testCreatePerson() {
+	public void test() {
 		MockPerson p = new MockPerson();
-		p.setFirstName("G");
-		p.setLastName("A");
-		p.setUsername("qwe");
+		p.setUsername("G");
 		p.setPassword("123");
+		p.setDisplayName("A");
 		p.addPerson();
-		p.getMockDataMapper().find(p.getUserID());
-		assertNotNull(p);
-		
+		assertEquals(MockDatabase.username,"G");
+		assertEquals(MockDatabase.password,"123");
+		assertEquals(MockDatabase.displayName,"A");
 	}
 
 }
 
+class MockDatabase{
+	public static String username;
+	public static String password;
+	public static String displayName;
+}
+
 class MockDataMapper extends PersonMapper{
-	
+	public boolean insertPerson(String username, String password,String displayName){
+		MockDatabase.username = (username);
+		MockDatabase.password = (password);
+		MockDatabase.displayName = (displayName);
+		return false;
+	}
 }
 
 class MockPerson extends Person{
 	
 	public MockPerson(){
-		pg = new MockDataMapper();
+		dm = new MockDataMapper();
 	}
 	
 	public PersonMapper getMockDataMapper(){
-		return pg;
+		return dm;
 	}
 }
