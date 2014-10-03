@@ -48,7 +48,7 @@ public class UnitOfWork {
 		dirtyObjects.remove(person);
 		if(!removedObjects.contains(person))
 		{
-			removedObjects.remove(person);
+			removedObjects.add(person);
 		}
 	}
 	

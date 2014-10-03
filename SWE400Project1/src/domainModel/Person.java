@@ -46,6 +46,11 @@ public class Person {
 	public void setPassword(String password) {
 		this.password = password;
 	}
+	
+	// Just for testing purposes
+	public void setUserId(int userId) {
+		this.userID = userId;
+	}
 
 	public String getDisplayName() {
 		return displayName;
