@@ -12,16 +12,13 @@ public class UnitOfWork {
 	
 	/**
 	 * Registers person as new by adding them to newObjects array list.
-	 * Only if the person has an ID and does not exist in any other list. 
+	 * Only if the person does not exist in any other list. 
 	 * @param person the domain object
 	 */
 	public void registerNew(Person person){
-		if(person.getUserID() > 0)
+		if((!dirtyObjects.contains(person)) || (!removedObjects.contains(person)) || (!newObjects.contains(person)))
 		{
-			if((!dirtyObjects.contains(person)) || (!removedObjects.contains(person)) || (!newObjects.contains(person)))
-			{
-				newObjects.add(person);
-			}
+			newObjects.add(person);
 		}
 	}
 
@@ -112,5 +109,25 @@ public class UnitOfWork {
 	 */
 	public static void setThread(ThreadLocal<UnitOfWork> thread) {
 		UnitOfWork.thread = thread;
+	}
+	/**
+	 * @return newObjects array list
+	 */
+	public ArrayList<Person> getNewObjects() {
+		return newObjects;
+	}
+
+	/**
+	 * @return dirtyObjects array list
+	 */
+	public ArrayList<Person> getDirtyObjects() {
+		return dirtyObjects;
+	}
+
+	/**
+	 * @return removedObjects array list
+	 */
+	public ArrayList<Person> getRemovedObjects() {
+		return removedObjects;
 	}
 }
