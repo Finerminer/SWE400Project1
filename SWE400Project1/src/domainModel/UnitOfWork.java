@@ -95,20 +95,22 @@ public class UnitOfWork {
 			mapper.deletePerson(p.getUserID());
 		}
 	}
+	
+	
 
 	/**
 	 * @return thread the current thread for a UnitOfWork
 	 */
 	public static UnitOfWork getThread() {
-		return thread.get();
+		return (UnitOfWork) thread.get();
 	}
 
 	/**
 	 * Sets current thread for specific UnitOfWork
 	 * @param thread the current thread
 	 */
-	public static void setThread(ThreadLocal<UnitOfWork> thread) {
-		UnitOfWork.thread = thread;
+	public static void setThread(UnitOfWork t) {
+		thread.set(t);
 	}
 	/**
 	 * @return newObjects array list

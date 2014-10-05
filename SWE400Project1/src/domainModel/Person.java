@@ -6,7 +6,7 @@ public class Person {
 	
 	protected PersonMapper dm = new PersonMapper();
 	
-	protected UnitOfWork uow = new UnitOfWork();
+	public UnitOfWork uow = new UnitOfWork();
 	
 	private String username;
 	private String password;
@@ -15,11 +15,13 @@ public class Person {
 
 	public boolean addPerson(){
 		dm.insertPerson(username, password, displayName);
+		markNew();
 		return false;
 	}
 	
 	public boolean removePerson(){
 		dm.deletePerson(userID);
+		markRemoved();
 		return false;
 	}
 	
@@ -63,7 +65,6 @@ public class Person {
 	/**
 	 * Marks a person object as new
 	 */
-	@SuppressWarnings("unused")
 	private void markNew(){
 		UnitOfWork.getThread().registerNew(this);
 	}
@@ -79,7 +80,6 @@ public class Person {
 	/**
 	 * Marks a person object as removed
 	 */
-	@SuppressWarnings("unused")
 	private void markRemoved(){
 		UnitOfWork.getThread().registerRemoved(this);
 	}
