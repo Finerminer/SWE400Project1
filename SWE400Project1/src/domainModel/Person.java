@@ -14,6 +14,7 @@ public class Person {
 	private int userID;
 	private String displayName;
 
+	// TODO: do we need a mapper here and in UOW? Seems redundant
 	public boolean addPerson(){
 		dm.insertPerson(username, password, displayName);
 		markNew();
