@@ -81,7 +81,10 @@ public class UnitOfWork {
 	 * passes it the person ?
 	 */
 	private void updateDirty() {
-		// TODO Auto-generated method stub
+		for(Person p: dirtyObjects)
+		{
+			//mapper.updatePerson(p.getUserID(), p.getUsername(), p.getPassword(), p.getDisplayName());
+		}
 	}
 	
 	/**
@@ -96,8 +99,6 @@ public class UnitOfWork {
 		}
 	}
 	
-	
-
 	/**
 	 * @return thread the current thread for a UnitOfWork
 	 */
@@ -107,10 +108,10 @@ public class UnitOfWork {
 
 	/**
 	 * Sets current thread for specific UnitOfWork
-	 * @param thread the current thread
+	 * @param unit the UnitOfWork
 	 */
-	public static void setThread(UnitOfWork t) {
-		thread.set(t);
+	public static void setThread(UnitOfWork unit) {
+		thread.set(unit);
 	}
 	/**
 	 * @return newObjects array list

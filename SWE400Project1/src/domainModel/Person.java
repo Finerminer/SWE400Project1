@@ -43,23 +43,27 @@ public class Person {
 	
 	public void setUsername(String username) {
 		this.username = username;
+		markDirty();
 	}
 
 	public void setPassword(String password) {
 		this.password = password;
+		markDirty();
 	}
 	
 	// Just for testing purposes
 	public void setUserId(int userId) {
 		this.userID = userId;
+		markDirty();
 	}
-
+	
 	public String getDisplayName() {
 		return displayName;
 	}
 
 	public void setDisplayName(String displayName) {
 		this.displayName = displayName;
+		markDirty();
 	}
 	
 	/**
@@ -82,5 +86,29 @@ public class Person {
 	 */
 	private void markRemoved(){
 		UnitOfWork.getThread().registerRemoved(this);
+	}
+	
+	/**
+	 * Sets Persons user name on account creation
+	 * @param name a Persons name
+	 */
+	public void setInitialUsername(String name){
+		this.username = name;
+	}
+	
+	/**
+	 * Sets Persons display name on account creation
+	 * @param display a Persons display name
+	 */
+	public void setInitialDisplayName(String display){
+		this.displayName = display;
+	}
+	
+	/**
+	 * Sets Persons password on account creation
+	 * @param pw a Persons password
+	 */
+	public void setInitialPassword(String pw){
+		this.password = pw;
 	}
 }
