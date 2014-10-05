@@ -48,4 +48,17 @@ public class PersonMapper {
 	public void addFriend(int userID, int friendID){
 		fGate.addFriend(userID, friendID);
 	}
+
+	/**
+	 * Updates changes to a person
+	 * @param userID the Persons ID
+	 * @param username the Persons user name
+	 * @param password the Persons password
+	 * @param displayName the Persons display name
+	 * @return if the update is successful
+	 */
+	public boolean updatePerson(int userID, String username, String password, String displayName) {
+		//pGate.update(userID, username, password, displayName);
+		return false;
+	}
 }

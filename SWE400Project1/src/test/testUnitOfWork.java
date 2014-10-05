@@ -13,9 +13,9 @@ public class testUnitOfWork {
 	public void testRegisterNew() 
 	{
 		Person p = new Person();
-		p.setInitialDisplayName("display name");
-		p.setInitialPassword("password");
-		p.setInitialUsername("username");
+		p.setDisplayName("display name");
+		p.setPassword("password");
+		p.setUsername("username");
 		UnitOfWork.setThread(new UnitOfWork());
 		p.addPerson();
 		assertTrue(UnitOfWork.getThread().getNewObjects().contains(p));
@@ -25,12 +25,12 @@ public class testUnitOfWork {
 	public void testRegisterDirty() 
 	{
 		Person p = new Person();
-		p.setInitialDisplayName("display name");
-		p.setInitialPassword("password");
-		p.setInitialUsername("username");
-		UnitOfWork.setThread(new UnitOfWork());
+		p.setDisplayName("display name");
+		p.setPassword("password");
+		p.setUsername("username");
 		p.setUserId(12);
-		p.setDisplayName("another display");
+		UnitOfWork.setThread(new UnitOfWork());
+		p.updatePerson();
 		assertTrue(UnitOfWork.getThread().getDirtyObjects().contains(p));
 	}
 

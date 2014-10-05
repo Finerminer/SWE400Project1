@@ -83,7 +83,7 @@ public class UnitOfWork {
 	private void updateDirty() {
 		for(Person p: dirtyObjects)
 		{
-			//mapper.updatePerson(p.getUserID(), p.getUsername(), p.getPassword(), p.getDisplayName());
+			mapper.updatePerson(p.getUserID(), p.getUsername(), p.getPassword(), p.getDisplayName());
 		}
 	}
 	
