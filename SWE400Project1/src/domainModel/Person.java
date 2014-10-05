@@ -3,6 +3,7 @@ import java.util.ArrayList;
 
 public class Person {
 	private ArrayList<Friend> friends = new ArrayList<Friend>();
+	private ArrayList<MyPendingFriends> pending = new ArrayList<MyPendingFriends>();	
 	
 	protected PersonMapper dm = new PersonMapper();
 	
@@ -39,6 +40,10 @@ public class Person {
 	
 	public ArrayList<Friend> getFriends(){
 		return friends;
+	}
+	
+	public ArrayList<MyPendingFriends> getPending(){
+		return pending;
 	}
 	
 	public void setUsername(String username) {
