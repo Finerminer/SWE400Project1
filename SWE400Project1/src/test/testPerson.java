@@ -43,11 +43,11 @@ class MockDataMapper extends PersonMapper{
 
 class MockPerson extends Person{
 	
-	public MockPerson(){
-		dm = new MockDataMapper();
-	}
-	
-	public PersonMapper getMockDataMapper(){
-		return dm;
-	}
+//	public MockPerson(){
+//		//dm = new MockDataMapper();
+//	}
+//	
+//	public PersonMapper getMockDataMapper(){
+//		return dm;
+//	}
 }

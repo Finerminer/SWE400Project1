@@ -12,10 +12,10 @@ public class PersonMapper {
 	 * @param userID the Persons ID
 	 * @return the Person if one is there.
 	 */
-	public Person find(int userID){
-		if(pGate.find(userID) == null)
+	public Person find(String username, String password){
+		if(pGate.find(username, password) == null)
 			return null;
-		return pGate.find(userID);
+		return pGate.find(username, password);
 	}
 	
 	/**

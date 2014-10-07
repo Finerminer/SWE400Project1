@@ -10,6 +10,24 @@ public class UnitOfWork {
 	PersonMapper mapper = new PersonMapper();
 	private static ThreadLocal<UnitOfWork> thread = new ThreadLocal<UnitOfWork>();
 	
+	// change to username/pw
+	// 
+	public Person findPerson(String username, String password)
+	{
+		Person p = mapper.find(username, password);
+		if(p != null)
+		{
+			return p;
+		}
+		return null;
+	}
+	
+	public void createPerson(String username, String password,String displayName)
+	{
+		mapper.insertPerson(username, password, displayName);
+	}
+	
+	
 	/**
 	 * Registers person as new by adding them to newObjects array list.
 	 * Only if the person does not exist in any other list. 
@@ -78,7 +96,7 @@ public class UnitOfWork {
 	/**
 	 * Iterates through dirtyObjects list and for each
 	 * person in list call mapper's update method and 
-	 * passes it the person ?
+	 * passes it the person information
 	 */
 	private void updateDirty() {
 		for(Person p: dirtyObjects)
