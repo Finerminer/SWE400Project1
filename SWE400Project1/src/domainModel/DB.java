@@ -8,7 +8,11 @@ import java.util.Properties;
 public class DB {
 	
 	private static Connection connection;
-	
+	/**
+	 * Basic Singleton pattern used to create the connection to the database
+	 *  if the connection is not already established.
+	 * @returns connection
+	 */
 	public static Connection getConnection() {
 		if(connection == null) {
 			Properties props = new Properties();
