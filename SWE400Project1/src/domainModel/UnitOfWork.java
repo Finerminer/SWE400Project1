@@ -7,11 +7,9 @@ public class UnitOfWork {
 	private ArrayList<Person> newObjects = new ArrayList<Person>();
 	private ArrayList<Person> dirtyObjects = new ArrayList<Person>();
 	private ArrayList<Person> removedObjects = new ArrayList<Person>();
-	PersonMapper mapper = new PersonMapper();
+	protected PersonMapper mapper = new PersonMapper();
 	private static ThreadLocal<UnitOfWork> thread = new ThreadLocal<UnitOfWork>();
-	
-	protected PersonMapper dm = new PersonMapper();
-	
+		
 	/**
 	 * Registers person as new by adding them to newObjects array list.
 	 * Only if the person does not exist in any other list. 
