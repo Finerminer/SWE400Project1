@@ -10,6 +10,8 @@ public class UnitOfWork {
 	PersonMapper mapper = new PersonMapper();
 	private static ThreadLocal<UnitOfWork> thread = new ThreadLocal<UnitOfWork>();
 	
+	protected PersonMapper dm = new PersonMapper();
+	
 	/**
 	 * Registers person as new by adding them to newObjects array list.
 	 * Only if the person does not exist in any other list. 
