@@ -7,8 +7,6 @@ public class Person {
 	private ArrayList<Friend> friends = new ArrayList<Friend>();
 	private ArrayList<MyPendingFriends> pending = new ArrayList<MyPendingFriends>();	
 	
-	protected PersonMapper dm = new PersonMapper();
-	
 	public UnitOfWork uow = new UnitOfWork();
 	
 	private String username;
@@ -18,19 +16,16 @@ public class Person {
 
 	// TODO: do we need a mapper here and in UOW? Seems redundant
 	public boolean addPerson(){
-		dm.insertPerson(username, password, displayName);
 		markNew();
 		return false;
 	}
 	
 	public boolean removePerson(){
-		dm.deletePerson(userID);
 		markRemoved();
 		return false;
 	}
 	
 	public boolean updatePerson(){
-		dm.updatePerson(userID, username, password, displayName);
 		markDirty();
 		return false;
 	}
