@@ -6,7 +6,7 @@ import command.MakeFriendRequest;
 public class Person {
 	private ArrayList<Friend> friends = new ArrayList<Friend>();
 	private ArrayList<MyPendingFriends> pending = new ArrayList<MyPendingFriends>();	
-	
+
 	private String username;
 	private String password;
 	private int userID;
