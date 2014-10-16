@@ -1,0 +1,14 @@
+CommandToCreateUser fred pw1 happyFred; fred:pw1:happyFred 
+CommandToCreateUser henry pw2 sadHenry; henry:pw2:sadHenry
+CommandToSelectUser fred pw1;
+CommandToMakeFriendRequest <userID> henry;
+CommandToGetPendingOutgoingFriendList <userID>; henry
+CommandToPersistChanges;
+CommandToSelectUser henry pw2;
+CommandToGetPendingIncomingFriendList <userID>; fred
+CommandToAcceptFriendRequest <userID> fred;
+CommandToGetPendingIncomingFriendList <userID>;
+CommandToRetrieveFriendList <userID>; fred
+CommandToPersistChanges;
+CommandToSelectUser fred pw1;
+CommandToRetrieveFriendList <userID>; henry
