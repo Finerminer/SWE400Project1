@@ -18,7 +18,7 @@ public class DB {
 		if(connection == null) {
 			Properties props = new Properties();
 			props.put("user", "nk3668");
-			props.put("password", "nathaniel1");
+			props.put("password", "dreamteam");
 			
 			try {
 				Class.forName("com.mysql.jdbc.Driver");

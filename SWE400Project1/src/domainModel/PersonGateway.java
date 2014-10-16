@@ -3,8 +3,6 @@ import java.sql.*;
 import java.util.ArrayList;
 
 public class PersonGateway {
-	
-	//TODO Actual database transactions. Have basic query layout.
 	// DATABASE LAYOUT IS AS FOLLOWS
 	//			PERSON ( PRIMARY KEY USERID, USERNAME, PASSWORD, DISPLAYNAME )
 	private int userID;
@@ -15,6 +13,8 @@ public class PersonGateway {
 	 * @return
 	 * @throws SQLException 
 	 */
+	//TODO - FIND USERID OFF OF USERNAME
+	//TODO - CHANGE FOR LOGIN (USERNAME , PASSWORD)
 	public Person find(int userID) { 
 		String SQL = "select * from Person where userID = ?;";
 		PreparedStatement stmt = null;
@@ -23,7 +23,6 @@ public class PersonGateway {
 			stmt = DB.getConnection().prepareStatement(SQL);
 			stmt.setInt(1, userID);
 			ResultSet results = stmt.executeQuery();
-			
 			//Should only execute once since User_ID is the primary key; With each pass it will create a Person in memory
 			while(results.next()) {
 				int UID = results.getInt("User_ID");
@@ -37,7 +36,7 @@ public class PersonGateway {
 			}
 			stmt.close();
 		} catch (SQLException e) {
-			System.out.println("Error finding person");
+			System.out.println("Error finding person.");
 			e.printStackTrace();
 		}
 		return p;
@@ -52,9 +51,7 @@ public class PersonGateway {
 		Statement stmt = null;
 		ArrayList<Person> p = new ArrayList<Person>();
 		try {
-			// Might not need 
-			//stmt = DB.getConnection().prepareStatement(SQL);
-			stmt.executeQuery(SQL);
+			stmt.execute(SQL);
 			ResultSet results = stmt.getResultSet();	
 			
 			//Should only execute once since User_ID is the primary key; With each pass it will create a Person in memory
@@ -65,7 +62,7 @@ public class PersonGateway {
 				String password = results.getString("Password");
 				String displayName = results.getString("Display Name");
 				Person tempPerson = new Person();
-				// Set person's UserID
+				tempPerson.setUserId(UID);
 				tempPerson.setUsername(username);
 				tempPerson.setPassword(password);
 				tempPerson.setDisplayName(displayName);
@@ -73,7 +70,7 @@ public class PersonGateway {
 			}
 			stmt.close();
 		} catch (SQLException e) {
-			System.out.println("Error finding person");
+			System.out.println("Error finding people.");
 			e.printStackTrace();
 		}
 		return p;
@@ -88,7 +85,7 @@ public class PersonGateway {
 	public void insert(String username, String password, String displayName) {
 		String SQL = "insert into Person (Username, Password, Display_Name) values(?, ?, ?);";
 		PreparedStatement stmt = null;
-		
+		// TODO - Might not work, must test to see if the key is auto generated.
 		try {
 			stmt = DB.getConnection().prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS);
 			stmt.setString(1, username);
@@ -97,17 +94,42 @@ public class PersonGateway {
 			stmt.executeUpdate();
 			//Set userID? 
 		} catch (SQLException e) {
-			System.out.println("Error finding person");
+			System.out.println("Error inserting person.");
 			e.printStackTrace();
 		}
 	}
 	
+	public void update(int userID, String username, String password, String displayName) {
+		String SQL = "Update Person Username = ?, Password = ?, Display_Name = ?, Where UserID = ?;";
+		PreparedStatement stmt = null;
+		try {
+			stmt = DB.getConnection().prepareStatement(SQL);
+			stmt.setString(1, username);
+			stmt.setString(2, password);
+			stmt.setString(3, displayName);
+			stmt.setInt(4, userID);
+			stmt.executeUpdate();
+		} catch (SQLException e) {
+			System.out.println("Error updating person.");
+			e.printStackTrace();
+		}
+	}
 	/**
 	 * Delete a Person from the Person table using the userID to find it
 	 * @param userID
 	 */
 	public void delete(int userID) {
-		String statement = "delete from Person where userID = ?;";
+		String SQL = "delete from Person where userID = ?;";
+		PreparedStatement stmt = null;
+		try {
+			stmt = DB.getConnection().prepareStatement(SQL);
+			stmt.setInt(1, userID);
+			stmt.executeUpdate();
+			stmt.close();
+		} catch (SQLException e) {
+			System.out.println("Error finding person to delete.");
+			e.printStackTrace();
+		}
 	}
 	
 	/**
