@@ -43,9 +43,32 @@ public class PersonGateway {
 	}
 	
 	/**
-	 * 
+	 * Find a person's UserID in the table with their username if they exist.
+	 * @param username
+	 * @return UserID if it exists, else -1
+	 */
+	public int find(String username) { 
+		String SQL = "select * from Person where username = ?;";
+		PreparedStatement stmt = null;
+		int result = -1;
+		try {
+			stmt = DB.getConnection().prepareStatement(SQL);
+			stmt.setString(1, username);
+			ResultSet results = stmt.executeQuery();
+			//Should only execute once since User_ID is the primary key; With each pass it will create a Person in memory
+			result = results.getInt("User_ID");
+			stmt.close();
+		} catch (SQLException e) {
+			System.out.println("Error finding person.");
+			e.printStackTrace();
+		}
+		return result;
+	}
+	
+	/**
+	 * Find person in the table with their given username and password (like logging in)
 	 * @param userID
-	 * @return
+	 * @return Person
 	 */
 	public Person find(String username, String password) { 
 		String SQL = "select * from Person where username = ? AND password = ?;";
