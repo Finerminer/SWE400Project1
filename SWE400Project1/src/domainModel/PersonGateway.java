@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class PersonGateway {
 	// DATABASE LAYOUT IS AS FOLLOWS
-	//			PERSON ( PRIMARY KEY USERID, USERNAME, PASSWORD, DISPLAYNAME )
+	//			PERSON ( PRIMARY KEY USER_ID, USERNAME, PASSWORD, DISPLAYNAME )
 	private int userID;
 	
 	/**
@@ -13,10 +13,8 @@ public class PersonGateway {
 	 * @return
 	 * @throws SQLException 
 	 */
-	//TODO - FIND USERID OFF OF USERNAME
-	//TODO - CHANGE FOR LOGIN (USERNAME , PASSWORD)
 	public Person find(int userID) { 
-		String SQL = "select * from Person where userID = ?;";
+		String SQL = "select * from Person where User_ID = ?;";
 		PreparedStatement stmt = null;
 		Person p = new Person();
 		try {
@@ -28,7 +26,7 @@ public class PersonGateway {
 				int UID = results.getInt("User_ID");
 				String username = results.getString("Username");
 				String password = results.getString("Password");
-				String displayName = results.getString("Display Name");
+				String displayName = results.getString("Display_Name");
 				p.setUserId(UID);
 				p.setUsername(username);
 				p.setPassword(password);
@@ -83,7 +81,7 @@ public class PersonGateway {
 				int UID = results.getInt("User_ID");
 				String newUsername = results.getString("Username");
 				String newPassword = results.getString("Password");
-				String displayName = results.getString("Display Name");
+				String displayName = results.getString("Display_Name");
 				p.setUserId(UID);
 				p.setUsername(newUsername);
 				p.setPassword(newPassword);
@@ -115,7 +113,7 @@ public class PersonGateway {
 				this.setUserID(UID);
 				String username = results.getString("Username");
 				String password = results.getString("Password");
-				String displayName = results.getString("Display Name");
+				String displayName = results.getString("Display_Name");
 				Person tempPerson = new Person();
 				tempPerson.setUserId(UID);
 				tempPerson.setUsername(username);
