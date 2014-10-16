@@ -14,7 +14,7 @@ public class PersonGateway {
 	 * @throws SQLException 
 	 */
 	public Person find(int userID) { 
-		String SQL = "select * from Person where User_ID = ?;";
+		String SQL = "select * from fitness1.Person where User_ID = ?;";
 		PreparedStatement stmt = null;
 		Person p = new Person();
 		try {
@@ -46,7 +46,7 @@ public class PersonGateway {
 	 * @return UserID if it exists, else -1
 	 */
 	public int find(String username) { 
-		String SQL = "select * from Person where username = ?;";
+		String SQL = "select * from fitness1.Person where Username = ?;";
 		PreparedStatement stmt = null;
 		int result = -1;
 		try {
@@ -69,7 +69,7 @@ public class PersonGateway {
 	 * @return Person
 	 */
 	public Person find(String username, String password) { 
-		String SQL = "select * from Person where username = ? AND password = ?;";
+		String SQL = "select * from fitness1.Person where Username = ? AND Password = ?;";
 		PreparedStatement stmt = null;
 		Person p = new Person();
 		try {
@@ -100,7 +100,7 @@ public class PersonGateway {
 	 * @return null
 	 */
 	public ArrayList<Person> findAll() {
-		String SQL = "select * from Person;";
+		String SQL = "select * from fitness1.Person;";
 		Statement stmt = null;
 		ArrayList<Person> p = new ArrayList<Person>();
 		try {
@@ -136,7 +136,7 @@ public class PersonGateway {
 	 * @param displayName
 	 */
 	public void insert(String username, String password, String displayName) {
-		String SQL = "insert into Person (Username, Password, Display_Name) values(?, ?, ?);";
+		String SQL = "insert into fitness1.Person (Username, Password, Display_Name) values(?, ?, ?);";
 		PreparedStatement stmt = null;
 		// TODO - Might not work, must test to see if the key is auto generated.
 		try {
@@ -153,7 +153,7 @@ public class PersonGateway {
 	}
 	
 	public void update(int userID, String username, String password, String displayName) {
-		String SQL = "Update Person Username = ?, Password = ?, Display_Name = ?, Where UserID = ?;";
+		String SQL = "Update fitness1.Person Username = ?, Password = ?, Display_Name = ?, Where User_ID = ?;";
 		PreparedStatement stmt = null;
 		try {
 			stmt = DB.getConnection().prepareStatement(SQL);
@@ -172,7 +172,7 @@ public class PersonGateway {
 	 * @param userID
 	 */
 	public void delete(int userID) {
-		String SQL = "delete from Person where userID = ?;";
+		String SQL = "delete from fitness1.Person where User_ID = ?;";
 		PreparedStatement stmt = null;
 		try {
 			stmt = DB.getConnection().prepareStatement(SQL);
