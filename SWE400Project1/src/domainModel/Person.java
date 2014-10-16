@@ -1,7 +1,7 @@
 package domainModel;
 import java.util.ArrayList;
 
-import command.MakeFriendRequest;
+import command.CommandToMakeFriendRequest;
 
 public class Person {
 	private ArrayList<Friend> friends = new ArrayList<Friend>();
@@ -69,7 +69,7 @@ public class Person {
 	}
 	
 	public void addFriend(String userNameOfRequestee){
-		MakeFriendRequest friendRequest = new MakeFriendRequest(this.userID, userNameOfRequestee);
+		CommandToMakeFriendRequest friendRequest = new CommandToMakeFriendRequest(this.userID, userNameOfRequestee);
 		friendRequest.execute();
 	}
 	

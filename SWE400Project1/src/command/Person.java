@@ -1,4 +1,5 @@
 package command;
+
 /**
  * You all will have one of these.
  * @author merlin
@@ -7,4 +8,15 @@ package command;
 public class Person
 {
 
+	private String userName;
+	private String password;
+	private String displayName;
+
+	/**
+	 * @see java.lang.Object#toString()
+	 */
+	public String toString()
+	{
+		return userName + ":" + password + ":" + displayName;
+	}
 }
