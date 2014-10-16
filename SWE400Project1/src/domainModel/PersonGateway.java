@@ -43,6 +43,38 @@ public class PersonGateway {
 	}
 	
 	/**
+	 * 
+	 * @param userID
+	 * @return
+	 */
+	public Person find(String username, String password) { 
+		String SQL = "select * from Person where username = ? AND password = ?;";
+		PreparedStatement stmt = null;
+		Person p = new Person();
+		try {
+			stmt = DB.getConnection().prepareStatement(SQL);
+			stmt.setString(1, username);
+			stmt.setString(2, password);
+			ResultSet results = stmt.executeQuery();
+			while(results.next()) {
+				int UID = results.getInt("User_ID");
+				String newUsername = results.getString("Username");
+				String newPassword = results.getString("Password");
+				String displayName = results.getString("Display Name");
+				p.setUserId(UID);
+				p.setUsername(newUsername);
+				p.setPassword(newPassword);
+				p.setDisplayName(displayName);
+			}
+			stmt.close();
+		} catch (SQLException e) {
+			System.out.println("Error finding person.");
+			e.printStackTrace();
+		}
+		return p;
+	}
+	
+	/**
 	 * Return all the rows in the Person table
 	 * @return null
 	 */
