@@ -10,7 +10,7 @@ public class Friend
 	private String userName;
 	private String displayName;
 	
-	private Friend(String userName, String displayName)
+	public Friend(String userName, String displayName)
 	{
 		this.userName = userName;
 		this.displayName = displayName;

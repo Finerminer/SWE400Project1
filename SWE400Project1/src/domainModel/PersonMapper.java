@@ -62,4 +62,8 @@ public class PersonMapper {
 		//pGate.update(userID, username, password, displayName);
 		return false;
 	}
+
+	public int getIDFromUsername(String userNameOfRequestee) {
+		return pGate.getIDFromUsername(userNameOfRequestee);
+	}
 }
