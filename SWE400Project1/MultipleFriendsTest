@@ -1,3 +1,31 @@
 CommandToCreateUser ethan password finerminer; ethan:password:finerminer
 CommandToCreateUser ryan pw2 rweav; ryan:pw2:rweav
 CommandToCreateUser nate password3 nk; nate:password3:nk
+CommandToSelectUser nate password3;
+CommandToGetPendingIncomingFriendList <userID>;
+CommandToMakeFriendRequest <userID> ethan;
+CommandToMakeFriendRequest <userID> ryan;
+CommandToGetPendingOutgoingFriendList <userID>; ethan ryan
+CommandToPersistChanges;
+CommandToSelectUser ethan password;
+CommandToRetrieveFriendList <userID>;
+CommandToGetPendingOutgoingFriendList <userID>;
+CommandToGetPendingIncomingFriendList <userID>; nate
+CommandToAcceptFriendRequest <userID> nate;
+CommandToGetPendingIncomingFriendList <userID>;
+CommandToRetrieveFriendList <userID>; nate
+CommandToPersistChanges;
+CommandToSelectUser nate password3;
+CommandToRetrieveFriendList <userID>; ethan
+CommandToGetPendingOutgoingFriendList <userID>; ryan
+CommandToGetPendingIncomingFriendList <userID>;
+CommandToSelectUser ryan pw2;
+CommandToRetrieveFriendList <userID>;
+CommandToGetPendingOutgoingFriendList <userID>;
+CommandToGetPendingIncomingFriendList <userID>; nate
+CommandToAcceptFriendRequest <userID> nate;
+CommandToRetrieveFriendList <userID>; nate
+CommandToGetPendingIncomingFriendList <userID>;
+CommandToPersistChanges;
+CommandToSelectUser nate password3;
+CommandToRetrieveFriendList <userID>; ethan ryan

@@ -3,7 +3,8 @@ import java.util.ArrayList;
 
 public class Person {
 	private ArrayList<Friend> friends = new ArrayList<Friend>();
-	private ArrayList<MyPendingFriends> pending = new ArrayList<MyPendingFriends>();	
+	private ArrayList<MyPendingFriends> incomingFriends = new ArrayList<MyPendingFriends>();
+	private ArrayList<MyPendingFriends> outgoingFriends = new ArrayList<MyPendingFriends>();
 
 	private String username;
 	private String password;
@@ -26,8 +27,12 @@ public class Person {
 		return friends;
 	}
 	
-	public ArrayList<MyPendingFriends> getPending(){
-		return pending;
+	public ArrayList<MyPendingFriends> getIncomingFriends(){
+		return incomingFriends;
+	}
+	
+	public ArrayList<MyPendingFriends> getOutgoingFriends(){
+		return outgoingFriends;
 	}
 	
 	public void setUsername(String username) {
@@ -38,7 +43,6 @@ public class Person {
 		this.password = password;
 	}
 	
-	// Just for testing purposes
 	public void setUserId(int userId) {
 		this.userID = userId;
 	}
