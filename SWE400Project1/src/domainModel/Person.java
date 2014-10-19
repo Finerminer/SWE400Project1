@@ -98,10 +98,9 @@ public class Person {
 		friendRequest.execute();
 	}
 
-	public void acceptFriendRequest(Friend f) {
+	public void acceptFriendRequest(int userIDOfRequestee, String userNameOfRequester) {
+		Friend f = new Friend(Integer.toString(userIDOfRequestee), userNameOfRequester);
 		markNew(f);
-		CommandToAcceptFriendRequest acceptedRequest = new CommandToAcceptFriendRequest(this.userID, f.getUserName());
-		acceptedRequest.execute();
 	}
 	
 	public void deleteFriend(Friend f) {

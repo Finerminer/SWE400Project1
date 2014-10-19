@@ -71,8 +71,7 @@ public class CommandToCreateUser implements Command {
 	 */
 	@Override
 	public Person getResult() {
-		// TODO Auto-generated method stub
-		return null;
+		return UnitOfWork.getThread().getPerson();
 	}
 
 	/**

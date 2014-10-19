@@ -31,7 +31,7 @@ public class CommandToGetPendingIncomingFriendList implements Command
 	@Override
 	public void execute()
 	{
-		// TODO Auto-generated method stub
+		getResult();
 	}
 
 	/**
@@ -42,7 +42,7 @@ public class CommandToGetPendingIncomingFriendList implements Command
 	@Override
 	public String getResult()
 	{
-		// TODO Auto-generated method stub
+		//return UnitOfWork.getThread().getIncomingRequests().;
 		return null;
 	}
 

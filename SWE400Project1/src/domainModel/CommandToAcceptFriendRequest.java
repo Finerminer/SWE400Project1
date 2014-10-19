@@ -33,8 +33,7 @@ public class CommandToAcceptFriendRequest implements Command
 	@Override
 	public void execute()
 	{
-		// TODO Auto-generated method stub
-
+		UnitOfWork.getThread().getPerson().acceptFriendRequest(userIDOfRequestee, userNameOfRequester);
 	}
 
 	/**
