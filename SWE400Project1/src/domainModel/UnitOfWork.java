@@ -204,4 +204,11 @@ public class UnitOfWork {
 		PersonGateway gate = new PersonGateway();
 		gate.modifyName(userID, newDisplayName);
 	}
+
+	public void clearFriendsLists() {
+		newFriends.clear();
+		incomingRequest.clear();
+		outgoingRequest.clear();
+		deletedFriends.clear();
+	}
 }

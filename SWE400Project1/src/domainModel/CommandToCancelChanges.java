@@ -15,8 +15,7 @@ public class CommandToCancelChanges implements Command
 	@Override
 	public void execute()
 	{
-		// TODO Auto-generated method stub
-
+		UnitOfWork.getThread().clearFriendsLists();
 	}
 
 	/**
@@ -28,7 +27,6 @@ public class CommandToCancelChanges implements Command
 	@Override
 	public Object getResult()
 	{
-		// TODO Auto-generated method stub
 		return null;
 	}
 

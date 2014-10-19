@@ -70,8 +70,8 @@ public class CommandToCreateUser implements Command {
 	 * @see Command#getResult()
 	 */
 	@Override
-	public Person getResult() {
-		return UnitOfWork.getThread().getPerson();
+	public String getResult() {
+		return UnitOfWork.getThread().getPerson().toString();
 	}
 
 	/**

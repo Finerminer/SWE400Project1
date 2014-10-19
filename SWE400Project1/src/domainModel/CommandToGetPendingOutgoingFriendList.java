@@ -26,7 +26,7 @@ public class CommandToGetPendingOutgoingFriendList implements Command
 	}
 
 	/**
-	 * Does nothing. Results are returned getResults
+	 * Does nothing. Results are returned in getResults
 	 * @see Command#execute()
 	 */
 	@Override
