@@ -30,8 +30,7 @@ public class CommandToUnFriend implements Command
 	@Override
 	public void execute()
 	{
-		PersonMapper dm = new PersonMapper();
-		dm.deleteFriend(userIDOfRequester, userNameOfRequestee);
+		UnitOfWork.getThread().deleteFriend(userIDOfRequester, userNameOfRequestee);
 	}
 
 	/**

@@ -204,4 +204,12 @@ public class UnitOfWork {
 		PersonGateway gate = new PersonGateway();
 		gate.modifyName(userID, newDisplayName);
 	}
+
+	public void addFriend(int userIDOfRequester, String userNameOfRequestee) {
+		mapper.addFriend(userIDOfRequester, userNameOfRequestee);
+	}
+
+	public void deleteFriend(int userIDOfRequester, String userNameOfRequestee) {
+		mapper.deleteFriend(userIDOfRequester, userNameOfRequestee);
+	}
 }

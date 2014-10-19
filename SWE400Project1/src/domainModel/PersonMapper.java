@@ -46,9 +46,9 @@ public class PersonMapper {
 	 * @param userID the user who is adding the friend.
 	 * @param friendID the user who is being added.
 	 */
-	public void addFriend(int userID, String friendUserName){
-		int friendID = getIDFromUsername(friendUserName);
-		fGate.addFriend(userID, friendID);
+	public void addFriend(int userIDOfRequester, String userNameOfRequestee){
+		int friendID = getIDFromUsername(userNameOfRequestee);
+		fGate.addFriend(userIDOfRequester, friendID);
 	}
 
 	/**
@@ -78,8 +78,8 @@ public class PersonMapper {
 		
 	}
 
-	public void deleteFriend(int userID, String friendUserName) {
-		int friendID = getIDFromUsername(friendUserName);
-		fGate.deleteFriend(userID, friendID);
+	public void deleteFriend(int userIDOfRequester, String userNameOfRequestee) {
+		int friendID = getIDFromUsername(userNameOfRequestee);
+		fGate.deleteFriend(userIDOfRequester, friendID);
 	}
 }
