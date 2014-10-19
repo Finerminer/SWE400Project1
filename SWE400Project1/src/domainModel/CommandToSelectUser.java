@@ -28,8 +28,8 @@ public class CommandToSelectUser implements Command
 	 */
 	@Override
 	public void execute()
-	{
-		// TODO Auto-generated method stub
+	{		
+		UnitOfWork.getThread().findPerson(userName, password);
 	}
 
 	/**

@@ -39,9 +39,9 @@ public class CommandToCreateUser implements Command
 	@Override
 	public void execute()
 	{
-		if(UnitOfWork.getThread() == null)
-		{
+		if(UnitOfWork.getThread() == null){
 			UnitOfWork.setThread(new UnitOfWork());
+			UnitOfWork.getThread().createPerson(userName, password, displayName);
 		}else{
 			UnitOfWork.getThread().createPerson(userName, password, displayName);
 		}
