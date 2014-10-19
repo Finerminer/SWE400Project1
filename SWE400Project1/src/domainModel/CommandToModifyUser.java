@@ -28,8 +28,7 @@ public class CommandToModifyUser implements Command
 	@Override
 	public void execute()
 	{
-		PersonGateway gate = new PersonGateway();
-		gate.modifyName(userID, newDisplayName);
+		UnitOfWork.getThread().modifyName(userID, newDisplayName);
 	}
 
 	/**
