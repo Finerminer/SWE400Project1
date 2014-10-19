@@ -115,9 +115,10 @@ public class UnitOfWork {
 	 * and passes it the persons userId and friends ? 
 	 */
 	private void addNew() {
+		
 		for(Friend f: newFriends)
 		{
-			mapper.addFriend(person.getUserID(), f.friendID);
+			mapper.addFriend(person.getUserID(), f.getUserName());
 		}
 	}
 	
@@ -129,11 +130,11 @@ public class UnitOfWork {
 	private void updatePending() {
 		for(Friend f: incomingRequest)
 		{
-			mapper.addIncomingRequest(person.getUserID(), f.friendID);
+			mapper.addIncomingRequest(person.getUserID(), f.getUserName());
 		}
 		for(Friend f: outgoingRequest)
 		{
-			mapper.addOutgoingRequest(person.getUserID(), f.friendID);
+			mapper.addOutgoingRequest(person.getUserID(), f.getUserName());
 		}
 	}
 
@@ -145,7 +146,7 @@ public class UnitOfWork {
 	private void removeDelete() {
 		for(Friend f: deletedFriends)
 		{
-			mapper.deleteFriend(person.getUserID(), f.friendID);
+			mapper.deleteFriend(person.getUserID(), f.getUserName());
 		}
 	}
 	
