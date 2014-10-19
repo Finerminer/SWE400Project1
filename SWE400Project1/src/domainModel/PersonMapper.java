@@ -67,4 +67,19 @@ public class PersonMapper {
 	public int getIDFromUsername(String userNameOfRequestee) {
 		return pGate.getIDFromUsername(userNameOfRequestee);
 	}
+
+	public void addIncomingRequest(int userID, String friendUserName) {
+		int friendID = getIDFromUsername(friendUserName);
+		
+	}
+
+	public void addOutgoingRequest(int userID, String friendUserName) {
+		int friendID = getIDFromUsername(friendUserName);
+		
+	}
+
+	public void deleteFriend(int userID, String friendUserName) {
+		int friendID = getIDFromUsername(friendUserName);
+		
+	}
 }
