@@ -1,0 +1,11 @@
+CommandToCreateUser ryan pw1 ryanW; ryan:pw1:ryanW 
+CommandToSelectUser ryan pw1;
+CommandToModifyUser <userID> scapegoat666;
+CommandToPersistChanges;
+CommandToSelectUser ryan pw1;
+CommandToModifyUser <userID> toenails;
+CommandToModifyUser <userID> gutteraljuice;
+CommandToModifyUser <userID> bobandweaver;
+CommandToPersistChanges;
+CommandToModifyUser <userID> gettindatbooty;
+CommandToCancelChanges;
