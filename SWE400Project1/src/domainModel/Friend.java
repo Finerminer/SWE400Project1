@@ -6,7 +6,6 @@ package domainModel;
  */
 public class Friend
 {
-
 	private String userName;
 	private String displayName;
 	
