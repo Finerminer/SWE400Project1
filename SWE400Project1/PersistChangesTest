@@ -1,0 +1,16 @@
+CommandToCreateUser ryan pw1 ryanW; ryan:pw1:ryanW
+CommandToPersistChanges; 
+CommandToCreateUser frisbee pw2 circleflyer; frisbee:pw2:circleflyer;
+CommandToPersistChanges;
+CommandToSelectUser ryan pw1;
+CommandToMakeFriendRequest <userID> frisbee;
+CommandToPersistChanges;
+CommandToSelectUser henry pw2;
+CommandToGetPendingIncomingFriendList <userID>; fred
+CommandToAcceptFriendRequest <userID> fred;
+CommandToPersistChanges;
+CommandToRetrieveFriendList <userID>; fred
+CommandToPersistChanges;
+CommandToSelectUser fred pw1;
+CommandToRetrieveFriendList <userID>; henry
+CommandToPersistChanges;
