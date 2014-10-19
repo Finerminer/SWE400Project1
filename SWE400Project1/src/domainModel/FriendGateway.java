@@ -6,4 +6,8 @@ public class FriendGateway {
 		// TODO SQL stuff
 	}
 
+	public void deleteFriend(int userID, int friendID) {
+		// TODO SQL stuff	
+	}
+
 }

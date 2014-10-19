@@ -80,6 +80,6 @@ public class PersonMapper {
 
 	public void deleteFriend(int userID, String friendUserName) {
 		int friendID = getIDFromUsername(friendUserName);
-		
+		fGate.deleteFriend(userID, friendID);
 	}
 }
