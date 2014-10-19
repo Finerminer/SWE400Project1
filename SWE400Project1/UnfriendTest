@@ -9,7 +9,7 @@ CommandToAcceptFriendRequest <userID> jane;
 CommandToPersistChanges;
 CommandToSelectUser jane pw1;
 CommandToRetrieveFriendList <userID>; sally
-CommandToUnFriend <userID>; sally
+CommandToUnFriend <userID> sally;
 CommandToPersistChanges;
 CommandToRetrieveFriendList <userID>;
 CommandToSelectUser sally pw2;

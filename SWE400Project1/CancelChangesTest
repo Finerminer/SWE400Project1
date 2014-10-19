@@ -1,4 +1,16 @@
 CommandToCreateUser jane pw1 jane1234; jane:pw1:jane1234 
+CommandToCreateUser sally pw2 sally5678; sally:pw2:sally5678
 CommandToSelectUser jane pw1;
-CommandToModifyUser <userID> janeSmith;
+CommandToMakeFriendRequest <userID> sally;
+CommandToPersistChanges;
+CommandToSelectUser sally pw2;
+CommandToGetPendingIncomingFriendList <userID>; jane
+CommandToAcceptFriendRequest <userID> jane;
+CommandToPersistChanges;
+CommandToSelectUser jane pw1;
+CommandToRetrieveFriendList <userID>; sally
+CommandToUnFriend <userID> sally;
+CommandToRetrieveFriendList <userID>;
 CommandToCancelChanges;
+CommandToPersistChanges;
+CommandToRetrieveFriendList <userID>; sally
