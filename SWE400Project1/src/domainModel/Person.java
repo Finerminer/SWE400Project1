@@ -102,6 +102,7 @@ public class Person {
 	
 	public void deleteFriend(Friend f) {
 		markRemoved(f);
-		// TODO Auto-generated method stub
+		CommandToUnFriend unFriend = new CommandToUnFriend(this.userID, f.getUserName());
+		unFriend.execute();
 	}
 }
