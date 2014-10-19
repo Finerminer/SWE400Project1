@@ -39,8 +39,12 @@ public class CommandToCreateUser implements Command
 	@Override
 	public void execute()
 	{
-		// TODO Auto-generated method stub
-
+		if(UnitOfWork.getThread() == null)
+		{
+			UnitOfWork.setThread(new UnitOfWork());
+		}else{
+			UnitOfWork.getThread().createPerson(userName, password, displayName);
+		}
 	}
 	
 	/**
