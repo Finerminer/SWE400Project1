@@ -205,4 +205,8 @@ public class PersonGateway {
 		// TODO Complete this Nate-o
 		return 0;
 	}
+
+	public void modifyName(int userID, String newDisplayName) {
+		// TODO Complete plz Nate-o
+	}
 }

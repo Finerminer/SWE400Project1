@@ -28,7 +28,8 @@ public class CommandToModifyUser implements Command
 	@Override
 	public void execute()
 	{
-		// TODO Auto-generated method stub
+		PersonGateway gate = new PersonGateway();
+		gate.modifyName(userID, newDisplayName);
 	}
 
 	/**
