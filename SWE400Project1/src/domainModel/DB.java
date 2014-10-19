@@ -15,11 +15,11 @@ public class DB {
 	 * @returns connection
 	 */
 	public static Connection getConnection() {
-		if(connection == null) {
+		if(connection.get() == null) {
 			Properties props = new Properties();
 			props.put("user", "lsagroup1");
 			props.put("password", "lsagroup1");
-			
+			System.out.println("trying to connect...");
 			try {
 				Class.forName("com.mysql.jdbc.Driver");
 				connection.set(DriverManager.getConnection("jdbc:lsagroup1.cbzhjl6tpflt.us-east-1.rds.amazonaws.com:3306" + props)); 
