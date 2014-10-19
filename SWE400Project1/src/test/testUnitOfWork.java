@@ -38,7 +38,7 @@ public class testUnitOfWork {
 		
 		UnitOfWork.setThread(new UnitOfWork());
 		Friend f = new Friend("fred",null);
-		p.acceptFriendRequest(f);
+		p.acceptFriendRequest(p.getUserID(), f.getUserName());
 		assertTrue(UnitOfWork.getThread().getNewFriends().contains(f));
 	}
 	

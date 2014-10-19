@@ -26,14 +26,13 @@ public class CommandToGetPendingOutgoingFriendList implements Command
 	}
 
 	/**
-	 * 
+	 * Does nothing. Results are returned getResults
 	 * @see Command#execute()
 	 */
 	@Override
 	public void execute()
 	{
-		// TODO Auto-generated method stub
-
+		
 	}
 
 	/**
@@ -42,10 +41,14 @@ public class CommandToGetPendingOutgoingFriendList implements Command
 	 * @see Command#getResult()
 	 */
 	@Override
-	public ArrayList<Friend> getResult()
+	public String getResult()
 	{
-		// TODO Auto-generated method stub
-		return null;
+		ArrayList<Friend> friends = UnitOfWork.getThread().getOutgoingRequests();
+		String result="";
+		for(Friend f : friends)
+		{
+			result = result + f.getUserName() + " ";
+		}
+		return result;
 	}
-
 }

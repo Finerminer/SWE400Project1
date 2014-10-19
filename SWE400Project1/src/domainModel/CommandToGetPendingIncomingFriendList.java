@@ -1,5 +1,7 @@
 package domainModel;
 
+import java.util.ArrayList;
+
 /**
  * Cause the list of friend requests from other user to this user to be fetched
  * from the domain model (may or may not cause reading from the DB depending on
@@ -25,25 +27,30 @@ public class CommandToGetPendingIncomingFriendList implements Command
 	}
 
 	/**
-	 * 
+	 * Does nothing. Results are returned getResults
 	 * @see Command#execute()
 	 */
 	@Override
 	public void execute()
 	{
-		getResult();
+		
 	}
 
 	/**
-	 * A comma-separated list of the friends associated with the given user
+	 * A list of the friends associated with the given user
 	 * 
 	 * @see Command#getResult()
 	 */
 	@Override
 	public String getResult()
 	{
-		//return UnitOfWork.getThread().getIncomingRequests().;
-		return null;
+		ArrayList<Friend> friends = UnitOfWork.getThread().getIncomingRequests();
+		String result="";
+		for(Friend f : friends)
+		{
+			result = result + f.getUserName() + " ";
+		}
+		return result;
 	}
 
 	/**
