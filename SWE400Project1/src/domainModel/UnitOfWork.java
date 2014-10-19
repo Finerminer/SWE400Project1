@@ -199,4 +199,9 @@ public class UnitOfWork {
 	public Person getPerson() {
 		return person;
 	}
+
+	public void modifyName(int userID, String newDisplayName) {
+		PersonGateway gate = new PersonGateway();
+		gate.modifyName(userID, newDisplayName);
+	}
 }
