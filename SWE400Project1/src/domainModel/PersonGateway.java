@@ -46,15 +46,15 @@ public class PersonGateway {
 	 * @return UserID if it exists, else -1
 	 */
 	public int find(String username) { 
-		String SQL = "select * from fitness1.Person where Username = ?;";
+		String SQL = "select User_ID from fitness1.Person where Username = ?;";
 		PreparedStatement stmt = null;
 		int result = -1;
 		try {
 			stmt = DB.getConnection().prepareStatement(SQL);
 			stmt.setString(1, username);
 			ResultSet results = stmt.executeQuery();
-			//Should only execute once since User_ID is the primary key; With each pass it will create a Person in memory
-			result = results.getInt("User_ID");
+			if(results.next())
+				result = Integer.parseInt(results.getString(1));
 			stmt.close();
 		} catch (SQLException e) {
 			System.out.println("Error finding person.");
