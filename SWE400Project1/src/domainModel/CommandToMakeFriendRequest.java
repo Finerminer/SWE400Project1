@@ -1,6 +1,5 @@
-package command;
+package domainModel;
 
-import domainModel.PersonMapper;
 
 /**
  * Initiates a friend request from one user to another

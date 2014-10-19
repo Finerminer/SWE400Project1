@@ -1,10 +1,6 @@
 package domainModel;
 import java.util.ArrayList;
 
-import command.Friend;
-import command.CommandToAcceptFriendRequest;
-import command.CommandToMakeFriendRequest;
-
 public class Person {
 	private ArrayList<Friend> friends = new ArrayList<Friend>();
 	private ArrayList<MyPendingFriends> pending = new ArrayList<MyPendingFriends>();	
@@ -53,6 +49,11 @@ public class Person {
 
 	public void setDisplayName(String displayName) {
 		this.displayName = displayName;
+	}
+	
+	public String toString()
+	{
+		return username + ":" + password + ":" + displayName;
 	}
 	
 	/**

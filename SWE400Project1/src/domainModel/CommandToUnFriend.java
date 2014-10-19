@@ -1,4 +1,4 @@
-package command;
+package domainModel;
 /**
  * Cancels a friend request between two users
  * @author merlin

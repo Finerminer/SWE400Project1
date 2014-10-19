@@ -1,7 +1,6 @@
 package domainModel;
 
 import java.util.ArrayList;
-import command.Friend;
 
 public class UnitOfWork {
 	

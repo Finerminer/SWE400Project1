@@ -1,4 +1,4 @@
-package command;
+package domainModel;
 
 /**
  * Accept a friend request from one user to another

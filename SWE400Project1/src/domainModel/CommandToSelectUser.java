@@ -1,4 +1,4 @@
-package command;
+package domainModel;
 
 /**
  * Retrieve a specified user from the database into the domain model

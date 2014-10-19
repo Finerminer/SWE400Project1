@@ -1,4 +1,4 @@
-package command;
+package domainModel;
 
 /**
  * Cause the list of friend requests from other user to this user to be fetched

@@ -4,7 +4,7 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-import command.Friend;
+import domainModel.Friend;
 import domainModel.Person;
 import domainModel.UnitOfWork;
 
