@@ -1,23 +1,35 @@
 package domainModel;
-
-public class Friend {
-
-	protected int friendID;
-
-	/**
-	 * Gets the ID of the friend being added.
-	 * @return the friends ID
-	 */
-	public int getFriendID() {
-		return friendID;
+/**
+ * Holds enough information about a user to have them in a friend list
+ * @author merlin
+ *
+ */
+public class Friend
+{
+	private String userName;
+	private String displayName;
+	
+	public Friend(String userName, String displayName)
+	{
+		this.userName = userName;
+		this.displayName = displayName;
 	}
 
 	/**
-	 * Sets the friends ID who is being added.
-	 * @param friendID
+	 * Get the friend's user name
+	 * @return the user name of the friend's login credentials
 	 */
-	public void setFriendID(int friendID) {
-		this.friendID = friendID;
+	public String getUserName()
+	{
+		return userName;
 	}
 
+	/**
+	 * Get the user's display name
+	 * @return the name the user has chosen to be known by
+	 */
+	public String getDisplayName()
+	{
+		return displayName;
+	}
 }

@@ -1,4 +1,4 @@
-package command;
+package domainModel;
 /**
  * Used to change information associated with a person (at this point, only the display name)
  * @author merlin

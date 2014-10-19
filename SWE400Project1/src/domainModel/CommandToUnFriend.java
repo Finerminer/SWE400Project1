@@ -1,10 +1,10 @@
-package command;
+package domainModel;
 /**
- * Initiates a friend request from one user to another
+ * Cancels a friend request between two users
  * @author merlin
  *
  */
-public class CommandToMakeFriendRequest implements Command
+public class CommandToUnFriend implements Command
 {
 
 	private int userIDOfRequester;
@@ -13,10 +13,10 @@ public class CommandToMakeFriendRequest implements Command
 
 	/**
 	 * 
-	 * @param userIDOfRequester the User ID of the user making the request
-	 * @param userNameOfRequestee the User Name of the user being friended
+	 * @param userIDOfRequester the User ID of the user cancel the relationship
+	 * @param userNameOfRequestee the User Name of the user being unfriended
 	 */
-	public CommandToMakeFriendRequest(int userIDOfRequester, String userNameOfRequestee)
+	public CommandToUnFriend(int userIDOfRequester, String userNameOfRequestee)
 	{
 		this.userIDOfRequester = userIDOfRequester;
 		this.userNameOfRequestee = userNameOfRequestee;

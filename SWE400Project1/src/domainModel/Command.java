@@ -1,4 +1,4 @@
-package command;
+package domainModel;
 /**
  * Behaviors required of all commands
  * 

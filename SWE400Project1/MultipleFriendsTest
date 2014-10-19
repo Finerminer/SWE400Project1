@@ -1,0 +1,3 @@
+CommandToCreateUser ethan password finerminer; ethan:password:finerminer
+CommandToCreateUser ryan pw2 rweav; ryan:pw2:rweav
+CommandToCreateUser nate password3 nk; nate:password3:nk

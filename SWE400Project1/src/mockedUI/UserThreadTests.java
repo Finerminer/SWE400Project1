@@ -5,11 +5,11 @@ import java.io.FileNotFoundException;
 
 import org.junit.Test;
 
-import command.CommandToAcceptFriendRequest;
-import command.CommandToCreateUser;
-import command.CommandToGetPendingIncomingFriendList;
-import command.CommandToPersistChanges;
-import command.CommandToSelectUser;
+import domainModel.CommandToAcceptFriendRequest;
+import domainModel.CommandToCreateUser;
+import domainModel.CommandToGetPendingIncomingFriendList;
+import domainModel.CommandToPersistChanges;
+import domainModel.CommandToSelectUser;
 
 /**
  * Tests related to the processing of commands by the UserThread class.  Note that many of these tests use

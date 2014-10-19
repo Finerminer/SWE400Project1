@@ -1,4 +1,4 @@
-package command;
+package domainModel;
 /**
  * Tells the system to save any pending changes
  * 

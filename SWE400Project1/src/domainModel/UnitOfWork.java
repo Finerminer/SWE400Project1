@@ -4,19 +4,22 @@ import java.util.ArrayList;
 
 public class UnitOfWork {
 	
-	private ArrayList<Person> newObjects = new ArrayList<Person>();
-	private ArrayList<Person> dirtyObjects = new ArrayList<Person>();
-	private ArrayList<Person> removedObjects = new ArrayList<Person>();
+	private ArrayList<Friend> newFriends = new ArrayList<Friend>();
+	private ArrayList<Friend> deletedFriends = new ArrayList<Friend>();
+	private ArrayList<Friend> incomingRequest = new ArrayList<Friend>();
+	private ArrayList<Friend> outgoingRequest = new ArrayList<Friend>();
+	
 	protected PersonMapper mapper = new PersonMapper();
+	protected Person person;
 	private static ThreadLocal<UnitOfWork> thread = new ThreadLocal<UnitOfWork>();
 	
-	// change to username/pw
-	// 
+	
 	public Person findPerson(String username, String password)
 	{
 		Person p = mapper.find(username, password);
 		if(p != null)
 		{
+			person = p;
 			return p;
 		}
 		return null;
@@ -28,91 +31,122 @@ public class UnitOfWork {
 	}
 	
 	/**
-	 * Registers person as new by adding them to newObjects array list.
-	 * Only if the person does not exist in any other list. 
-	 * @param person the domain object
+	 * Registers a friend as new by adding them to newFriends list.
+	 * Removes them from the incoming/outgoing requests lists.
+	 * @param friend the requested friend 
 	 */
-	public void registerNew(Person person){
-		if((!dirtyObjects.contains(person)) || (!removedObjects.contains(person)) || (!newObjects.contains(person)))
+	public void registerNewFriend(Friend friend){
+		if((!deletedFriends.contains(friend))||(!newFriends.contains(friend)))
 		{
-			newObjects.add(person);
-		}
-	}
-
-	/**
-	 * Registers person as dirty by adding them to dirtyObjects array list
-	 * Only if the person has an ID and does not exist in any other list.
-	 * @param person the domain object
-	 */
-	public void registerDirty(Person person){
-		if(person.getUserID() > 0)
-		{
-			if((!removedObjects.contains(person)) || (!newObjects.contains(person)) || (!dirtyObjects.contains(person)))
+			if(incomingRequest.contains(friend))
 			{
-				dirtyObjects.add(person);
+				incomingRequest.remove(friend);
+				newFriends.add(friend);
+			}else if (outgoingRequest.contains(friend)){
+				outgoingRequest.remove(friend);
+				newFriends.add(friend);
 			}
 		}
 	}
 	
 	/**
-	 * Registers person as removed by adding them to removedObjects array List
-	 * and removing them from the other lists
-	 * Only if the person has an ID
-	 * @param person the domain object
+	 * Registers friend as deleted by adding them to deletedFriends list
+	 * and removes them from all other lists
+	 * @param friend to be deleted
 	 */
-	public void registerRemoved(Person person){
-		newObjects.remove(person);
-		dirtyObjects.remove(person);
-		if(!removedObjects.contains(person))
-		{
-			removedObjects.add(person);
+	public void registerDeletedFriend(Friend friend){
+		incomingRequest.remove(friend);
+		outgoingRequest.remove(friend);
+		newFriends.remove(friend);
+		if(!deletedFriends.contains(friend)){
+			deletedFriends.add(friend);	
 		}
 	}
 	
 	/**
-	 * Locates DataMapper for each Person and 
-	 * invoke the appropriate mapping method
+	 * @param friend to be evaluated
+	 * @return true if friend is in a list and false otherwise
+	 */
+	private boolean isFriendInList(Friend friend){
+		if((!deletedFriends.contains(friend)) || (!newFriends.contains(friend))||
+		   (!outgoingRequest.contains(friend)) || (!incomingRequest.contains(friend))){
+			return false;
+		}
+		return true;
+	}
+	
+	/**
+	 * Registers potential friend as requesting a friend request 
+	 * by adding them to incomingRequests list
+	 * @param friend making the request
+	 */
+	public void registerIncomingRequest(Friend friend){
+		if(!isFriendInList(friend))
+		{
+			incomingRequest.add(friend);
+		}	
+	}
+	
+	/**
+	 * Registers potential friend as receiving a friend request
+	 * by adding them to outgoingRequests list
+	 * @param friend getting the request
+	 */
+	public void registerOutgoingRequests(Friend friend){
+		if(!isFriendInList(friend))
+		{
+			outgoingRequest.add(friend);
+		}	
+	}	
+	
+	/**
+	 * Locates DataMapper for a Person and invoke 
+	 * the appropriate mapping method on their friends
 	 */
 	public void commit(){
-		insertNew();
-		updateDirty();
-		deleteRemoved();
+		addNew();
+		updatePending();
+		removeDelete();
 	}
 	
 	/**
-	 * Iterates through newObjects list and for each
-	 * person in list call mapper's insert method
-	 * and passes it the person user name, password, 
-	 * and display name
+	 * Iterates through newFriends list and for each
+	 * friend in list call mapper's insert method
+	 * and passes it the persons userId and friends ? 
 	 */
-	private void insertNew() {
-		for(Person p: newObjects)
+	private void addNew() {
+		
+		for(Friend f: newFriends)
 		{
-			mapper.insertPerson(p.getUsername(), p.getPassword(), p.getDisplayName());
+			mapper.addFriend(person.getUserID(), f.getUserName());
 		}
 	}
 	
 	/**
-	 * Iterates through dirtyObjects list and for each
-	 * person in list call mapper's update method and 
-	 * passes it the person information
+	 * Iterates through incomingRequest & outgoingRequest lists
+	 * and for each friend in a list call mapper's insert method
+	 * and passes it the persons userId and friends ? 
 	 */
-	private void updateDirty() {
-		for(Person p: dirtyObjects)
+	private void updatePending() {
+		for(Friend f: incomingRequest)
 		{
-			mapper.updatePerson(p.getUserID(), p.getUsername(), p.getPassword(), p.getDisplayName());
+			mapper.addIncomingRequest(person.getUserID(), f.getUserName());
+		}
+		for(Friend f: outgoingRequest)
+		{
+			mapper.addOutgoingRequest(person.getUserID(), f.getUserName());
 		}
 	}
-	
+
 	/**
-	 * Iterates through removedObjects list and for each
-	 * person in list call mapper's delete method and 
-	 * passes it the person's id
+	 * Iterates through deletedFriends list and for each
+	 * friend in list call mapper's delete method
+	 * and passes it the persons userId and friends ? 
 	 */
-	private void deleteRemoved() {
-		for(Person p: removedObjects)
+	private void removeDelete() {
+		for(Friend f: deletedFriends)
 		{
-			mapper.deletePerson(p.getUserID());
+			mapper.deleteFriend(person.getUserID(), f.getUserName());
 		}
 	}
 	
@@ -130,24 +164,39 @@ public class UnitOfWork {
 	public static void setThread(UnitOfWork unit) {
 		thread.set(unit);
 	}
+	
 	/**
-	 * @return newObjects array list
+	 * @return newFriends list
 	 */
-	public ArrayList<Person> getNewObjects() {
-		return newObjects;
+	public ArrayList<Friend> getNewFriends() {
+		return newFriends;
 	}
 
 	/**
-	 * @return dirtyObjects array list
+	 * @return deletedFriends list
 	 */
-	public ArrayList<Person> getDirtyObjects() {
-		return dirtyObjects;
+	public ArrayList<Friend> getDeletedFriends() {
+		return deletedFriends;
+	}
+	
+	/**
+	 * @return incomingRequest list
+	 */
+	public ArrayList<Friend> getIncomingRequests() {
+		return incomingRequest;
+	}
+	
+	/**
+	 * @return outgoingRequest list
+	 */
+	public ArrayList<Friend> getOutgoingRequests(){
+		return outgoingRequest;
 	}
 
 	/**
-	 * @return removedObjects array list
+	 * @return person the UOW is using
 	 */
-	public ArrayList<Person> getRemovedObjects() {
-		return removedObjects;
+	public Person getPerson() {
+		return person;
 	}
 }

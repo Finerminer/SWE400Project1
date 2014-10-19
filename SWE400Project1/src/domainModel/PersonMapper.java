@@ -46,7 +46,8 @@ public class PersonMapper {
 	 * @param userID the user who is adding the friend.
 	 * @param friendID the user who is being added.
 	 */
-	public void addFriend(int userID, int friendID){
+	public void addFriend(int userID, String friendUserName){
+		int friendID = getIDFromUsername(friendUserName);
 		fGate.addFriend(userID, friendID);
 	}
 
@@ -61,5 +62,9 @@ public class PersonMapper {
 	public boolean updatePerson(int userID, String username, String password, String displayName) {
 		//pGate.update(userID, username, password, displayName);
 		return false;
+	}
+
+	public int getIDFromUsername(String userNameOfRequestee) {
+		return pGate.getIDFromUsername(userNameOfRequestee);
 	}
 }

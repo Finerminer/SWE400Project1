@@ -1,4 +1,4 @@
-package command;
+package domainModel;
 
 /**
  * Creates a new user in the system

@@ -200,4 +200,9 @@ public class PersonGateway {
 	public int getUserID() {
 		return userID;
 	}
+
+	public int getIDFromUsername(String userNameOfRequestee) {
+		// TODO Complete this Nate-o
+		return 0;
+	}
 }

@@ -4,46 +4,83 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
+import domainModel.Friend;
 import domainModel.Person;
 import domainModel.UnitOfWork;
 
 public class testUnitOfWork {
 
 	@Test
-	public void testRegisterNew() 
-	{
+	public void testFindPerson(){
 		Person p = new Person();
-		p.setDisplayName("display name");
-		p.setPassword("password");
-		p.setUsername("username");
 		UnitOfWork.setThread(new UnitOfWork());
-		p.addPerson();
-		assertTrue(UnitOfWork.getThread().getNewObjects().contains(p));
+		UnitOfWork.getThread().findPerson("jake", "password");
+		//TODO: Will fail because DB is not set up yet
+		assertEquals(p, UnitOfWork.getThread().getPerson());
 	}
 	
 	@Test
-	public void testRegisterDirty() 
-	{
+	public void testCreatePerson(){
 		Person p = new Person();
-		p.setDisplayName("display name");
-		p.setPassword("password");
-		p.setUsername("username");
-		p.setUserId(12);
 		UnitOfWork.setThread(new UnitOfWork());
-		p.updatePerson();
-		assertTrue(UnitOfWork.getThread().getDirtyObjects().contains(p));
+		UnitOfWork.getThread().createPerson("jake", "1234", "jakesPage");
+		//TODO: Will fail because DB is not set up yet
+		assertEquals(p, UnitOfWork.getThread().findPerson("jake", "1234"));
 	}
-
+	
 	@Test
-	public void testRegisterRemoved() 
+	public void testAcceptAFriendRequest() 
 	{
 		Person p = new Person();
-		p.setDisplayName("display name");
-		p.setPassword("password");
-		p.setUsername("username");
-		p.setUserId(12);
+		p.setDisplayName("bobsPage");
+		p.setPassword("5678");
+		p.setUsername("bob");
+		
 		UnitOfWork.setThread(new UnitOfWork());
-		p.removePerson();
-		assertTrue(UnitOfWork.getThread().getRemovedObjects().contains(p));
+		Friend f = new Friend("fred",null);
+		p.acceptFriendRequest(f);
+		assertTrue(UnitOfWork.getThread().getNewFriends().contains(f));
+	}
+	
+	@Test
+	public void testMakeAFriendRequest() 
+	{
+		Person p = new Person();
+		p.setDisplayName("bobsPage");
+		p.setPassword("5678");
+		p.setUsername("bob");
+		
+		UnitOfWork.setThread(new UnitOfWork());
+		Friend f = new Friend("fred","fredsPage");
+		p.addFriend(f);
+		assertTrue(UnitOfWork.getThread().getOutgoingRequests().contains(f));
+	}
+	
+	@Test
+	public void testGetAFriendRequest() 
+	{
+		Person p = new Person();
+		p.setDisplayName("bobsPage");
+		p.setPassword("5678");
+		p.setUsername("bob");
+		
+		UnitOfWork.setThread(new UnitOfWork());
+		Friend f = new Friend("fred","fredsPage");
+		//TODO: test after database is working
+		assertTrue(UnitOfWork.getThread().getIncomingRequests().contains(f));
+	}
+	
+	@Test
+	public void testRemoveAFriend() 
+	{
+		Person p = new Person();
+		p.setDisplayName("bobsPage");
+		p.setPassword("5678");
+		p.setUsername("bob");
+		
+		UnitOfWork.setThread(new UnitOfWork());
+		Friend f = new Friend("fred","fredsPage");
+		p.deleteFriend(f);
+		assertTrue(UnitOfWork.getThread().getDeletedFriends().contains(f));
 	}
 }

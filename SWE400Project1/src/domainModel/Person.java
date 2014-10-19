@@ -1,8 +1,6 @@
 package domainModel;
 import java.util.ArrayList;
 
-import command.CommandToMakeFriendRequest;
-
 public class Person {
 	private ArrayList<Friend> friends = new ArrayList<Friend>();
 	private ArrayList<MyPendingFriends> pending = new ArrayList<MyPendingFriends>();	
@@ -12,21 +10,6 @@ public class Person {
 	private int userID;
 	private String displayName;
 
-	public boolean addPerson(){
-		markNew();
-		return false;
-	}
-	
-	public boolean removePerson(){
-		markRemoved();
-		return false;
-	}
-	
-	public boolean updatePerson(){
-		markDirty();
-		return false;
-	}
-	
 	public int getUserID(){
 		return userID;
 	}
@@ -68,29 +51,57 @@ public class Person {
 		this.displayName = displayName;
 	}
 	
-	public void addFriend(String userNameOfRequestee){
-		CommandToMakeFriendRequest friendRequest = new CommandToMakeFriendRequest(this.userID, userNameOfRequestee);
+	public String toString()
+	{
+		return username + ":" + password + ":" + displayName;
+	}
+	
+	/**
+	 * Marks a friend as new
+	 * @param f a new friend 
+	 */
+	public void markNew(Friend f){
+		UnitOfWork.getThread().registerNewFriend(f);
+	}
+	
+	/**
+	 * Marks a friend as a incomingRequest
+	 * @param f the requester  
+	 */
+	public void markIncoming(Friend f){
+		UnitOfWork.getThread().registerIncomingRequest(f);
+	}
+	
+	/**
+	 * Marks a friend as a outgoingRequest
+	 * @param f the requested friend 
+	 */
+	public void markOutgoing(Friend f){
+		UnitOfWork.getThread().registerOutgoingRequests(f);
+	}
+	
+	/**
+	 * Marks a friend as deleted
+	 * @param f a deleted friend
+	 */
+	public void markRemoved(Friend f){
+		UnitOfWork.getThread().registerDeletedFriend(f);
+	}
+	
+	public void addFriend(Friend f){
+		markOutgoing(f);
+		CommandToMakeFriendRequest friendRequest = new CommandToMakeFriendRequest(this.userID, f.getUserName());
 		friendRequest.execute();
 	}
-	
-	/**
-	 * Marks a person object as new
-	 */
-	private void markNew(){
-		UnitOfWork.getThread().registerNew(this);
+
+	public void acceptFriendRequest(Friend f) {
+		markNew(f);
+		CommandToAcceptFriendRequest acceptedRequest = new CommandToAcceptFriendRequest(this.userID, f.getUserName());
+		acceptedRequest.execute();
 	}
 	
-	/**
-	 * Marks a person object as dirty
-	 */
-	private void markDirty(){
-		UnitOfWork.getThread().registerDirty(this);
-	}
-	
-	/**
-	 * Marks a person object as removed
-	 */
-	private void markRemoved(){
-		UnitOfWork.getThread().registerRemoved(this);
+	public void deleteFriend(Friend f) {
+		markRemoved(f);
+		// TODO Auto-generated method stub
 	}
 }

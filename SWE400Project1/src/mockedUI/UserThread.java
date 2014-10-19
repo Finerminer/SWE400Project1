@@ -5,7 +5,7 @@ import java.io.FileNotFoundException;
 import java.lang.reflect.Constructor;
 import java.util.Scanner;
 
-import command.Command;
+import domainModel.Command;
 
 /**
  * Reads a file of instructions, executes them, and verifies the results as it

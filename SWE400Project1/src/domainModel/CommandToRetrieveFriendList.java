@@ -1,4 +1,4 @@
-package command;
+package domainModel;
 import java.util.ArrayList;
 
 /**
