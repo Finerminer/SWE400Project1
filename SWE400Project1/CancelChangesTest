@@ -1,0 +1,4 @@
+CommandToCreateUser jane pw1 jane1234; jane:pw1:jane1234 
+CommandToSelectUser jane pw1;
+CommandToModifyUser <userID> janeSmith;
+CommandToCancelChanges;
