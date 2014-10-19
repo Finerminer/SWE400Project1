@@ -60,7 +60,7 @@ public class Person {
 	 * Marks a friend as new
 	 * @param f a new friend 
 	 */
-	public void markNew(Friend f){
+	private void markNew(Friend f){
 		UnitOfWork.getThread().registerNewFriend(f);
 	}
 	
@@ -68,7 +68,7 @@ public class Person {
 	 * Marks a friend as a incomingRequest
 	 * @param f the requester  
 	 */
-	public void markIncoming(Friend f){
+	private void markIncoming(Friend f){
 		UnitOfWork.getThread().registerIncomingRequest(f);
 	}
 	
@@ -76,7 +76,7 @@ public class Person {
 	 * Marks a friend as a outgoingRequest
 	 * @param f the requested friend 
 	 */
-	public void markOutgoing(Friend f){
+	private void markOutgoing(Friend f){
 		UnitOfWork.getThread().registerOutgoingRequests(f);
 	}
 	
@@ -84,7 +84,7 @@ public class Person {
 	 * Marks a friend as deleted
 	 * @param f a deleted friend
 	 */
-	public void markRemoved(Friend f){
+	private void markRemoved(Friend f){
 		UnitOfWork.getThread().registerDeletedFriend(f);
 	}
 	
