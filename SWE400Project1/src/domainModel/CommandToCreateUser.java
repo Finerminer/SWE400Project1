@@ -6,8 +6,7 @@ package domainModel;
  * @author merlin
  * 
  */
-public class CommandToCreateUser implements Command
-{
+public class CommandToCreateUser implements Command {
 
 	private String userName;
 
@@ -26,8 +25,7 @@ public class CommandToCreateUser implements Command
 	 *            the name by which the user wants to be referred
 	 */
 	public CommandToCreateUser(String userName, String password,
-			String displayName)
-	{
+			String displayName) {
 		this.userName = userName;
 		this.password = password;
 		this.displayName = displayName;
@@ -46,22 +44,22 @@ public class CommandToCreateUser implements Command
 			UnitOfWork.getThread().createPerson(userName, password, displayName);
 		}
 	}
-	
+
 	/**
 	 * Get the display name this user is supposed to get
+	 * 
 	 * @return the display name
 	 */
-	public String getDisplayName()
-	{
+	public String getDisplayName() {
 		return displayName;
 	}
 
 	/**
 	 * Get the password this user will need to enter to log in
+	 * 
 	 * @return the password
 	 */
-	public String getPassword()
-	{
+	public String getPassword() {
 		return password;
 	}
 
@@ -72,18 +70,17 @@ public class CommandToCreateUser implements Command
 	 * @see Command#getResult()
 	 */
 	@Override
-	public Person getResult()
-	{
+	public Person getResult() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	/**
 	 * Get the username this use will need to enter to log in
+	 * 
 	 * @return the user name
 	 */
-	public String getUserName()
-	{
+	public String getUserName() {
 		return userName;
 	}
 
