@@ -211,4 +211,12 @@ public class UnitOfWork {
 		outgoingRequest.clear();
 		deletedFriends.clear();
 	}
+
+	public void addFriend(int userIDOfRequester, String userNameOfRequestee) {
+		mapper.addFriend(userIDOfRequester, userNameOfRequestee);
+	}
+
+	public void deleteFriend(int userIDOfRequester, String userNameOfRequestee) {
+		mapper.deleteFriend(userIDOfRequester, userNameOfRequestee);
+	}
 }

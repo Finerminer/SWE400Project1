@@ -31,8 +31,7 @@ public class CommandToMakeFriendRequest implements Command {
 	 */
 	@Override
 	public void execute() {
-		PersonMapper dm = new PersonMapper();
-		dm.addFriend(userIDOfRequester, userNameOfRequestee);
+		UnitOfWork.getThread().addFriend(userIDOfRequester, userNameOfRequestee);
 	}
 
 	/**
