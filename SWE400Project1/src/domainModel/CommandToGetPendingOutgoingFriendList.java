@@ -51,4 +51,15 @@ public class CommandToGetPendingOutgoingFriendList implements Command
 		}
 		return result;
 	}
+	
+	/**
+	 * For testing purposes - to check that the constructor correctly remembered
+	 * the userID of the requestor
+	 * 
+	 * @return the userID that was given to the constructor
+	 */
+	public int getUserID()
+	{
+		return userID;
+	}
 }
