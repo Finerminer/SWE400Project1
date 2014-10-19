@@ -15,7 +15,7 @@ public class testUnitOfWork {
 		Person p = new Person();
 		UnitOfWork.setThread(new UnitOfWork());
 		UnitOfWork.getThread().findPerson("jake", "password");
-		//TODO: Will fail because DB is not in database
+		//TODO: Will fail because DB is not set up yet
 		assertEquals(p, UnitOfWork.getThread().getPerson());
 	}
 	
@@ -24,7 +24,7 @@ public class testUnitOfWork {
 		Person p = new Person();
 		UnitOfWork.setThread(new UnitOfWork());
 		UnitOfWork.getThread().createPerson("jake", "1234", "jakesPage");
-		//TODO: Will fail because DB is not in database
+		//TODO: Will fail because DB is not set up yet
 		assertEquals(p, UnitOfWork.getThread().findPerson("jake", "1234"));
 	}
 	
