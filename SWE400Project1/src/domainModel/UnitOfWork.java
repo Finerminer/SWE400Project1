@@ -220,8 +220,8 @@ public class UnitOfWork {
 		mapper.acceptFriendRequest(person, userIDOfRequestee, userNameOfRequester);
 	}
 
-	public void deleteFriend(int userIDOfRequester, String userNameOfRequestee) {
-		mapper.deleteFriend(userIDOfRequester, userNameOfRequestee);
+	public void deleteFriendInList(int userIDOfRequester, String userNameOfRequestee) {
+		mapper.deleteFriendInList(person, userIDOfRequester, userNameOfRequestee);
 	}
 
 	public void rejectRequest(int userIDOfRequestee, String userNameOfRequester) {

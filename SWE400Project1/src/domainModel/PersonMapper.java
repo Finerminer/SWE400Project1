@@ -83,9 +83,12 @@ public class PersonMapper {
 		
 	}
 
-	public void deleteFriend(int userIDOfRequester, String userNameOfRequestee) {
+	public void deleteFriendInList(Person person, int userIDOfRequester, String userNameOfRequestee) {
 		int friendID = getIDFromUsername(userNameOfRequestee);
-		fGate.deleteFriend(userIDOfRequester, friendID);
+		Person user = person;
+		Person friend = pGate.find(friendID);
+		String displayNameOfRequestee = friend.getDisplayName();
+		user.deleteFriendInList(userIDOfRequester, userNameOfRequestee, displayNameOfRequestee);
 	}
 
 	public void acceptFriendRequest(Person person, int userIDOfRequestee, String userNameOfRequester) {
@@ -107,5 +110,10 @@ public class PersonMapper {
 		Person friend = pGate.find(friendID);
 		String displayNameOfRequester = friend.getDisplayName();
 		user.rejectFriendRequest(userIDOfRequestee, userNameOfRequester, displayNameOfRequester);
+	}
+
+	public void deleteFriend(int userID, String userName) {
+		// TODO Auto-generated method stub
+		// The persist delete Friend.
 	}
 }

@@ -110,10 +110,13 @@ public class Person {
 		}
 	}
 	
-	public void deleteFriend(Friend f) {
-		markRemoved(f);
-		CommandToUnFriend unFriend = new CommandToUnFriend(this.userID, f.getUserName());
-		unFriend.execute();
+	public void deleteFriendInList(int userIDOfRequester, String userNameOfRequestee, String displayNameOfRequestee) {
+		if(!checkCurrent(userIDOfRequester)){
+		}else{
+			Friend f = new Friend(userNameOfRequestee, displayNameOfRequestee); 
+			friends.remove(f);
+			markRemoved(f);
+		}
 	}
 	
 	public boolean checkCurrent(int userIDOfRequester){
@@ -128,7 +131,7 @@ public class Person {
 		}else{
 			Friend f = new Friend(userNameOfRequester, displayNameOfRequester);
 			incomingFriends.remove(f);
-			markNew(f);
+			markRemoved(f);
 		}
 	}
 }
