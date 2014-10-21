@@ -1,0 +1,45 @@
+CommandToCreateUser nk3668 pw1 nk3668; nk3668:pw1:nk3668
+CommandToCreateUser rw8384 pw2 rw8384; rw8384:pw2:rw8384
+CommandToSelectUser nk3668 pw1;
+CommandToMakeFriendRequest <userID> rw8384;
+CommandToGetPendingOutgoingFriendList <userID>; rw8384
+CommandToPersistChanges;
+CommandToSelectUser rw8384 pw2;
+CommandToGetPendingIncomingFriendList <userID>; nk3668
+CommandToAcceptFriendRequest <userID> nk3668;
+CommandToGetPendingIncomingFriendList <userID>;
+CommandToRetrieveFriendList <userID>; nk3668
+CommandToPersistChanges;
+CommandToCreateUser gl8389 pw1 gl8389; gl8389:pw1:gl8389
+CommandToCreateUser ew2288 pw2 ew2288; ew2288:pw2:ew2288
+CommandToPersistChanges;
+CommandToSelectUser gl8389 pw1;
+CommandToGetPendingOutgoingFriendList <userID>; 
+CommandToMakeFriendRequest <userID> ew2288;
+CommandToPersistChanges
+CommandToGetPendingOutgoingFriendList <userID>; ew2288
+CommandToGetPendingIncomingFriendList <userID>;
+CommandToRetrieveFriendList <userID>;
+CommandToSelectUser ew2288 pw2;
+CommandToGetPendingIncomingFriendList <userID>; gl8389;
+CommandToAcceptFriendRequest <userID> gl8389;
+CommandToRetrieveFriendList <userID>; gl8389
+CommandToCancelChanges;
+CommandToRetrieveFriendList <userID>;
+CommandToSelectUser rw8384 pw2;
+CommandToRetrieveFriendList <userID>; nk3668
+CommandToGetPendingOutgoingFriendList <userID>;
+CommandToCreateUser ld7894 pw3 ld7894; ld7894:pw3:ld7894
+CommandToPersistChanges
+CommandToSelectUser ld7894 pw3;
+CommandToMakeFriendRequest <userID> nk3668;
+CommandToPersistChanges
+CommandToGetOutgoingFriendList <userID> nk3668;
+CommandToSelectUser nk3668 pw1;
+CommandToGetPendingIncomingFriendList <userID>; ld7894
+CommandToUnfriend <userID> rw8384;
+CommandToPersistChanges
+CommandToRetrieveFriendList <userID>;
+CommandToAcceptFriendRequest <userID> ld7894;
+CommandToPersistChanges;
+CommandToRetrieveFriendList <userID> ld7894;
