@@ -1,0 +1,6 @@
+CommandToCreateUser jane pw1 jane1234; jane:pw1:jane1234
+CommandToPersistChanges;
+CommandToSelectUser jane pw1; jane
+CommandToGetPendingOutgoingFriendList <userID>;
+CommandToGetPendingIncomingFriendList <userID>;
+CommandToRetrieveFriendList <userID>;
