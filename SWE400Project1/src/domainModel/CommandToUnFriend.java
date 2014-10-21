@@ -30,7 +30,7 @@ public class CommandToUnFriend implements Command
 	@Override
 	public void execute()
 	{
-		UnitOfWork.getThread().deleteFriend(userIDOfRequester, userNameOfRequestee);
+		UnitOfWork.getThread().deleteFriendInList(userIDOfRequester, userNameOfRequestee);
 	}
 
 	/**

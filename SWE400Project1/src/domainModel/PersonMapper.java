@@ -43,12 +43,13 @@ public class PersonMapper {
 	
 	/**
 	 * Connects two users into a friend table. 
+	 * @param person 
 	 * @param userID the user who is adding the friend.
 	 * @param friendID the user who is being added.
 	 */
-	public void makeFriendRequest(int userIDOfRequester, String userNameOfRequestee){
+	public void makeFriendRequest(Person person, int userIDOfRequester, String userNameOfRequestee){
 		int friendID = getIDFromUsername(userNameOfRequestee);
-		Person user = pGate.find(userIDOfRequester);
+		Person user = person;
 		Person friend = pGate.find(friendID);
 		String displayNameOfRequestee = friend.getDisplayName();
 		user.makeFriendRequest(userIDOfRequester, userNameOfRequestee, displayNameOfRequestee);
@@ -72,22 +73,46 @@ public class PersonMapper {
 	}
 
 	public void addIncomingRequest(int userID, String friendUserName) {
-		int friendID = getIDFromUsername(friendUserName);
-		
+		int friendID = pGate.find(friendUserName);
+		fGate.addRequest(friendID, userID);
 	}
 
 	public void addOutgoingRequest(int userID, String friendUserName) {
-		int friendID = getIDFromUsername(friendUserName);
-		
+		int friendID = pGate.find(friendUserName);
+		fGate.addRequest(userID, friendID);
 	}
 
-	public void deleteFriend(int userIDOfRequester, String userNameOfRequestee) {
+	public void deleteFriendInList(Person person, int userIDOfRequester, String userNameOfRequestee) {
 		int friendID = getIDFromUsername(userNameOfRequestee);
-		fGate.deleteFriend(userIDOfRequester, friendID);
+		Person user = person;
+		Person friend = pGate.find(friendID);
+		String displayNameOfRequestee = friend.getDisplayName();
+		user.deleteFriendInList(userIDOfRequester, userNameOfRequestee, displayNameOfRequestee);
 	}
 
-	public void addFriend(int userID, String userName) {
+	public void acceptFriendRequest(Person person, int userIDOfRequestee, String userNameOfRequester) {
+		int friendID = getIDFromUsername(userNameOfRequester);
+		Person user = person;
+		Person friend = pGate.find(friendID);
+		String displayNameOfRequester = friend.getDisplayName();
+		user.acceptFriendRequest(userIDOfRequestee, userNameOfRequester, displayNameOfRequester);
+	}
+
+	public void addFriend(int userID, String friendUserName) {
+		int friendID = pGate.find(friendUserName);
+		fGate.addFriend(userID, friendID);
+	}
+
+	public void rejectRequest(Person person, int userIDOfRequestee, String userNameOfRequester) {
+		int friendID = getIDFromUsername(userNameOfRequester);
+		Person user = person;
+		Person friend = pGate.find(friendID);
+		String displayNameOfRequester = friend.getDisplayName();
+		user.rejectFriendRequest(userIDOfRequestee, userNameOfRequester, displayNameOfRequester);
+	}
+
+	public void deleteFriend(int userID, String userName) {
 		// TODO Auto-generated method stub
-		
+		// The persist delete Friend.
 	}
 }

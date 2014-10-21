@@ -213,15 +213,19 @@ public class UnitOfWork {
 	}
 
 	public void makeFriendRequest(int userIDOfRequester, String userNameOfRequestee) {
-		mapper.makeFriendRequest(userIDOfRequester, userNameOfRequestee);
+		mapper.makeFriendRequest(person, userIDOfRequester, userNameOfRequestee);
+	}
+	
+	public void acceptFriendRequest(int userIDOfRequestee, String userNameOfRequester){
+		mapper.acceptFriendRequest(person, userIDOfRequestee, userNameOfRequester);
 	}
 
-	public void deleteFriend(int userIDOfRequester, String userNameOfRequestee) {
-		mapper.deleteFriend(userIDOfRequester, userNameOfRequestee);
+	public void deleteFriendInList(int userIDOfRequester, String userNameOfRequestee) {
+		mapper.deleteFriendInList(person, userIDOfRequester, userNameOfRequestee);
 	}
 
 	public void rejectRequest(int userIDOfRequestee, String userNameOfRequester) {
-		// TODO Auto-generated method stub
-		
+		mapper.rejectRequest(person, userIDOfRequestee, userNameOfRequester);	
 	}
+
 }
