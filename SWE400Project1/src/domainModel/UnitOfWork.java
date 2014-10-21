@@ -216,8 +216,8 @@ public class UnitOfWork {
 		mapper.makeFriendRequest(person, userIDOfRequester, userNameOfRequestee);
 	}
 	
-	public void acceptFriendRequest(int userIDOfRequester, String userNameOfRequestee){
-		mapper.acceptFriendRequest(person, userIDOfRequester, userNameOfRequestee);
+	public void acceptFriendRequest(int userIDOfRequestee, String userNameOfRequester){
+		mapper.acceptFriendRequest(person, userIDOfRequestee, userNameOfRequester);
 	}
 
 	public void deleteFriend(int userIDOfRequester, String userNameOfRequestee) {
@@ -225,8 +225,7 @@ public class UnitOfWork {
 	}
 
 	public void rejectRequest(int userIDOfRequestee, String userNameOfRequester) {
-		// TODO Auto-generated method stub
-		
+		mapper.rejectRequest(person, userIDOfRequestee, userNameOfRequester);	
 	}
 
 }
