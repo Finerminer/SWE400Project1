@@ -32,7 +32,7 @@ public class CommandToGetPendingOutgoingFriendList implements Command
 	@Override
 	public void execute()
 	{
-		
+		UnitOfWork.getThread().getOutgoingRequests(userID);
 	}
 
 	/**

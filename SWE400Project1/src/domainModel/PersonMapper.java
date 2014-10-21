@@ -73,12 +73,13 @@ public class PersonMapper {
 	}
 
 	public void addIncomingRequest(int userID, String friendUserName) {
-		int friendID = getIDFromUsername(friendUserName);
+		//mapper.addIncomingRequest(person.getUserID(), f.getUserName());
+		
 		
 	}
 
 	public void addOutgoingRequest(int userID, String friendUserName) {
-		int friendID = getIDFromUsername(friendUserName);
+		//mapper.addOutgoingRequest(person.getUserID(), f.getUserName());
 		
 	}
 
@@ -96,8 +97,8 @@ public class PersonMapper {
 	}
 
 	public void addFriend(int userID, String userName) {
-		// TODO Auto-generated method stub
-		
+		int friendID = pGate.find(userName);
+		fGate.addFriend(userID, friendID);
 	}
 
 	public void rejectRequest(Person person, int userIDOfRequestee, String userNameOfRequester) {

@@ -227,4 +227,5 @@ public class UnitOfWork {
 	public void rejectRequest(int userIDOfRequestee, String userNameOfRequester) {
 		mapper.rejectRequest(person, userIDOfRequestee, userNameOfRequester);	
 	}
+
 }
