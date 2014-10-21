@@ -33,7 +33,7 @@ public class CommandToAcceptFriendRequest implements Command
 	@Override
 	public void execute()
 	{
-		UnitOfWork.getThread().getPerson().acceptFriendRequest(userIDOfRequestee, userNameOfRequester);
+		UnitOfWork.getThread().getPerson().acceptFriendRequest(userIDOfRequestee, getUserNameOfRequester());
 	}
 
 	/**

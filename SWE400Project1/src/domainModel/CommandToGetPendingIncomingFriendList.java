@@ -27,13 +27,13 @@ public class CommandToGetPendingIncomingFriendList implements Command
 	}
 
 	/**
-	 * Does nothing. Results are returned in getResults
+	 * 
 	 * @see Command#execute()
 	 */
 	@Override
 	public void execute()
 	{
-		
+		UnitOfWork.getThread().getPerson().getPendingIncomingRequests(userID);
 	}
 
 	/**
@@ -44,7 +44,7 @@ public class CommandToGetPendingIncomingFriendList implements Command
 	@Override
 	public String getResult()
 	{
-		ArrayList<Friend> friends = UnitOfWork.getThread().getIncomingRequests();
+		ArrayList<Friend> friends = UnitOfWork.getThread().getPerson().getIncomingFriends();
 		String result="";
 		for(Friend f : friends)
 		{
