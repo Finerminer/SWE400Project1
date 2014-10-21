@@ -97,7 +97,7 @@ public class FriendGateway {
 			}
 			stmt.close();
 		} catch (SQLException e) {
-			System.out.println("Error finding friends, do they have friends?");
+			System.out.println("Error finding friends requests");
 			e.printStackTrace();
 		}
 		return requesters;
@@ -121,7 +121,7 @@ public class FriendGateway {
 			}
 			stmt.close();
 		} catch (SQLException e) {
-			System.out.println("Error finding friends, do they have friends?");
+			System.out.println("Error finding friend requests");
 			e.printStackTrace();
 		}
 		return requestees;
@@ -142,7 +142,7 @@ public class FriendGateway {
 			stmt.executeUpdate();
 			stmt.close();
 		} catch (SQLException e) {
-			System.out.println("Error adding friend.");
+			System.out.println("Error adding friend request.");
 			e.printStackTrace();
 		}
 	}
@@ -153,7 +153,7 @@ public class FriendGateway {
 	 * @param userIDRequestee
 	 */
 	public void deleteRequest(int userIDRequester, int userIDRequestee) {
-		String SQL = "delete from fitness1.Friends where User_ID_Requester = ? AND User_ID_Requestee = ?;";
+		String SQL = "delete from fitness1.PendingFriendRequests where User_ID_Requester = ? AND User_ID_Requestee = ?;";
 		PreparedStatement stmt = null;
 		try {
 			stmt = DB.getConnection().prepareStatement(SQL);
@@ -162,7 +162,7 @@ public class FriendGateway {
 			stmt.executeUpdate();
 			stmt.close();
 		} catch (SQLException e) {
-			System.out.println("Error finding friend to delete.");
+			System.out.println("Error finding friend request to delete.");
 			e.printStackTrace();
 		}
 	}

@@ -51,4 +51,60 @@ public class testFriendGateway {
 		fg.deleteFriend(2, 10);
 		fg.deleteFriend(3, 4);
 	}
+	
+	@Test
+	public void testIncomingRequest() {
+		FriendGateway fg = new FriendGateway();
+		ArrayList<Integer> requesters = new ArrayList<Integer>();
+		fg.addRequest(4, 1);
+		fg.addRequest(3, 1);
+		fg.addRequest(2, 1);
+		requesters = fg.getIncomingRequests(1);
+		assertEquals(new Integer(2), requesters.get(0));
+		assertEquals(new Integer(3), requesters.get(1));
+		assertEquals(new Integer(4), requesters.get(2));
+		fg.deleteRequest(2, 1);
+		fg.deleteRequest(3, 1);
+		fg.deleteRequest(4, 1);
+	}
+	
+	@Test
+	public void testOutgoingRequest() {
+		FriendGateway fg = new FriendGateway();
+		ArrayList<Integer> requestees = new ArrayList<Integer>();
+		fg.addRequest(1, 2);
+		fg.addRequest(1, 3);
+		fg.addRequest(1, 4);
+		requestees = fg.getOutgoingRequests(1);
+		assertEquals(new Integer(2), requestees.get(0));
+		assertEquals(new Integer(3), requestees.get(1));
+		assertEquals(new Integer(4), requestees.get(2));
+		fg.deleteRequest(1, 2);
+		fg.deleteRequest(1, 3);
+		fg.deleteRequest(1, 4);
+	}
+	
+	@Test
+	public void testAddRequests() {
+		FriendGateway fg = new FriendGateway();
+		ArrayList<Integer> requesters = new ArrayList<Integer>();
+		fg.addRequest(1, 2);
+		requesters = fg.getIncomingRequests(2);
+		assertEquals(new Integer(1), requesters.get(0));
+		fg.deleteRequest(1, 2);
+	}
+	
+	@Test
+	public void testDeleteFriendRequests() {
+		FriendGateway fg = new FriendGateway();
+		ArrayList<Integer> requesters = new ArrayList<Integer>();
+		fg.addRequest(3, 1);
+		fg.addRequest(2, 1);
+		requesters = fg.getIncomingRequests(1);
+		assertEquals(2, requesters.size());
+		fg.deleteRequest(2, 1);
+		fg.deleteRequest(3, 1);
+		requesters = fg.getIncomingRequests(1);
+		assertEquals(0, requesters.size());
+	}
 }

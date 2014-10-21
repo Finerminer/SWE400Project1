@@ -23,7 +23,6 @@ public class CommandToAcceptFriendRequest implements Command
 	{
 		this.userIDOfRequestee = userIDOfRequestee;
 		this.userNameOfRequester = userNameOfRequester;
-
 	}
 
 	/**
