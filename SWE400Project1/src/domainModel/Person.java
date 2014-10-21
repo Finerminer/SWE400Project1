@@ -3,8 +3,8 @@ import java.util.ArrayList;
 
 public class Person {
 	private ArrayList<Friend> friends = new ArrayList<Friend>();
-	private ArrayList<MyPendingFriends> incomingFriends = new ArrayList<MyPendingFriends>();
-	private ArrayList<MyPendingFriends> outgoingFriends = new ArrayList<MyPendingFriends>();
+	private ArrayList<Friend> incomingFriends = new ArrayList<Friend>();
+	private ArrayList<Friend> outgoingFriends = new ArrayList<Friend>();
 
 	private String username;
 	private String password;
@@ -27,11 +27,11 @@ public class Person {
 		return friends;
 	}
 	
-	public ArrayList<MyPendingFriends> getIncomingFriends(){
+	public ArrayList<Friend> getIncomingFriends(){
 		return incomingFriends;
 	}
 	
-	public ArrayList<MyPendingFriends> getOutgoingFriends(){
+	public ArrayList<Friend> getOutgoingFriends(){
 		return outgoingFriends;
 	}
 	
@@ -92,14 +92,19 @@ public class Person {
 		UnitOfWork.getThread().registerDeletedFriend(f);
 	}
 	
-	public void addFriend(Friend f){
-		markOutgoing(f);
-		CommandToMakeFriendRequest friendRequest = new CommandToMakeFriendRequest(this.userID, f.getUserName());
-		friendRequest.execute();
+	public void makeFriendRequest(int userIDOfRequester, String userNameOfRequestee, String displayNameofRequestee){
+		if(userIDOfRequester != this.userID){
+			
+		}
+		else{
+			Friend f = new Friend(userNameOfRequestee, "display name"); 
+			outgoingFriends.add(f);
+			markOutgoing(f);
+		}
 	}
 
-	public void acceptFriendRequest(int userIDOfRequestee, String userNameOfRequester) {
-		Friend f = new Friend(Integer.toString(userIDOfRequestee), userNameOfRequester);
+	public void acceptFriendRequest(int userIDOfRequester, String userNameOfRequestee) {
+		Friend f = new Friend(userNameOfRequestee, userNameOfRequestee);
 		markNew(f);
 	}
 	

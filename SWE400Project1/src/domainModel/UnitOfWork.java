@@ -212,11 +212,16 @@ public class UnitOfWork {
 		deletedFriends.clear();
 	}
 
-	public void addFriend(int userIDOfRequester, String userNameOfRequestee) {
-		mapper.addFriend(userIDOfRequester, userNameOfRequestee);
+	public void makeFriendRequest(int userIDOfRequester, String userNameOfRequestee) {
+		mapper.makeFriendRequest(userIDOfRequester, userNameOfRequestee);
 	}
 
 	public void deleteFriend(int userIDOfRequester, String userNameOfRequestee) {
 		mapper.deleteFriend(userIDOfRequester, userNameOfRequestee);
+	}
+
+	public void rejectRequest(int userIDOfRequestee, String userNameOfRequester) {
+		// TODO Auto-generated method stub
+		
 	}
 }
