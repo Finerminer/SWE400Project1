@@ -143,7 +143,7 @@ public class PersonGateway {
 			stmt.setString(2, password);
 			stmt.setString(3, displayName);
 			stmt.executeUpdate();
-			//Set userID? 
+			stmt.close();
 		} catch (SQLException e) {
 			System.out.println("Error inserting person.");
 			e.printStackTrace();
@@ -160,6 +160,7 @@ public class PersonGateway {
 			stmt.setString(3, displayName);
 			stmt.setInt(4, userID);
 			stmt.executeUpdate();
+			stmt.close();
 		} catch (SQLException e) {
 			System.out.println("Error updating person.");
 			e.printStackTrace();
