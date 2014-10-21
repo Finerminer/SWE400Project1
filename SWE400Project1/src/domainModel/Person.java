@@ -92,25 +92,36 @@ public class Person {
 		UnitOfWork.getThread().registerDeletedFriend(f);
 	}
 	
-	public void makeFriendRequest(int userIDOfRequester, String userNameOfRequestee, String displayNameofRequestee){
-		if(userIDOfRequester != this.userID){
+	public void makeFriendRequest(int userIDOfRequester, String userNameOfRequestee, String displayNameOfRequestee){
+		if(!checkCurrent(userIDOfRequester)){
 			
-		}
-		else{
-			Friend f = new Friend(userNameOfRequestee, "display name"); 
+		}else{
+			Friend f = new Friend(userNameOfRequestee, displayNameOfRequestee); 
 			outgoingFriends.add(f);
 			markOutgoing(f);
 		}
 	}
 
-	public void acceptFriendRequest(int userIDOfRequester, String userNameOfRequestee) {
-		Friend f = new Friend(userNameOfRequestee, userNameOfRequestee);
-		markNew(f);
+	public void acceptFriendRequest(int userIDOfRequester, String userNameOfRequestee, String displayNameOfRequestee) {
+		if(!checkCurrent(userIDOfRequester)){
+			
+		}else{
+			Friend f = new Friend(userNameOfRequestee, displayNameOfRequestee);
+			friends.add(f);
+			markNew(f);
+		}
 	}
 	
 	public void deleteFriend(Friend f) {
 		markRemoved(f);
 		CommandToUnFriend unFriend = new CommandToUnFriend(this.userID, f.getUserName());
 		unFriend.execute();
+	}
+	
+	public boolean checkCurrent(int userIDOfRequester){
+		if(userIDOfRequester==this.userID)
+			return true;
+		else
+			return false;
 	}
 }
