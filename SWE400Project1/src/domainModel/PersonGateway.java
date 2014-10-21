@@ -101,12 +101,11 @@ public class PersonGateway {
 	 */
 	public ArrayList<Person> findAll() {
 		String SQL = "select * from fitness1.Person;";
-		Statement stmt = null;
+		PreparedStatement stmt;
 		ArrayList<Person> p = new ArrayList<Person>();
 		try {
-			stmt.execute(SQL);
-			ResultSet results = stmt.getResultSet();	
-			
+			stmt = DB.getConnection().prepareStatement(SQL);
+			ResultSet results = stmt.executeQuery();	
 			//Should only execute once since User_ID is the primary key; With each pass it will create a Person in memory
 			while(results.next()) {
 				int UID = results.getInt("User_ID");
@@ -138,7 +137,6 @@ public class PersonGateway {
 	public void insert(String username, String password, String displayName) {
 		String SQL = "insert into fitness1.Person (Username, Password, Display_Name) values(?, ?, ?);";
 		PreparedStatement stmt = null;
-		// TODO - Might not work, must test to see if the key is auto generated.
 		try {
 			stmt = DB.getConnection().prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS);
 			stmt.setString(1, username);

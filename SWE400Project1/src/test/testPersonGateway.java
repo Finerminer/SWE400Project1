@@ -64,6 +64,7 @@ public class testPersonGateway {
 	public void duplicateUsernameError() {
 		PersonGateway pg = new PersonGateway();
 		pg.insert("test1", "password", "display1");
+		// This will cause a catch in turn which will print out the stack trace to the exception in PersonGateway
 		pg.insert("test1", "password", "display2");
 		Person test = pg.find("test1", "password");
 		assertEquals(test.getUsername(), "test1");
