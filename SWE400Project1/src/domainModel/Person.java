@@ -94,7 +94,6 @@ public class Person {
 	
 	public void makeFriendRequest(int userIDOfRequester, String userNameOfRequestee, String displayNameOfRequestee){
 		if(!checkCurrent(userIDOfRequester)){
-			
 		}else{
 			Friend f = new Friend(userNameOfRequestee, displayNameOfRequestee); 
 			outgoingFriends.add(f);
@@ -102,11 +101,10 @@ public class Person {
 		}
 	}
 
-	public void acceptFriendRequest(int userIDOfRequester, String userNameOfRequestee, String displayNameOfRequestee) {
-		if(!checkCurrent(userIDOfRequester)){
-			
+	public void acceptFriendRequest(int userIDOfRequestee, String userNameOfRequester, String displayNameOfRequester) {
+		if(!checkCurrent(userIDOfRequestee)){
 		}else{
-			Friend f = new Friend(userNameOfRequestee, displayNameOfRequestee);
+			Friend f = new Friend(userNameOfRequester, displayNameOfRequester);
 			friends.add(f);
 			markNew(f);
 		}
@@ -123,5 +121,14 @@ public class Person {
 			return true;
 		else
 			return false;
+	}
+
+	public void rejectFriendRequest(int userIDOfRequestee, String userNameOfRequester, String displayNameOfRequester) {
+		if(!checkCurrent(userIDOfRequestee)){	
+		}else{
+			Friend f = new Friend(userNameOfRequester, displayNameOfRequester);
+			incomingFriends.remove(f);
+			markNew(f);
+		}
 	}
 }
