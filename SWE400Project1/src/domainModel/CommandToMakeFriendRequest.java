@@ -31,7 +31,7 @@ public class CommandToMakeFriendRequest implements Command {
 	 */
 	@Override
 	public void execute() {
-		UnitOfWork.getThread().addFriend(userIDOfRequester, userNameOfRequestee);
+		UnitOfWork.getThread().makeFriendRequest(userIDOfRequester, userNameOfRequestee);
 	}
 
 	/**
