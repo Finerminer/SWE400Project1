@@ -73,14 +73,13 @@ public class PersonMapper {
 	}
 
 	public void addIncomingRequest(int userID, String friendUserName) {
-		//mapper.addIncomingRequest(person.getUserID(), f.getUserName());
-		
-		
+		int friendID = pGate.find(friendUserName);
+		fGate.addRequest(friendID, userID);
 	}
 
 	public void addOutgoingRequest(int userID, String friendUserName) {
-		//mapper.addOutgoingRequest(person.getUserID(), f.getUserName());
-		
+		int friendID = pGate.find(friendUserName);
+		fGate.addRequest(userID, friendID);
 	}
 
 	public void deleteFriendInList(Person person, int userIDOfRequester, String userNameOfRequestee) {
@@ -99,8 +98,8 @@ public class PersonMapper {
 		user.acceptFriendRequest(userIDOfRequestee, userNameOfRequester, displayNameOfRequester);
 	}
 
-	public void addFriend(int userID, String userName) {
-		int friendID = pGate.find(userName);
+	public void addFriend(int userID, String friendUserName) {
+		int friendID = pGate.find(friendUserName);
 		fGate.addFriend(userID, friendID);
 	}
 
