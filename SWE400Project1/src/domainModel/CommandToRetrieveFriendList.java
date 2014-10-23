@@ -11,6 +11,7 @@ import java.util.ArrayList;
 public class CommandToRetrieveFriendList implements Command
 {
 
+	@SuppressWarnings("unused")
 	private int userID;
 
 	/**
@@ -40,8 +41,8 @@ public class CommandToRetrieveFriendList implements Command
 	@Override
 	public ArrayList<Friend> getResult()
 	{
-		// TODO Auto-generated method stub
-		return null;
+		ArrayList<Friend> friends = UnitOfWork.getThread().getFriendsFromCurrent();
+		return friends;
 	}
 
 }

@@ -175,6 +175,10 @@ public class UnitOfWork {
 		thread.set(unit);
 	}
 	
+	public ArrayList<Friend> getFriendsFromCurrent() {
+		return person.getFriends();
+	}
+	
 	/**
 	 * @return newFriends list
 	 */

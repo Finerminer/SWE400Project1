@@ -72,6 +72,7 @@ public class Person {
 	 * Marks a friend as a incomingRequest
 	 * @param f the requester  
 	 */
+	@SuppressWarnings("unused")
 	private void markIncoming(Friend f){
 		UnitOfWork.getThread().registerIncomingRequest(f);
 	}
