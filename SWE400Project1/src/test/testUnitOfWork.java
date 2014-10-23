@@ -195,12 +195,11 @@ public class testUnitOfWork {
 		UnitOfWork.getThread().createPerson("liz", "1234", "lizsPage");
 		
 		Person sally = UnitOfWork.getThread().findPerson("sally", "9090");
-		Person liz = UnitOfWork.getThread().findPerson("liz", "1234");
-		
 		// Sally sends request to liz
 		UnitOfWork.getThread().makeFriendRequest(sally.getUserID(), "liz");
 		UnitOfWork.getThread().commit();
 		
+		Person liz = UnitOfWork.getThread().findPerson("liz", "1234");
 		FriendGateway fg = new FriendGateway();
 		assertTrue(fg.getOutgoingRequests(sally.getUserID()).contains(liz.getUserID()));
 		assertTrue(fg.getIncomingRequests(liz.getUserID()).contains(sally.getUserID()));
