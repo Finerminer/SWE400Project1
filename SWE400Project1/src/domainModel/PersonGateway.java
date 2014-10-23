@@ -202,8 +202,4 @@ public class PersonGateway {
 	public int getUserID() {
 		return userID;
 	}
-
-	public void modifyName(int userID, String newDisplayName) {
-		// TODO Complete plz Nate-o
-	}
 }

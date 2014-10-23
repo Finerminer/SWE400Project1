@@ -100,6 +100,16 @@ public class UnitOfWork {
 	}	
 	
 	/**
+	 * Removes every Friends from every list in UOW
+	 */
+	public void clearFriendsLists() {
+		newFriends.clear();
+		incomingRequest.clear();
+		outgoingRequest.clear();
+		deletedFriends.clear();
+	}
+	
+	/**
 	 * Locates DataMapper for a Person and invoke 
 	 * the appropriate mapping method on their friends
 	 */
@@ -202,18 +212,11 @@ public class UnitOfWork {
 
 	public void modifyName(int userID, String newDisplayName) {
 		PersonGateway gate = new PersonGateway();
-		gate.modifyName(userID, newDisplayName);
-	}
-
-	public void clearFriendsLists() {
-		newFriends.clear();
-		incomingRequest.clear();
-		outgoingRequest.clear();
-		deletedFriends.clear();
+		gate.update(userID, newDisplayName);
 	}
 
 	public void makeFriendRequest(int userIDOfRequester, String userNameOfRequestee) {
-		mapper.makeFriendRequest(person, userIDOfRequester, userNameOfRequestee);
+		mapper.makeFriendRequest(userIDOfRequester, userNameOfRequestee);
 	}
 	
 	public void acceptFriendRequest(int userIDOfRequestee, String userNameOfRequester){
