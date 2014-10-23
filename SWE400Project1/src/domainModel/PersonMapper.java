@@ -43,13 +43,12 @@ public class PersonMapper {
 	
 	/**
 	 * Connects two users into a friend table. 
-	 * @param person 
 	 * @param userID the user who is adding the friend.
 	 * @param friendID the user who is being added.
 	 */
-	public void makeFriendRequest(Person person, int userIDOfRequester, String userNameOfRequestee){
+	public void makeFriendRequest(int userIDOfRequester, String userNameOfRequestee){
+		Person user = pGate.find(userIDOfRequester);
 		int friendID = getIDFromUsername(userNameOfRequestee);
-		Person user = person;
 		Person friend = pGate.find(friendID);
 		String displayNameOfRequestee = friend.getDisplayName();
 		user.makeFriendRequest(userIDOfRequester, userNameOfRequestee, displayNameOfRequestee);
@@ -109,5 +108,10 @@ public class PersonMapper {
 		Person friend = pGate.find(friendID);
 		String displayNameOfRequester = friend.getDisplayName();
 		user.rejectFriendRequest(userIDOfRequestee, userNameOfRequester, displayNameOfRequester);
+	}
+
+	public void deleteFriend(int userID, String userName) {
+		int friendID = pGate.find(userName);
+		fGate.deleteFriend(userID, friendID);
 	}
 }
