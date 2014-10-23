@@ -199,12 +199,7 @@ public class PersonGateway {
 	public int getUserID() {
 		return userID;
 	}
-
-	public int getIDFromUsername(String userNameOfRequestee) {
-		// TODO Complete this Nate-o
-		return 0;
-	}
-
+	
 	public void modifyName(int userID, String newDisplayName) {
 		// TODO Complete plz Nate-o
 	}

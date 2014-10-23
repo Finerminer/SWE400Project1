@@ -69,7 +69,7 @@ public class PersonMapper {
 	}
 
 	public int getIDFromUsername(String userNameOfRequestee) {
-		return pGate.getIDFromUsername(userNameOfRequestee);
+		return pGate.find(userNameOfRequestee);
 	}
 
 	public void addIncomingRequest(int userID, String friendUserName) {
@@ -109,10 +109,5 @@ public class PersonMapper {
 		Person friend = pGate.find(friendID);
 		String displayNameOfRequester = friend.getDisplayName();
 		user.rejectFriendRequest(userIDOfRequestee, userNameOfRequester, displayNameOfRequester);
-	}
-
-	public void deleteFriend(int userID, String userName) {
-		// TODO Auto-generated method stub
-		// The persist delete Friend.
 	}
 }
