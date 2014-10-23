@@ -183,14 +183,14 @@ public class UnitOfWork {
 	 * @return incomingRequest list
 	 */
 	public ArrayList<Friend> getIncomingRequests() {
-		return incomingRequest;
+		return person.getIncomingFriends();
 	}
 	
 	/**
 	 * @return outgoingRequest list
 	 */
 	public ArrayList<Friend> getOutgoingRequests(){
-		return outgoingRequest;
+		return person.getOutgoingFriends();
 	}
 
 	/**
