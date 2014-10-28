@@ -118,11 +118,17 @@ public class UnitOfWork {
 	 * the appropriate mapping method on their friends
 	 */
 	public void commit(){
+		loadChanges();
 		addNew();
 		updatePending();
 		removeDelete();
 	}
 	
+	private void loadChanges() {
+		outgoingRequest = person.getOutgoingFriends();
+		newFriends = person.getFriends();
+	}
+
 	/**
 	 * Iterates through newFriends list and for each
 	 * friend in list call mapper's insert method

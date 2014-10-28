@@ -60,13 +60,13 @@ public class Person {
 		return username + ":" + password + ":" + displayName;
 	}
 	
-	/**
-	 * Marks a friend as new
-	 * @param f a new friend 
-	 */
-	private void markNew(Friend f){
-		UnitOfWork.getThread().registerNewFriend(f);
-	}
+//	/**
+//	 * Marks a friend as new
+//	 * @param f a new friend 
+//	 */
+//	private void markNew(Friend f){
+//		UnitOfWork.getThread().registerNewFriend(f);
+//	}
 	
 	/**
 	 * Marks a friend as a incomingRequest
@@ -76,14 +76,14 @@ public class Person {
 	private void markIncoming(Friend f){
 		UnitOfWork.getThread().registerIncomingRequest(f);
 	}
-	
-	/**
-	 * Marks a friend as a outgoingRequest
-	 * @param f the requested friend 
-	 */
-	private void markOutgoing(Friend f){
-		UnitOfWork.getThread().registerOutgoingRequests(f);
-	}
+//	
+//	/**
+//	 * Marks a friend as a outgoingRequest
+//	 * @param f the requested friend 
+//	 */
+//	private void markOutgoing(Friend f){
+//		UnitOfWork.getThread().registerOutgoingRequests(f);
+//	}
 	
 	/**
 	 * Marks a friend as deleted
@@ -98,7 +98,7 @@ public class Person {
 		}else{
 			Friend f = new Friend(userNameOfRequestee, displayNameOfRequestee); 
 			outgoingFriends.add(f);
-			markOutgoing(f);
+			//markOutgoing(f);
 		}
 	}
 	
@@ -108,7 +108,7 @@ public class Person {
 		}else{
 			Friend f = new Friend(userNameOfRequestee, displayNameOfRequestee);
 			friends.add(f);
-			markNew(f);
+			//markNew(f);
 		}
 	}
 	
