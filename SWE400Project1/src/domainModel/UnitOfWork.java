@@ -20,6 +20,8 @@ public class UnitOfWork {
 		if(p != null)
 		{
 			person = p;
+			person.loadIncomingRequests(mapper.loadIncomingRequests(person.getUserID()));
+			person.loadOutgoingRequests(mapper.loadOutgoingRequests(person.getUserID()));
 			return p;
 		}
 		return null;
@@ -197,14 +199,14 @@ public class UnitOfWork {
 	 * @return incomingRequest list
 	 */
 	public ArrayList<Friend> getIncomingRequests() {
-		return person.getIncomingFriends();
+		return incomingRequest;
 	}
 	
 	/**
 	 * @return outgoingRequest list
 	 */
 	public ArrayList<Friend> getOutgoingRequests(){
-		return person.getOutgoingFriends();
+		return outgoingRequest;
 	}
 
 	/**
@@ -235,4 +237,11 @@ public class UnitOfWork {
 		mapper.rejectRequest(person, userIDOfRequestee, userNameOfRequester);	
 	}
 
+	public void loadIncomingRequests(int userID) {
+		mapper.loadIncomingRequests(userID);
+	}
+
+	public void loadOutgoingRequests(int userID) {
+		mapper.loadOutgoingRequests(userID);
+	}
 }

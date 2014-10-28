@@ -1,5 +1,7 @@
 package domainModel;
 
+import java.util.ArrayList;
+
 /*
  * The mapper between Person and PersonGateway. Allows tracking of friends, and finding a Person.
  */
@@ -113,5 +115,27 @@ public class PersonMapper {
 	public void deleteFriend(int userID, String userName) {
 		int friendID = pGate.find(userName);
 		fGate.deleteFriend(userID, friendID);
+	}
+
+	public ArrayList<Friend> loadIncomingRequests(int userID) {		
+		ArrayList<Integer> tmp = fGate.getIncomingRequests(userID);
+		Person friend = null;
+		ArrayList<Friend> incomingRequests = new ArrayList<Friend>();
+		for(Integer i: tmp){
+			friend = pGate.find(i);
+			incomingRequests.add(new Friend(friend.getUsername(), friend.getDisplayName()));
+		}
+		return incomingRequests;
+	}
+
+	public ArrayList<Friend> loadOutgoingRequests(int userID) {
+		ArrayList<Integer> tmp = fGate.getOutgoingRequests(userID);
+		Person friend = null;
+		ArrayList<Friend> outgoingRequests = new ArrayList<Friend>();
+		for(Integer i: tmp){
+			friend = pGate.find(i);
+			outgoingRequests.add(new Friend(friend.getUsername(), friend.getDisplayName()));
+		}
+		return outgoingRequests;
 	}
 }
