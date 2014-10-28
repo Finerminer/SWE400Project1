@@ -42,7 +42,7 @@ public class FriendGateway {
 	 * @param friendID
 	 */
 	public void addFriend(int userID, int friendID) {
-		if (userID == friendID) {
+		if (userID != friendID) {
 			String SQL = "insert into fitness1.Friends (User_ID_Requester, User_ID_Requestee) values(?, ?);";
 			PreparedStatement stmt = null;
 			try {
@@ -137,7 +137,7 @@ public class FriendGateway {
 	 * @param userIDRequestee
 	 */
 	public void addRequest(int userIDRequester, int userIDRequestee) {
-		if(userIDRequester == userIDRequestee) {
+		if(userIDRequester != userIDRequestee) {
 			String SQL = "insert into fitness1.PendingFriendRequests (User_ID_Requester, User_ID_Requestee) values(?, ?);";
 			PreparedStatement stmt = null;
 			try {
