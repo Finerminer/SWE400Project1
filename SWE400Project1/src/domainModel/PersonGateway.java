@@ -156,7 +156,7 @@ public class PersonGateway {
 	 * @param displayName
 	 */
 	public void update(int userID, String displayName) {
-		String SQL = "Update fitness1.Person Display_Name = ?, Where User_ID = ?;";
+		String SQL = "Update fitness1.Person set Display_Name = ? Where User_ID = ?;";
 		PreparedStatement stmt = null;
 		try {
 			stmt = DB.getConnection().prepareStatement(SQL);

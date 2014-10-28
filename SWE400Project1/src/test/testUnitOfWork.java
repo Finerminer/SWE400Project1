@@ -1,11 +1,6 @@
 package test;
-
 import static org.junit.Assert.*;
-
-import java.util.ArrayList;
-
 import org.junit.Test;
-
 import domainModel.Friend;
 import domainModel.FriendGateway;
 import domainModel.Person;
