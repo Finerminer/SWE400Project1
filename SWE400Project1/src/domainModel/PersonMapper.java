@@ -91,12 +91,12 @@ public class PersonMapper {
 		user.deleteFriendInList(userIDOfRequester, userNameOfRequestee, displayNameOfRequestee);
 	}
 
-	public void acceptFriendRequest(Person person, int userIDOfRequestee, String userNameOfRequester) {
-		Person user = pGate.find(person.getUserID());
-		int friendID = getIDFromUsername(userNameOfRequester);
+	public void acceptFriendRequest(int userIDOfRequester, String userNameOfRequestee) {
+		Person user = pGate.find(userIDOfRequester);
+		int friendID = getIDFromUsername(userNameOfRequestee);
 		Person friend = pGate.find(friendID);
-		String displayNameOfRequester = friend.getDisplayName();
-		user.acceptFriendRequest(userIDOfRequestee, userNameOfRequester, displayNameOfRequester);
+		String displayNameOfRequestee = friend.getDisplayName();
+		user.acceptFriendRequest(userIDOfRequester, userNameOfRequestee, displayNameOfRequestee);
 	}
 
 	public void addFriend(int userID, String friendUserName) {
