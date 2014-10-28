@@ -241,8 +241,8 @@ public class testUnitOfWork {
 		Person sally = UnitOfWork.getThread().findPerson("sally", "9090");
 		
 		// Sally sends request to Liz
-		//UnitOfWork.getThread().makeFriendRequest(sally.getUserID(), "liz");
-		//UnitOfWork.getThread().commit();
+//		UnitOfWork.getThread().makeFriendRequest(sally.getUserID(), "liz");
+//		UnitOfWork.getThread().commit();
 		
 		// Liz accepts Sally's request
 		Person liz = UnitOfWork.getThread().findPerson("liz", "1234");
