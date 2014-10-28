@@ -41,7 +41,7 @@ public class testUnitOfWork {
 	@Test
 	public void testRegisterOutgoingRequest(){
 		UnitOfWork.setThread(new UnitOfWork());
-		Friend f = new Friend("fred",null);
+		Friend f = new Friend("adam",null);
 		UnitOfWork.getThread().registerOutgoingRequests(f);
 		assertTrue(UnitOfWork.getThread().getOutgoingRequests().contains(f));
 	}
@@ -49,7 +49,7 @@ public class testUnitOfWork {
 	@Test
 	public void testRegisterNewRequest(){
 		UnitOfWork.setThread(new UnitOfWork());
-		Friend f = new Friend("fred",null);
+		Friend f = new Friend("bob",null);
 		UnitOfWork.getThread().registerIncomingRequest(f);
 		UnitOfWork.getThread().registerNewFriend(f);
 		assertTrue(UnitOfWork.getThread().getNewFriends().contains(f));
@@ -59,7 +59,7 @@ public class testUnitOfWork {
 	@Test
 	public void testRegisterDeleteRequest(){
 		UnitOfWork.setThread(new UnitOfWork());
-		Friend f = new Friend("fred","fredsPage");
+		Friend f = new Friend("chloe","fredsPage");
 		UnitOfWork.getThread().registerDeletedFriend(f);
 		assertTrue(UnitOfWork.getThread().getDeletedFriends().contains(f));
 	}
@@ -68,20 +68,20 @@ public class testUnitOfWork {
 	public void testClearFriendsLists(){
 		UnitOfWork.setThread(new UnitOfWork());
 		
-		Friend fred = new Friend("fred","fredsPage");
-		Friend sally = new Friend("sally","sallysPage");
+		Friend david = new Friend("david","davidsPage");
+		Friend emma = new Friend("emma","emmasPage");
 		Friend liz = new Friend("liz","lizsPage");
-		Friend jake = new Friend("jake","jakesPage");
-		UnitOfWork.getThread().registerIncomingRequest(fred);
-		UnitOfWork.getThread().registerOutgoingRequests(sally);
+		Friend mike = new Friend("mike","mikesPage");
+		UnitOfWork.getThread().registerIncomingRequest(david);
+		UnitOfWork.getThread().registerOutgoingRequests(emma);
 		UnitOfWork.getThread().registerNewFriend(liz);
-		UnitOfWork.getThread().registerDeletedFriend(jake);
+		UnitOfWork.getThread().registerDeletedFriend(mike);
 		UnitOfWork.getThread().clearFriendsLists();
 		
-		assertFalse(UnitOfWork.getThread().getIncomingRequests().contains(fred));
-		assertFalse(UnitOfWork.getThread().getOutgoingRequests().contains(sally));
+		assertFalse(UnitOfWork.getThread().getIncomingRequests().contains(david));
+		assertFalse(UnitOfWork.getThread().getOutgoingRequests().contains(emma));
 		assertFalse(UnitOfWork.getThread().getNewFriends().contains(liz));
-		assertFalse(UnitOfWork.getThread().getDeletedFriends().contains(jake));
+		assertFalse(UnitOfWork.getThread().getDeletedFriends().contains(mike));
 	}
 	
 	//*************************************
@@ -91,25 +91,25 @@ public class testUnitOfWork {
 	@Test
 	public void testUpdatePendingIncoming(){
 		UnitOfWork.setThread(new UnitOfWork());
-		UnitOfWork.getThread().createPerson("bob", "1234", "bobsPage");
-		UnitOfWork.getThread().createPerson("fred", "5678", "fredsPage");
-		UnitOfWork.getThread().findPerson("bob", "1234");
+		UnitOfWork.getThread().createPerson("neil", "1234", "neilsPage");
+		UnitOfWork.getThread().createPerson("olivia", "5678", "oliviasPage");
+		UnitOfWork.getThread().findPerson("neil", "1234");
 		
-		UnitOfWork.getThread().registerIncomingRequest(new Friend("fred","fredsPage"));
+		UnitOfWork.getThread().registerIncomingRequest(new Friend("olivia","oliviasPage"));
 		UnitOfWork.getThread().commit();
 		
-		Person bob = UnitOfWork.getThread().findPerson("bob", "1234");
-		assertFalse(bob.getIncomingFriends().isEmpty());
+		Person neil = UnitOfWork.getThread().findPerson("neil", "1234");
+		assertFalse(neil.getIncomingFriends().isEmpty());
 		
 		// Delete Friend Relationship from DB
 		FriendGateway fg = new FriendGateway();
-		int bobsID = bob.getUserID();
-		int fredsID = UnitOfWork.getThread().findPerson("fred", "5678").getUserID();
-		fg.deleteFriend(bobsID, fredsID);
+		int neilsID = neil.getUserID();
+		int oliviasID = UnitOfWork.getThread().findPerson("olivia", "5678").getUserID();
+		fg.deleteFriend(neilsID, oliviasID);
 		// Delete Persons from DB
 		PersonGateway pg = new PersonGateway();
-		pg.delete(bobsID);
-		pg.delete(fredsID);
+		pg.delete(neilsID);
+		pg.delete(oliviasID);
 	}
 	
 	@Test

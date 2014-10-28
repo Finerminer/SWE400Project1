@@ -47,6 +47,8 @@ public class UnitOfWork {
 			}else if (outgoingRequest.contains(friend)){
 				outgoingRequest.remove(friend);
 				newFriends.add(friend);
+			}else{
+				newFriends.add(friend);
 			}
 		}
 	}
