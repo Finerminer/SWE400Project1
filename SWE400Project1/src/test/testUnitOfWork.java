@@ -139,10 +139,10 @@ public class testUnitOfWork {
 	@Test
 	public void testAddNewFriend(){
 		UnitOfWork.setThread(new UnitOfWork());
-		UnitOfWork.getThread().createPerson("chloe", "1234", "chloesPage");
-		UnitOfWork.getThread().createPerson("david", "5678", "davidsPage");
+		UnitOfWork.getThread().createPerson("chloe", "4567", "chloesPage");
+		UnitOfWork.getThread().createPerson("david", "8912", "davidsPage");
 		
-		Person chloe = UnitOfWork.getThread().findPerson("chloe", "1234");
+		Person chloe = UnitOfWork.getThread().findPerson("chloe", "4567");
 		Friend david = new Friend("david","davidsPage");
 		UnitOfWork.getThread().registerIncomingRequest(david);
 		UnitOfWork.getThread().registerNewFriend(david);
@@ -151,7 +151,7 @@ public class testUnitOfWork {
 		
 		// Get Davids friends
 		FriendGateway fg = new FriendGateway();
-		Person f = UnitOfWork.getThread().findPerson("david", "5678");
+		Person f = UnitOfWork.getThread().findPerson("david", "8912");
 		assertTrue(fg.getFriends(chloe.getUserID()).contains(f.getUserID()));
 		
 		// Delete Friend Relationship from DB
@@ -165,11 +165,11 @@ public class testUnitOfWork {
 	@Test
 	public void testDeleteRemovedFriend(){
 		UnitOfWork.setThread(new UnitOfWork());
-		UnitOfWork.getThread().createPerson("emma", "1234", "emmasPage");
-		UnitOfWork.getThread().createPerson("henry", "5678", "henrysPage");
+		UnitOfWork.getThread().createPerson("emma", "1111", "emmasPage");
+		UnitOfWork.getThread().createPerson("henry", "2222", "henrysPage");
 		
 		// Emma & Henry are friends
-		Person emma = UnitOfWork.getThread().findPerson("emma", "1234");
+		Person emma = UnitOfWork.getThread().findPerson("emma", "1111");
 		Friend friend = new Friend("henry","henrysPage");
 		UnitOfWork.getThread().registerNewFriend(friend);
 		UnitOfWork.getThread().commit();
@@ -181,7 +181,7 @@ public class testUnitOfWork {
 		
 		// Get Bobs friends
 		FriendGateway fg = new FriendGateway();
-		Person henry = UnitOfWork.getThread().findPerson("henry", "5678");
+		Person henry = UnitOfWork.getThread().findPerson("henry", "2222");
 		assertFalse(fg.getFriends(emma.getUserID()).contains(henry.getUserID()));
 		
 		// Delete Persons from DB
@@ -211,15 +211,15 @@ public class testUnitOfWork {
 	@Test
 	public void testMakeFriendRequest(){
 		UnitOfWork.setThread(new UnitOfWork());
-		UnitOfWork.getThread().createPerson("kevin", "9090", "kevinsPage");
-		UnitOfWork.getThread().createPerson("liz", "1234", "lizsPage");
+		UnitOfWork.getThread().createPerson("kevin", "3333", "kevinsPage");
+		UnitOfWork.getThread().createPerson("liz", "4444", "lizsPage");
 		
-		Person kevin = UnitOfWork.getThread().findPerson("kevin", "9090");
+		Person kevin = UnitOfWork.getThread().findPerson("kevin", "3333");
 		// Sally sends request to liz
 		UnitOfWork.getThread().makeFriendRequest(kevin.getUserID(), "liz");
 		UnitOfWork.getThread().commit();
 		
-		Person liz = UnitOfWork.getThread().findPerson("liz", "1234");
+		Person liz = UnitOfWork.getThread().findPerson("liz", "4444");
 		FriendGateway fg = new FriendGateway();
 		assertTrue(fg.getOutgoingRequests(kevin.getUserID()).contains(liz.getUserID()));
 		assertTrue(fg.getIncomingRequests(liz.getUserID()).contains(kevin.getUserID()));
@@ -235,7 +235,7 @@ public class testUnitOfWork {
 	@Test
 	public void testAcceptFriendRequest(){
 		UnitOfWork.setThread(new UnitOfWork());
-		UnitOfWork.getThread().createPerson("sally", "9090", "sallysPage");
+		UnitOfWork.getThread().createPerson("molly", "5555", "mollysPage");
 		UnitOfWork.getThread().createPerson("liz", "1234", "lizsPage");
 		
 		Person sally = UnitOfWork.getThread().findPerson("sally", "9090");
