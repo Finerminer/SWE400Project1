@@ -101,11 +101,12 @@ public class Person {
 			markOutgoing(f);
 		}
 	}
-
-	public void acceptFriendRequest(int userIDOfRequestee, String userNameOfRequester, String displayNameOfRequester) {
-		if(!checkCurrent(userIDOfRequestee)){
+	
+    //user.acceptFriendRequest(userIDOfRequester, userNameOfRequestee, displayNameOfRequestee);
+	public void acceptFriendRequest(int userIDOfRequester, String userNameOfRequestee, String displayNameOfRequestee) {
+		if(!checkCurrent(userIDOfRequester)){
 		}else{
-			Friend f = new Friend(userNameOfRequester, displayNameOfRequester);
+			Friend f = new Friend(userNameOfRequestee, displayNameOfRequestee);
 			friends.add(f);
 			markNew(f);
 		}
