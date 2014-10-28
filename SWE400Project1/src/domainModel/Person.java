@@ -102,12 +102,21 @@ public class Person {
 		}
 	}
 	
-    //user.acceptFriendRequest(userIDOfRequester, userNameOfRequestee, displayNameOfRequestee);
+	public void accepted(String userNameOfRequestee, String displayNameOfRequestee) {
+		Friend f = new Friend(userNameOfRequestee, displayNameOfRequestee);
+		outgoingFriends.remove(f);
+	}
+	
 	public void acceptFriendRequest(int userIDOfRequester, String userNameOfRequestee, String displayNameOfRequestee) {
 		if(!checkCurrent(userIDOfRequester)){
 		}else{
 			Friend f = new Friend(userNameOfRequestee, displayNameOfRequestee);
 			friends.add(f);
+			for(Friend g: incomingFriends){
+				if(g.getUserName() == f.getDisplayName()){
+					incomingFriends.remove(g);
+				}
+			}
 			//markNew(f);
 		}
 	}
@@ -138,10 +147,14 @@ public class Person {
 	}
 
 	public void loadIncomingRequests(ArrayList<Friend> friends) {
-		incomingFriends = friends;
+		this.incomingFriends = friends;
 	}
 
 	public void loadOutgoingRequests(ArrayList<Friend> friends) {
-		outgoingFriends = friends;
+		this.outgoingFriends = friends;
+	}
+
+	public void loadFriends(ArrayList<Friend> loadFriends) {
+		this.friends = loadFriends;
 	}
 }

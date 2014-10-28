@@ -232,8 +232,6 @@ public class testUnitOfWork {
 		pg.delete(liz.getUserID());
 	}
 	
-	
-	// TODO: cant request self error
 	@Test
 	public void testAcceptFriendRequest(){
 		UnitOfWork.setThread(new UnitOfWork());
@@ -262,20 +260,22 @@ public class testUnitOfWork {
 		pg.delete(liz.getUserID());
 	}
 	
-	// TODO: cant request self error
 	@Test
 	public void testDeleteFriend(){
 		UnitOfWork.setThread(new UnitOfWork());
 		UnitOfWork.getThread().createPerson("sam", "7777", "samsPage");
 		UnitOfWork.getThread().createPerson("tim", "8888", "timsPage");
 		Person sam = UnitOfWork.getThread().findPerson("sam", "7777");
-		Person tim = UnitOfWork.getThread().findPerson("tim", "8888");
 		// Sam sends request to Tim
 		UnitOfWork.getThread().makeFriendRequest(sam.getUserID(), "tim");
 		UnitOfWork.getThread().commit();
+		
 		// Tim accepts Sams request
+		Person tim = UnitOfWork.getThread().findPerson("tim", "8888");
 		UnitOfWork.getThread().acceptFriendRequest(tim.getUserID(), "sam");
 		UnitOfWork.getThread().commit();
+		
+		sam = UnitOfWork.getThread().findPerson("sam", "7777");
 		// Sam changes his mind & deletes Tim
 		UnitOfWork.getThread().deleteFriendInList(sam.getUserID(), "tim");
 		UnitOfWork.getThread().commit();
@@ -283,13 +283,12 @@ public class testUnitOfWork {
 		assertFalse(sam.getFriends().contains(tim));
 		assertFalse(tim.getFriends().contains(sam));
 		
-		// Delete Persons from DB
+		// Delete Persons from DB 
 		PersonGateway pg = new PersonGateway();
 		pg.delete(sam.getUserID());
 		pg.delete(tim.getUserID());
 	}
 	
-	// TODO: cant request self error
 	@Test
 	public void testRejectRequest(){
 		UnitOfWork.setThread(new UnitOfWork());

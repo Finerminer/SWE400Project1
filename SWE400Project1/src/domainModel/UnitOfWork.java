@@ -20,6 +20,7 @@ public class UnitOfWork {
 		if(p != null)
 		{
 			person = p;
+			person.loadFriends(mapper.loadFriends(person.getUserID()));
 			person.loadIncomingRequests(mapper.loadIncomingRequests(person.getUserID()));
 			person.loadOutgoingRequests(mapper.loadOutgoingRequests(person.getUserID()));
 			return p;
@@ -122,6 +123,7 @@ public class UnitOfWork {
 		addNew();
 		updatePending();
 		removeDelete();
+		clearFriendsLists();
 	}
 	
 	private void loadChanges() {
@@ -230,11 +232,11 @@ public class UnitOfWork {
 	}
 
 	public void makeFriendRequest(int userIDOfRequester, String userNameOfRequestee) {
-		mapper.makeFriendRequest(userIDOfRequester, userNameOfRequestee);
+		mapper.makeFriendRequest(person, userIDOfRequester, userNameOfRequestee);
 	}
 	
 	public void acceptFriendRequest(int userIDOfRequester, String userNameOfRequestee){
-		mapper.acceptFriendRequest(userIDOfRequester, userNameOfRequestee);
+		mapper.acceptFriendRequest(person, userIDOfRequester, userNameOfRequestee);
 	}
 
 	public void deleteFriendInList(int userIDOfRequester, String userNameOfRequestee) {
