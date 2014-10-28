@@ -232,6 +232,8 @@ public class testUnitOfWork {
 		pg.delete(liz.getUserID());
 	}
 	
+	
+	// TODO: cant request self error
 	@Test
 	public void testAcceptFriendRequest(){
 		UnitOfWork.setThread(new UnitOfWork());
@@ -260,6 +262,7 @@ public class testUnitOfWork {
 		pg.delete(liz.getUserID());
 	}
 	
+	// TODO: cant request self error
 	@Test
 	public void testDeleteFriend(){
 		UnitOfWork.setThread(new UnitOfWork());
@@ -286,6 +289,7 @@ public class testUnitOfWork {
 		pg.delete(tim.getUserID());
 	}
 	
+	// TODO: cant request self error
 	@Test
 	public void testRejectRequest(){
 		UnitOfWork.setThread(new UnitOfWork());
