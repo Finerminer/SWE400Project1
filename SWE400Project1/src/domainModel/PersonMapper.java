@@ -92,8 +92,8 @@ public class PersonMapper {
 	}
 
 	public void acceptFriendRequest(Person person, int userIDOfRequestee, String userNameOfRequester) {
+		Person user = pGate.find(person.getUserID());
 		int friendID = getIDFromUsername(userNameOfRequester);
-		Person user = person;
 		Person friend = pGate.find(friendID);
 		String displayNameOfRequester = friend.getDisplayName();
 		user.acceptFriendRequest(userIDOfRequestee, userNameOfRequester, displayNameOfRequester);

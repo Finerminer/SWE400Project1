@@ -201,8 +201,6 @@ public class testUnitOfWork {
 		UnitOfWork.getThread().findPerson("sally", "9090");
 		int sallysID = UnitOfWork.getThread().getPerson().getUserID();
 		UnitOfWork.getThread().modifyName(sallysID, "sallysNewPage");
-		// TODO: Gives Error updating person error
-		
 		assertEquals("sallysNewPage",UnitOfWork.getThread().findPerson("sally", "9090").getDisplayName());
 		
 		// Delete Persons from DB
@@ -237,25 +235,26 @@ public class testUnitOfWork {
 	@Test
 	public void testAcceptFriendRequest(){
 		UnitOfWork.setThread(new UnitOfWork());
-		UnitOfWork.getThread().createPerson("sally", "9090", "sallysPage");
-		UnitOfWork.getThread().createPerson("liz", "1234", "lizsPage");
+		//UnitOfWork.getThread().createPerson("sally", "9090", "sallysPage");
+		//UnitOfWork.getThread().createPerson("liz", "1234", "lizsPage");
 		
 		Person sally = UnitOfWork.getThread().findPerson("sally", "9090");
 		
 		// Sally sends request to Liz
-		UnitOfWork.getThread().makeFriendRequest(sally.getUserID(), "liz");
-		UnitOfWork.getThread().commit();
+		//UnitOfWork.getThread().makeFriendRequest(sally.getUserID(), "liz");
+		//UnitOfWork.getThread().commit();
 		
 		// Liz accepts Sally's request
 		Person liz = UnitOfWork.getThread().findPerson("liz", "1234");
-		//UnitOfWork.getThread().loadIncomingRequests(liz.getUserID());
-		
 		UnitOfWork.getThread().acceptFriendRequest(liz.getUserID(), "sally");
 		UnitOfWork.getThread().commit();
 		
+		liz = UnitOfWork.getThread().findPerson("liz", "1234");
 		FriendGateway fg = new FriendGateway();
-		//assertTrue(fg.getFriends(liz.getUserID()).contains(sally.getUserID()));
-		//assertTrue(fg.getFriends(sally.getUserID()).contains(liz.getUserID()));
+		assertTrue(fg.getFriends(liz.getUserID()).contains(sally.getUserID()));
+		
+		sally = UnitOfWork.getThread().findPerson("sally", "9090");
+		assertTrue(fg.getFriends(sally.getUserID()).contains(liz.getUserID()));
 		
 		// Delete Friend Relationship from DB
 		fg.deleteFriend(sally.getUserID(), liz.getUserID());
