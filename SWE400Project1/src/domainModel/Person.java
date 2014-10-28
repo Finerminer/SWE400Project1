@@ -135,4 +135,12 @@ public class Person {
 			markRemoved(f);
 		}
 	}
+
+	public void loadIncomingRequests(ArrayList<Friend> friends) {
+		incomingFriends = friends;
+	}
+
+	public void loadOutgoingRequests(ArrayList<Friend> friends) {
+		outgoingFriends = friends;
+	}
 }
