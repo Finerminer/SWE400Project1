@@ -80,7 +80,7 @@ public class UserThread implements Runnable
 		try
 		{
 			return (Class<? extends Command>) Class.forName(
-					"domainLogic." + command).asSubclass(Command.class);
+					"domainModel." + command).asSubclass(Command.class);
 		} catch (ClassNotFoundException e)
 		{
 			System.out.println("Unrecognized command: " + command);

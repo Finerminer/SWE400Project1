@@ -24,9 +24,9 @@ public class UserThreadTests
 	public void canSeparateInstructionFromResults() throws FileNotFoundException
 	{
 		UserThread t = new UserThread("FriendRequestTest");
-		String[]parts = t.splitInstruction("PendingOutgoingFriendList; henry");
+		String[]parts = t.splitInstruction("CommandToGetPendingOutgoingFriendList; henry");
 		assertEquals(2, parts.length);
-		assertEquals("PendingOutgoingFriendList", parts[0]);
+		assertEquals("CommandToGetPendingOutgoingFriendList", parts[0]);
 		assertEquals("henry", parts[1]);
 		
 		parts = t.splitInstruction("AcceptFriendRequest henry");
@@ -37,7 +37,7 @@ public class UserThreadTests
 	public void testCommandType() throws FileNotFoundException
 	{
 		UserThread t = new UserThread("FriendRequestTest");
-		assertEquals(CommandToAcceptFriendRequest.class, t.getCommandClass("AcceptFriendRequest"));
+		assertEquals(CommandToAcceptFriendRequest.class, t.getCommandClass("CommandToAcceptFriendRequest"));
 		
 	}
 	
@@ -45,7 +45,7 @@ public class UserThreadTests
 	public void buildNoParameterCommand() throws FileNotFoundException
 	{
 		UserThread t = new UserThread("FriendRequestTest");
-		CommandToPersistChanges command = (CommandToPersistChanges) t.buildCommand("PersistChangesCommand");
+		CommandToPersistChanges command = (CommandToPersistChanges) t.buildCommand("CommandToPersistChanges");
 		assertEquals(CommandToPersistChanges.class, command.getClass());
 	}
 
@@ -53,7 +53,7 @@ public class UserThreadTests
 	public void buildOneParameterCommand() throws FileNotFoundException 
 	{
 		UserThread t = new UserThread("FriendRequestTest");
-		CommandToGetPendingIncomingFriendList command = (CommandToGetPendingIncomingFriendList) t.buildCommand("PendingIncomingFriendList 8");
+		CommandToGetPendingIncomingFriendList command = (CommandToGetPendingIncomingFriendList) t.buildCommand("CommandToGetPendingIncomingFriendList 8");
 		assertEquals(CommandToGetPendingIncomingFriendList.class, command.getClass());
 		assertEquals(8, command.getUserID());
 	}
@@ -62,7 +62,7 @@ public class UserThreadTests
 	public void buildTwoParameterCommand() throws FileNotFoundException 
 	{
 		UserThread t = new UserThread("FriendRequestTest");
-		CommandToAcceptFriendRequest command = (CommandToAcceptFriendRequest) t.buildCommand("AcceptFriendRequest 3 Elizabeth");
+		CommandToAcceptFriendRequest command = (CommandToAcceptFriendRequest) t.buildCommand("CommandToAcceptFriendRequest 3 Elizabeth");
 		assertEquals(CommandToAcceptFriendRequest.class, command.getClass());
 		assertEquals(3, command.getUserIDOfRequestee());
 		assertEquals("Elizabeth", command.getUserNameOfRequester());
@@ -72,7 +72,7 @@ public class UserThreadTests
 	public void buildTwoStringParametersCommand() throws FileNotFoundException
 	{
 		UserThread t = new UserThread("FriendRequestTest");
-		CommandToSelectUser command = (CommandToSelectUser) t.buildCommand("SelectUserCommand Elizabeth secret");
+		CommandToSelectUser command = (CommandToSelectUser) t.buildCommand("CommandToSelectUser Elizabeth secret");
 		assertEquals(CommandToSelectUser.class, command.getClass());
 		assertEquals("Elizabeth", command.getUserName());
 		assertEquals("secret", command.getPassword());
@@ -81,7 +81,7 @@ public class UserThreadTests
 	public void buildThreeParameterCommand() throws FileNotFoundException 
 	{
 		UserThread t = new UserThread("FriendRequestTest");
-		CommandToCreateUser command = (CommandToCreateUser) t.buildCommand("CreateUserCommand uName pw Elizabeth");
+		CommandToCreateUser command = (CommandToCreateUser) t.buildCommand("CommandToCreateUser uName pw Elizabeth");
 		assertEquals(CommandToCreateUser.class, command.getClass());
 		assertEquals("uName", command.getUserName());
 		assertEquals("pw", command.getPassword());
