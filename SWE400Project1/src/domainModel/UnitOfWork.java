@@ -20,9 +20,9 @@ public class UnitOfWork {
 		if(p != null)
 		{
 			person = p;
-			person.loadFriends(mapper.loadFriends(person.getUserID()));
-			person.loadIncomingRequests(mapper.loadIncomingRequests(person.getUserID()));
-			person.loadOutgoingRequests(mapper.loadOutgoingRequests(person.getUserID()));
+			loadFriends(person.getUserID());
+			loadIncomingRequests(person.getUserID());
+			loadOutgoingRequests(person.getUserID());
 			return p;
 		}
 		return null;
@@ -41,16 +41,9 @@ public class UnitOfWork {
 	public void registerNewFriend(Friend friend){
 		if((!deletedFriends.contains(friend))||(!newFriends.contains(friend)))
 		{
-			if(incomingRequest.contains(friend))
-			{
-				incomingRequest.remove(friend);
-				newFriends.add(friend);
-			}else if (outgoingRequest.contains(friend)){
-				outgoingRequest.remove(friend);
-				newFriends.add(friend);
-			}else{
-				newFriends.add(friend);
-			}
+			incomingRequest.remove(friend);
+			outgoingRequest.remove(friend);
+			newFriends.add(friend);	
 		}
 	}
 	
@@ -119,17 +112,16 @@ public class UnitOfWork {
 	 * the appropriate mapping method on their friends
 	 */
 	public void commit(){
-		loadChanges();
 		addNew();
 		updatePending();
 		removeDelete();
 		clearFriendsLists();
 	}
 	
-	private void loadChanges() {
-		outgoingRequest = person.getOutgoingFriends();
-		newFriends = person.getFriends();
-	}
+//	private void loadChanges() {
+//		outgoingRequest = person.getOutgoingFriends();
+//		newFriends = person.getFriends();
+//	}
 
 	/**
 	 * Iterates through newFriends list and for each
@@ -137,11 +129,13 @@ public class UnitOfWork {
 	 * and passes it the persons userId and friends ? 
 	 */
 	private void addNew() {
-		
 		for(Friend f: newFriends)
 		{
+			System.out.println("Person: " + person.getUsername() + " " + person.getUserID());
+			System.out.println("Friend: " + f.getUserName());
 			mapper.addFriend(person.getUserID(), f.getUserName());
 		}
+		System.out.println("addedNew complete");
 	}
 	
 	/**
@@ -152,12 +146,18 @@ public class UnitOfWork {
 	private void updatePending() {
 		for(Friend f: incomingRequest)
 		{
+			System.out.println("Person: " + person.getUsername() + " " + person.getUserID());
+			System.out.println("Friend: " + f.getUserName());
 			mapper.addIncomingRequest(person.getUserID(), f.getUserName());
 		}
+		System.out.println("updateIncoming complete");
 		for(Friend f: outgoingRequest)
 		{
+			System.out.println("Person: " + person.getUsername() + " " + person.getUserID());
+			System.out.println("Friend: " + f.getUserName());
 			mapper.addOutgoingRequest(person.getUserID(), f.getUserName());
 		}
+		System.out.println("updateOutgoing complete");
 	}
 
 	/**
@@ -168,8 +168,11 @@ public class UnitOfWork {
 	private void removeDelete() {
 		for(Friend f: deletedFriends)
 		{
+			System.out.println("Person: " + person.getUsername() + " " + person.getUserID());
+			System.out.println("Friend: " + f.getUserName());
 			mapper.deleteFriend(person.getUserID(), f.getUserName());
 		}
+		System.out.println("deleteRemoved complete");
 	}
 	
 	/**
@@ -227,8 +230,7 @@ public class UnitOfWork {
 	}
 
 	public void modifyName(int userID, String newDisplayName) {
-		PersonGateway gate = new PersonGateway();
-		gate.update(userID, newDisplayName);
+		mapper.modifyName(userID, newDisplayName);
 	}
 
 	public void makeFriendRequest(int userIDOfRequester, String userNameOfRequestee) {
@@ -248,10 +250,21 @@ public class UnitOfWork {
 	}
 
 	public void loadIncomingRequests(int userID) {
-		mapper.loadIncomingRequests(userID);
+		ArrayList<Friend> incomingFriends = mapper.loadIncomingRequests(userID); 
+		person.loadIncomingRequests(incomingFriends);
 	}
 
 	public void loadOutgoingRequests(int userID) {
-		mapper.loadOutgoingRequests(userID);
+		ArrayList<Friend> outgoingFriends = mapper.loadOutgoingRequests(userID); 
+		person.loadOutgoingRequests(outgoingFriends);
+	}
+	
+	public void loadFriends(int userID){
+		ArrayList<Friend> currentFriends = mapper.loadFriends(userID); 
+		person.loadFriends(currentFriends);
+	}
+
+	public void removeOutgoing(Friend f) {
+		this.outgoingRequest.remove(f);
 	}
 }

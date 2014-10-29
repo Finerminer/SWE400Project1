@@ -60,30 +60,21 @@ public class Person {
 		return username + ":" + password + ":" + displayName;
 	}
 	
-//	/**
-//	 * Marks a friend as new
-//	 * @param f a new friend 
-//	 */
-//	private void markNew(Friend f){
-//		UnitOfWork.getThread().registerNewFriend(f);
-//	}
+	/**
+	 * Marks a friend as new
+	 * @param f a new friend 
+	 */
+	private void markNew(Friend f){
+		UnitOfWork.getThread().registerNewFriend(f);
+	}
 	
 	/**
-	 * Marks a friend as a incomingRequest
-	 * @param f the requester  
+	 * Marks a friend as a outgoingRequest
+	 * @param f the requested friend 
 	 */
-	@SuppressWarnings("unused")
-	private void markIncoming(Friend f){
-		UnitOfWork.getThread().registerIncomingRequest(f);
+	private void markOutgoing(Friend f){
+		UnitOfWork.getThread().registerOutgoingRequests(f);
 	}
-//	
-//	/**
-//	 * Marks a friend as a outgoingRequest
-//	 * @param f the requested friend 
-//	 */
-//	private void markOutgoing(Friend f){
-//		UnitOfWork.getThread().registerOutgoingRequests(f);
-//	}
 	
 	/**
 	 * Marks a friend as deleted
@@ -97,8 +88,7 @@ public class Person {
 		if(!checkCurrent(userIDOfRequester)){
 		}else{
 			Friend f = new Friend(userNameOfRequestee, displayNameOfRequestee); 
-			outgoingFriends.add(f);
-			//markOutgoing(f);
+			markOutgoing(f);
 		}
 	}
 	
@@ -111,13 +101,7 @@ public class Person {
 		if(!checkCurrent(userIDOfRequester)){
 		}else{
 			Friend f = new Friend(userNameOfRequestee, displayNameOfRequestee);
-			friends.add(f);
-			for(Friend g: incomingFriends){
-				if(g.getUserName() == f.getDisplayName()){
-					incomingFriends.remove(g);
-				}
-			}
-			//markNew(f);
+			markNew(f);
 		}
 	}
 	
@@ -125,7 +109,6 @@ public class Person {
 		if(!checkCurrent(userIDOfRequester)){
 		}else{
 			Friend f = new Friend(userNameOfRequestee, displayNameOfRequestee); 
-			friends.remove(f);
 			markRemoved(f);
 		}
 	}
@@ -141,7 +124,6 @@ public class Person {
 		if(!checkCurrent(userIDOfRequestee)){	
 		}else{
 			Friend f = new Friend(userNameOfRequester, displayNameOfRequester);
-			incomingFriends.remove(f);
 			markRemoved(f);
 		}
 	}

@@ -55,19 +55,6 @@ public class PersonMapper {
 		user.makeFriendRequest(userIDOfRequester, userNameOfRequestee, displayNameOfRequestee);
 	}
 
-	/**
-	 * Updates changes to a person
-	 * @param userID the Persons ID
-	 * @param username the Persons user name
-	 * @param password the Persons password
-	 * @param displayName the Persons display name
-	 * @return if the update is successful
-	 */
-	public boolean updatePerson(int userID, String username, String password, String displayName) {
-		//pGate.update(userID, username, password, displayName);
-		return false;
-	}
-
 	public int getIDFromUsername(String userNameOfRequestee) {
 		return pGate.find(userNameOfRequestee);
 	}
@@ -93,8 +80,11 @@ public class PersonMapper {
 		int friendID = getIDFromUsername(userNameOfRequestee);
 		Person friend = pGate.find(friendID);
 		String displayNameOfRequestee = friend.getDisplayName();
-		friend.accepted(user.getUsername(), user.getDisplayName());
+		
+		//Will remove the requestee's incoming request
 		user.acceptFriendRequest(userIDOfRequester, userNameOfRequestee, displayNameOfRequestee);
+		//Will remove the requester's outgoing request
+		fGate.deleteRequest(friend.getUserID(), user.getUserID());
 	}
 
 	public void addFriend(int userID, String friendUserName) {
@@ -139,11 +129,15 @@ public class PersonMapper {
 	public ArrayList<Friend> loadFriends(int userID) {
 		ArrayList<Integer> tmp = fGate.getFriends(userID);
 		Person friend = null;
-		ArrayList<Friend> friends = new ArrayList<Friend>();
+		ArrayList<Friend> currentFriends = new ArrayList<Friend>();
 		for(Integer i: tmp){
 			friend = pGate.find(i);
-			friends.add(new Friend(friend.getUsername(), friend.getDisplayName()));
+			currentFriends.add(new Friend(friend.getUsername(), friend.getDisplayName()));
 		}
-		return friends;
+		return currentFriends;
+	}
+
+	public void modifyName(int userID, String newDisplayName) {
+		pGate.update(userID, newDisplayName);
 	}
 }
