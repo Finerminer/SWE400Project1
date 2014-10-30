@@ -85,7 +85,7 @@ public class PersonMapper {
 		user.acceptFriendRequest(userIDOfRequester, userNameOfRequestee, displayNameOfRequestee);
 		
 		//Will remove the requester's outgoing request
-		//fGate.deleteRequest(friend.getUserID(), user.getUserID());
+		fGate.deleteRequest(friend.getUserID(), user.getUserID());
 	}
 
 	public void addFriend(int userID, String friendUserName) {
