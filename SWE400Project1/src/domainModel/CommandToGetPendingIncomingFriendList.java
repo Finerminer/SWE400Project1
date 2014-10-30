@@ -44,11 +44,17 @@ public class CommandToGetPendingIncomingFriendList implements Command
 	@Override
 	public String getResult()
 	{
-		ArrayList<Friend> friends = UnitOfWork.getThread().getIncomingRequests();
+		ArrayList<Friend> friends = UnitOfWork.getThread().getPerson().getIncomingFriends();
 		String result="";
+		Boolean first = true;
 		for(Friend f : friends)
 		{
-			result = result + f.getUserName() + " ";
+			if(first) {
+				result = result + f.getUserName();
+				first = false;
+			} else {
+				result+= "," + f.getUserName();
+			}
 		}
 		return result;
 	}
