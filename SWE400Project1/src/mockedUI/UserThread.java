@@ -183,6 +183,7 @@ public class UserThread implements Runnable
 	 */
 	protected boolean executeInstruction(String instruction)
 	{
+		//TODO - OR Set User Thread UserID here?
 		String[] parts = splitInstruction(instruction);
 		Command cmd = buildCommand(parts[0]);
 		cmd.execute();
@@ -207,6 +208,7 @@ public class UserThread implements Runnable
 	public void run()
 	{
 		this.running = true;  
+		//TODO - Set UserThread userID here? or after this line of code? 
 		String input = commandReader.nextLine();
 		boolean allIsWell = true;
 		while (allIsWell && input != null)

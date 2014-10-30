@@ -144,6 +144,7 @@ public class PersonGateway {
 			stmt.setString(3, displayName);
 			stmt.executeUpdate();
 			stmt.close();
+			// TODO return UserID (auto incremented when inserting into table), might help with in-memory problems?
 		} catch (SQLException e) {
 			System.out.println("Error inserting person.");
 			e.printStackTrace();
