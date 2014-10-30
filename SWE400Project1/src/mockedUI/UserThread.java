@@ -6,6 +6,9 @@ import java.lang.reflect.Constructor;
 import java.util.Scanner;
 
 import domainModel.Command;
+import domainModel.CommandToSelectUser;
+import domainModel.Person;
+import domainModel.UnitOfWork;
 
 /**
  * Reads a file of instructions, executes them, and verifies the results as it
@@ -99,6 +102,9 @@ public class UserThread implements Runnable
 	protected Command buildCommand(String commandDescription)
 	{
 		String[] instructionTokens = commandDescription.split(" ");
+//		if(instructionTokens[0].equals("CommandToSelectUser")) {
+//			this.setCurrentUserID(UnitOfWork.getThread().fin);
+//		}
 		Class<? extends Command> commandClass = getCommandClass(instructionTokens[0]);
 		Constructor<?>[] constructors = commandClass.getConstructors();
 		Class<?>[] parameters = constructors[0].getParameterTypes();
@@ -187,6 +193,8 @@ public class UserThread implements Runnable
 		String[] parts = splitInstruction(instruction);
 		Command cmd = buildCommand(parts[0]);
 		cmd.execute();
+		if(cmd instanceof CommandToSelectUser)
+			this.setCurrentUserID(((Person)cmd.getResult()).getUserID());
 		if (parts.length == 2)
 		{
 			String result = (String) cmd.getResult();

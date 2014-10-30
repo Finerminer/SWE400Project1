@@ -45,9 +45,15 @@ public class CommandToGetPendingOutgoingFriendList implements Command
 	{
 		ArrayList<Friend> friends = UnitOfWork.getThread().getOutgoingRequests();
 		String result="";
+		Boolean first = true;
 		for(Friend f : friends)
 		{
-			result = result + f.getUserName() + " ";
+			if(first) {
+				result = result + f.getUserName();
+				first = false;
+			} else {
+				result+= "," + f.getUserName();
+			}
 		}
 		return result;
 	}
