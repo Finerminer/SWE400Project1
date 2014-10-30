@@ -3,7 +3,6 @@ package domainModel;
 import java.util.ArrayList;
 
 public class UnitOfWork {
-	
 	private ArrayList<Friend> newFriends = new ArrayList<Friend>();
 	private ArrayList<Friend> deletedFriends = new ArrayList<Friend>();
 	private ArrayList<Friend> incomingRequest = new ArrayList<Friend>();

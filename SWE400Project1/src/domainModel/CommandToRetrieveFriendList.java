@@ -41,7 +41,16 @@ public class CommandToRetrieveFriendList implements Command
 	@Override
 	public String getResult()
 	{
-		ArrayList<Friend> friends = UnitOfWork.getThread().getFriendsFromCurrent();
+		ArrayList<Friend> friends = UnitOfWork.getThread().getPerson().getFriends();
+		ArrayList<Friend> newFriends = UnitOfWork.getThread().getNewFriends();
+		ArrayList<Friend> deletedFriends = UnitOfWork.getThread().getDeletedFriends();
+		
+		for(Friend f : deletedFriends) {
+			friends.remove(f);
+		}
+		for(Friend f : newFriends) {
+			friends.add(f);
+		}
 		
 		String result = "";
 		Boolean first = true;
