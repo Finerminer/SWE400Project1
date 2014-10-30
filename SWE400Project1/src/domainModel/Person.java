@@ -84,12 +84,13 @@ public class Person {
 		UnitOfWork.getThread().registerDeletedFriend(f);
 	}
 	
+	private void markRemovePending(Friend f){
+		UnitOfWork.getThread().registerDeletedPendingRequest(f);
+	}
+	
 	public void makeFriendRequest(int userIDOfRequester, String userNameOfRequestee, String displayNameOfRequestee){
-		//if(!checkCurrent(userIDOfRequester)){
-		//}else{
-			Friend f = new Friend(userNameOfRequestee, displayNameOfRequestee); 
-			markOutgoing(f);
-		//}
+		Friend f = new Friend(userNameOfRequestee, displayNameOfRequestee); 
+		markOutgoing(f);
 	}
 	
 	public void accepted(String userNameOfRequestee, String displayNameOfRequestee) {
@@ -102,6 +103,7 @@ public class Person {
 		}else{
 			Friend f = new Friend(userNameOfRequestee, displayNameOfRequestee);
 			markNew(f);
+			markRemovePending(f);
 		}
 	}
 	

@@ -5,6 +5,7 @@ import java.util.ArrayList;
 public class UnitOfWork {
 	private ArrayList<Friend> newFriends = new ArrayList<Friend>();
 	private ArrayList<Friend> deletedFriends = new ArrayList<Friend>();
+	private ArrayList<Friend> deletedPendingRequest = new ArrayList<Friend>();
 	private ArrayList<Friend> incomingRequest = new ArrayList<Friend>();
 	private ArrayList<Friend> outgoingRequest = new ArrayList<Friend>();
 	
@@ -96,6 +97,12 @@ public class UnitOfWork {
 		}	
 	}	
 	
+	public void registerDeletedPendingRequest(Friend friend){
+		this.outgoingRequest.remove(friend);
+		this.incomingRequest.remove(friend);
+		this.deletedPendingRequest.add(friend);
+	}
+	
 	/**
 	 * Removes every Friends from every list in UOW
 	 */
@@ -104,6 +111,7 @@ public class UnitOfWork {
 		incomingRequest.clear();
 		outgoingRequest.clear();
 		deletedFriends.clear();
+		deletedPendingRequest.clear();
 	}
 	
 	/**
@@ -113,6 +121,7 @@ public class UnitOfWork {
 	public void commit(){
 		addNew();
 		updatePending();
+		removeDeletedPending();
 		removeDelete();
 		clearFriendsLists();
 	}
@@ -157,6 +166,12 @@ public class UnitOfWork {
 			mapper.addOutgoingRequest(person.getUserID(), f.getUserName());
 		}
 		System.out.println("updateOutgoing complete");
+	}
+	
+	private void removeDeletedPending(){
+		for(Friend f: deletedPendingRequest){
+			mapper.deleteRequest(person, f);
+		}
 	}
 
 	/**
