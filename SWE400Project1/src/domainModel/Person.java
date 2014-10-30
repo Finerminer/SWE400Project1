@@ -85,11 +85,11 @@ public class Person {
 	}
 	
 	public void makeFriendRequest(int userIDOfRequester, String userNameOfRequestee, String displayNameOfRequestee){
-		if(!checkCurrent(userIDOfRequester)){
-		}else{
+		//if(!checkCurrent(userIDOfRequester)){
+		//}else{
 			Friend f = new Friend(userNameOfRequestee, displayNameOfRequestee); 
 			markOutgoing(f);
-		}
+		//}
 	}
 	
 	public void accepted(String userNameOfRequestee, String displayNameOfRequestee) {
