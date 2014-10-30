@@ -113,6 +113,9 @@ public class UnitOfWork {
 		outgoingRequest.clear();
 		deletedFriends.clear();
 		deletedPendingRequest.clear();
+		loadFriends(person.getUserID());
+		loadIncomingRequests(person.getUserID());
+		loadOutgoingRequests(person.getUserID());
 	}
 	
 	/**
