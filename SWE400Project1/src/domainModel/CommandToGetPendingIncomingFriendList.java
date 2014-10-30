@@ -44,7 +44,13 @@ public class CommandToGetPendingIncomingFriendList implements Command
 	@Override
 	public String getResult()
 	{
-		ArrayList<Friend> friends = UnitOfWork.getThread().getPerson().getIncomingFriends();
+		ArrayList<Friend> initialFriends = UnitOfWork.getThread().getPerson().getInitialIncomingFriends();
+		ArrayList<Friend> friends = UnitOfWork.getThread().getIncomingRequests();
+		
+		for(Friend f : initialFriends){
+			friends.add(f);
+		}
+		
 		String result="";
 		Boolean first = true;
 		for(Friend f : friends)

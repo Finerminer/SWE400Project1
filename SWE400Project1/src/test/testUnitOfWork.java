@@ -115,7 +115,7 @@ public class testUnitOfWork {
 		UnitOfWork.getThread().commit();
 		
 		Person neil = UnitOfWork.getThread().findPerson("neil", "9012");
-		assertFalse(neil.getIncomingFriends().isEmpty());
+		assertFalse(neil.getInitialIncomingFriends().isEmpty());
 		
 		// Delete Friend Relationship from DB
 		int neilsID = neil.getUserID();
@@ -139,7 +139,7 @@ public class testUnitOfWork {
 		UnitOfWork.getThread().commit();
 		
 		Person adam = UnitOfWork.getThread().findPerson("adam", "4321");
-		assertFalse(adam.getOutgoingFriends().isEmpty());
+		assertFalse(adam.getInitialOutgoingFriends().isEmpty());
 		
 		// Delete Friend Relationship from DB
 		int adamsID = adam.getUserID();
@@ -261,10 +261,6 @@ public class testUnitOfWork {
 		int tinaID = UnitOfWork.getThread().findPerson("tina", "6666").getUserID();
 		UnitOfWork.getThread().acceptFriendRequest(tinaID, "molly");
 		UnitOfWork.getThread().commit();
-
-		
-		UnitOfWork.getThread().findPerson("tina", "6666").getUserID();
-		UnitOfWork.getThread().findPerson("molly", "5555").getUserID();
 		
 		FriendGateway fg = new FriendGateway();
 		assertTrue(fg.getFriends(mollyID).contains(tinaID));
