@@ -8,6 +8,7 @@ public class UnitOfWork {
 	private ArrayList<Friend> deletedPendingRequest = new ArrayList<Friend>();
 	private ArrayList<Friend> incomingRequest = new ArrayList<Friend>();
 	private ArrayList<Friend> outgoingRequest = new ArrayList<Friend>();
+	//TODO - deletedRequests 
 	
 	protected PersonMapper mapper = new PersonMapper();
 	protected Person person;
