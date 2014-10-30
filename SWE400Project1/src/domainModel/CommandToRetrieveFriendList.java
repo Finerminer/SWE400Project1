@@ -39,10 +39,22 @@ public class CommandToRetrieveFriendList implements Command
 	 * @see Command#getResult()
 	 */
 	@Override
-	public ArrayList<Friend> getResult()
+	public String getResult()
 	{
 		ArrayList<Friend> friends = UnitOfWork.getThread().getFriendsFromCurrent();
-		return friends;
+		
+		String result = "";
+		Boolean first = true;
+		for(Friend f : friends)
+		{
+			if(first) {
+				result = result + f.getUserName();
+				first = false;
+			} else {
+				result+= "," + f.getUserName();
+			}
+		}
+		return result;
 	}
 
 }
