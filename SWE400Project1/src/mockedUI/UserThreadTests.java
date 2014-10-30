@@ -37,7 +37,7 @@ public class UserThreadTests
 	public void testCommandType() throws FileNotFoundException
 	{
 		UserThread t = new UserThread("FriendRequestTest");
-		assertEquals(CommandToAcceptFriendRequest.class, t.getCommandClass("AcceptFriendRequest"));
+		assertEquals(CommandToAcceptFriendRequest.class, t.getCommandClass("CommandToAcceptFriendRequest"));
 		
 	}
 	

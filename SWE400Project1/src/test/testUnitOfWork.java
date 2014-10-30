@@ -261,10 +261,6 @@ public class testUnitOfWork {
 		int tinaID = UnitOfWork.getThread().findPerson("tina", "6666").getUserID();
 		UnitOfWork.getThread().acceptFriendRequest(tinaID, "molly");
 		UnitOfWork.getThread().commit();
-
-		
-		UnitOfWork.getThread().findPerson("tina", "6666").getUserID();
-		UnitOfWork.getThread().findPerson("molly", "5555").getUserID();
 		
 		FriendGateway fg = new FriendGateway();
 		assertTrue(fg.getFriends(mollyID).contains(tinaID));
