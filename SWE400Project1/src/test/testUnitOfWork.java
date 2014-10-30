@@ -115,7 +115,7 @@ public class testUnitOfWork {
 		UnitOfWork.getThread().commit();
 		
 		Person neil = UnitOfWork.getThread().findPerson("neil", "9012");
-		assertFalse(neil.getIncomingFriends().isEmpty());
+		assertFalse(neil.getInitialIncomingFriends().isEmpty());
 		
 		// Delete Friend Relationship from DB
 		int neilsID = neil.getUserID();
@@ -139,7 +139,7 @@ public class testUnitOfWork {
 		UnitOfWork.getThread().commit();
 		
 		Person adam = UnitOfWork.getThread().findPerson("adam", "4321");
-		assertFalse(adam.getOutgoingFriends().isEmpty());
+		assertFalse(adam.getInitialOutgoingFriends().isEmpty());
 		
 		// Delete Friend Relationship from DB
 		int adamsID = adam.getUserID();

@@ -191,7 +191,7 @@ public class UnitOfWork {
 	}
 	
 	public ArrayList<Friend> getFriendsFromCurrent() {
-		return person.getFriends();
+		return person.getInitialFriends();
 	}
 	
 	/**

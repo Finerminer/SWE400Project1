@@ -2,9 +2,9 @@ package domainModel;
 import java.util.ArrayList;
 
 public class Person {
-	private ArrayList<Friend> friends = new ArrayList<Friend>();
-	private ArrayList<Friend> incomingFriends = new ArrayList<Friend>();
-	private ArrayList<Friend> outgoingFriends = new ArrayList<Friend>();
+	private ArrayList<Friend> initialFriends = new ArrayList<Friend>();
+	private ArrayList<Friend> initialIncomingFriends = new ArrayList<Friend>();
+	private ArrayList<Friend> initialOutgoingFriends = new ArrayList<Friend>();
 
 	private String username;
 	private String password;
@@ -23,16 +23,16 @@ public class Person {
 		return password;
 	}
 	
-	public ArrayList<Friend> getFriends(){
-		return friends;
+	public ArrayList<Friend> getInitialFriends(){
+		return initialFriends;
 	}
 	
-	public ArrayList<Friend> getIncomingFriends(){
-		return incomingFriends;
+	public ArrayList<Friend> getInitialIncomingFriends(){
+		return initialIncomingFriends;
 	}
 	
-	public ArrayList<Friend> getOutgoingFriends(){
-		return outgoingFriends;
+	public ArrayList<Friend> getInitialOutgoingFriends(){
+		return initialOutgoingFriends;
 	}
 	
 	public void setUsername(String username) {
@@ -94,7 +94,7 @@ public class Person {
 	
 	public void accepted(String userNameOfRequestee, String displayNameOfRequestee) {
 		Friend f = new Friend(userNameOfRequestee, displayNameOfRequestee);
-		outgoingFriends.remove(f);
+		initialOutgoingFriends.remove(f);
 	}
 	
 	public void acceptFriendRequest(int userIDOfRequester, String userNameOfRequestee, String displayNameOfRequestee) {
@@ -129,14 +129,14 @@ public class Person {
 	}
 
 	public void loadIncomingRequests(ArrayList<Friend> friends) {
-		this.incomingFriends = friends;
+		this.initialIncomingFriends = friends;
 	}
 
 	public void loadOutgoingRequests(ArrayList<Friend> friends) {
-		this.outgoingFriends = friends;
+		this.initialOutgoingFriends = friends;
 	}
 
 	public void loadFriends(ArrayList<Friend> loadFriends) {
-		this.friends = loadFriends;
+		this.initialFriends = loadFriends;
 	}
 }
