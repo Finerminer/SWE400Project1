@@ -35,6 +35,7 @@ CommandToSelectUser ld7894 pw3;
 CommandToMakeFriendRequest <userID> nk3668;
 CommandToPersistChanges;
 CommandToGetPendingOutgoingFriendList <userID>; nk3668
+CommandToGetPendingOutgoingFriendList <userID> nk3668;
 CommandToSelectUser nk3668 pw1;
 CommandToGetPendingIncomingFriendList <userID>; ld7894
 CommandToUnFriend <userID> rw8384;

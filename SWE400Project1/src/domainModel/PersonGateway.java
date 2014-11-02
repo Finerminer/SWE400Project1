@@ -203,4 +203,20 @@ public class PersonGateway {
 	public int getUserID() {
 		return userID;
 	}
+
+	
+	
+	public void deleteEverythingFromTable() {
+		String SQL = "delete from fitness1.Person where User_ID > 0;";
+		PreparedStatement stmt = null;
+		try {
+			stmt = DB.getConnection().prepareStatement(SQL);
+			stmt.executeUpdate();
+			stmt.close();
+		} catch (SQLException e) {
+			System.out.println("Error clearing table.");
+			e.printStackTrace();
+		}
+		
+	}
 }

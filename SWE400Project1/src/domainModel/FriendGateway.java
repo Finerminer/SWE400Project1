@@ -175,4 +175,30 @@ public class FriendGateway {
 		}
 	}
 
+	
+	public void deleteEverythingFromTable() {
+		String SQL = "delete from fitness1.PendingFriendRequests where User_ID_Requester > 0;";
+		PreparedStatement stmt = null;
+		try {
+			stmt = DB.getConnection().prepareStatement(SQL);
+			stmt.executeUpdate();
+			stmt.close();
+		} catch (SQLException e) {
+			System.out.println("Error Clearing PendingFriend Table.");
+			e.printStackTrace();
+		}
+		
+		SQL = "delete from fitness1.Friends where User_ID_Requester > 0;";
+		stmt = null;
+		try {
+			stmt = DB.getConnection().prepareStatement(SQL);
+			stmt.executeUpdate();
+			stmt.close();
+		} catch (SQLException e) {
+			System.out.println("Error Clearing Friend Table.");
+			e.printStackTrace();
+		}
+		
+	}
+
 }

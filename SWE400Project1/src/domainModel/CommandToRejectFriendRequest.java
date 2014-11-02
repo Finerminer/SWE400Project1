@@ -30,7 +30,7 @@ public class CommandToRejectFriendRequest implements Command
 	@Override
 	public void execute()
 	{
-		UnitOfWork.getThread().rejectRequest(userIDOfRequestee, userNameOfRequester);
+		UnitOfWork.getThread().rejectFriendRequest(userIDOfRequestee, userNameOfRequester);
 	}
 
 	/**
