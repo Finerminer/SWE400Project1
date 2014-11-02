@@ -41,20 +41,20 @@ public class CommandToRetrieveFriendList implements Command
 	@Override
 	public String getResult()
 	{
-		ArrayList<Friend> friends = UnitOfWork.getThread().getPerson().getInitialFriends();
+		ArrayList<Friend> initialfriends = UnitOfWork.getThread().getPerson().getInitialFriends();
 		ArrayList<Friend> newFriends = UnitOfWork.getThread().getNewFriends();
 		ArrayList<Friend> deletedFriends = UnitOfWork.getThread().getDeletedFriends();
 		
 		for(Friend f : deletedFriends) {
-			friends.remove(f);
+			initialfriends.remove(f);
 		}
 		for(Friend f : newFriends) {
-			friends.add(f);
+			initialfriends.add(f);
 		}
 		
 		String result = "";
 		Boolean first = true;
-		for(Friend f : friends)
+		for(Friend f : initialfriends)
 		{
 			if(first) {
 				result = result + f.getUserName();
@@ -64,6 +64,7 @@ public class CommandToRetrieveFriendList implements Command
 			}
 		}
 		return result;
+		//return UnitOfWork.getThread().printFriendsInLists(initialFriends, friends);
 	}
 
 }

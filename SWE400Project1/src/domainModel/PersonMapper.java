@@ -48,11 +48,11 @@ public class PersonMapper {
 	 * @param userID the user who is adding the friend.
 	 * @param friendID the user who is being added.
 	 */
-	public void makeFriendRequest(Person user, int userIDOfRequester, String userNameOfRequestee){
+	public Friend makeFriendRequest(Person user, int userIDOfRequester, String userNameOfRequestee){
 		int friendID = getIDFromUsername(userNameOfRequestee);
 		Person friend = pGate.find(friendID);
 		String displayNameOfRequestee = friend.getDisplayName();
-		user.makeFriendRequest(userIDOfRequester, userNameOfRequestee, displayNameOfRequestee);
+		return new Friend(userNameOfRequestee, displayNameOfRequestee);
 	}
 
 	public int getIDFromUsername(String userNameOfRequestee) {
@@ -69,23 +69,18 @@ public class PersonMapper {
 		fGate.addRequest(userID, friendID);
 	}
 
-	public void deleteFriendInList(Person user, int userIDOfRequester, String userNameOfRequestee) {
+	public Friend deleteFriendInList(Person user, int userIDOfRequester, String userNameOfRequestee) {
 		int friendID = getIDFromUsername(userNameOfRequestee);
 		Person friend = pGate.find(friendID);
 		String displayNameOfRequestee = friend.getDisplayName();
-		user.deleteFriendInList(userIDOfRequester, userNameOfRequestee, displayNameOfRequestee);
+		return new Friend(userNameOfRequestee, displayNameOfRequestee);
 	}
 
-	public void acceptFriendRequest(Person user, int userIDOfRequester, String userNameOfRequestee) {
+	public Friend acceptFriendRequest(Person user, int userIDOfRequester, String userNameOfRequestee) {
 		int friendID = getIDFromUsername(userNameOfRequestee);
 		Person friend = pGate.find(friendID);
 		String displayNameOfRequestee = friend.getDisplayName();
-		
-		//Will remove the requestee's incoming request
-		user.acceptFriendRequest(userIDOfRequester, userNameOfRequestee, displayNameOfRequestee);
-		
-		//Will remove the requester's outgoing request
-		fGate.deleteRequest(friend.getUserID(), user.getUserID());
+		return new Friend(userNameOfRequestee, displayNameOfRequestee);
 	}
 
 	public void addFriend(int userID, String friendUserName) {
@@ -93,11 +88,11 @@ public class PersonMapper {
 		fGate.addFriend(userID, friendID);
 	}
 
-	public void rejectRequest(Person user, int userIDOfRequestee, String userNameOfRequester) {
+	public Friend rejectFriendRequest(Person user, int userIDOfRequestee, String userNameOfRequester) {
 		int friendID = getIDFromUsername(userNameOfRequester);
 		Person friend = pGate.find(friendID);
 		String displayNameOfRequester = friend.getDisplayName();
-		user.rejectFriendRequest(userIDOfRequestee, userNameOfRequester, displayNameOfRequester);
+		return new Friend(userNameOfRequester, displayNameOfRequester);
 	}
 
 	public void deleteFriend(int userID, String userName) {
@@ -143,6 +138,7 @@ public class PersonMapper {
 	}
 
 	public void deleteRequest(Person p, Friend f) {
-		fGate.deleteRequest(p.getUserID(), pGate.find(f.getUserName())); 
+		fGate.deleteRequest(p.getUserID(), pGate.find(f.getUserName()));
+		fGate.deleteRequest(pGate.find(f.getUserName()), p.getUserID());
 	}
 }

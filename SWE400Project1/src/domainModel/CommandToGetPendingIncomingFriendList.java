@@ -63,6 +63,7 @@ public class CommandToGetPendingIncomingFriendList implements Command
 			}
 		}
 		return result;
+		//return UnitOfWork.getThread().printFriendsInLists(initialFriends, friends);
 	}
 
 	/**
