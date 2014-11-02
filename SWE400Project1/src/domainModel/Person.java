@@ -108,8 +108,7 @@ public class Person {
 	}
 	
 	public void deleteFriendInList(int userIDOfRequester, String userNameOfRequestee, String displayNameOfRequestee) {
-		if(!checkCurrent(userIDOfRequester)){
-		}else{
+		if(checkCurrent(userIDOfRequester)){
 			Friend f = new Friend(userNameOfRequestee, displayNameOfRequestee); 
 			markRemoved(f);
 		}
@@ -123,8 +122,7 @@ public class Person {
 	}
 
 	public void rejectFriendRequest(int userIDOfRequestee, String userNameOfRequester, String displayNameOfRequester) {
-		if(!checkCurrent(userIDOfRequestee)){	
-		}else{
+		if(checkCurrent(userIDOfRequestee)){
 			Friend f = new Friend(userNameOfRequester, displayNameOfRequester);
 			markRemoved(f);
 		}
