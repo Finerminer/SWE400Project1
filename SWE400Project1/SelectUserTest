@@ -3,7 +3,7 @@ CommandToCreateUser sally pw2 sally5678; sally:pw2:sally5678
 CommandToSelectUser jane pw1;
 CommandToMakeFriendRequest <userID> sally;
 CommandToPersistChanges;
-CommandToSelectUser sally pw1;
+CommandToSelectUser sally pw2;
 CommandToMakeFriendRequest <userID> jane;
 CommandToPersistChanges;
 CommandToGetPendingOutgoingFriendList <userID>;
