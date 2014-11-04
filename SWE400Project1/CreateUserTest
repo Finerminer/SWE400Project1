@@ -1,4 +1,4 @@
-CommandToSelectUser ga pw1;
+CommandToSelectUser galim pw1;
 CommandToGetPendingOutgoingFriendList <userID>;
 CommandToGetPendingIncomingFriendList <userID>;
 CommandToRetrieveFriendList <userID>;
