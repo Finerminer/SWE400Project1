@@ -1,0 +1,45 @@
+CommandToSelectUser krabs pw5;
+CommandToMakeFriendRequest <userID> spongebob;
+CommandToPersistChanges;
+CommandToSelectUser spongebob pw1;
+CommandToGetPendingIncomingFriendList <userID>; patrick,krabs
+CommandToMakeFriendRequest <userID> plankton;
+CommandToGetPendingOutgoingFriendList <userID>; sandy,plankton
+CommandToAcceptFriendRequest <userID> krabs;
+CommandToRetrieveFriendList <userID>; squidward,krabs
+CommandToGetPendingIncomingFriendList <userID>; patrick
+CommandToPersistChanges;
+CommandToSelectUser patrick pw2;
+CommandToGetPendingOutgoingFriendList <userID>; spongebob
+CommandToRetrieveFriendList <userID>;
+CommandToGetPendingIncomingFriendList <userID>;
+CommandToPersistChanges;
+CommandToSelectUser sandy pw3;
+CommandToGetPendingOutgoingFriendList <userID>;
+CommandToRetrieveFriendList <userID>;
+CommandToGetPendingIncomingFriendList <userID>; spongebob
+CommandToPersistChanges;
+CommandToSelectUser squidward pw4;
+CommandToGetPendingOutgoingFriendList <userID>;
+CommandToRetrieveFriendList <userID>; spongebob
+CommandToGetPendingIncomingFriendList <userID>;
+CommandToPersistChanges;
+CommandToSelectUser krabs pw5;
+CommandToGetPendingOutgoingFriendList <userID>;
+CommandToRetrieveFriendList <userID>; spongebob
+CommandToGetPendingIncomingFriendList <userID>;
+CommandToPersistChanges;
+CommandToSelectUser plankton pw6;
+CommandToGetPendingOutgoingFriendList <userID>;
+CommandToRetrieveFriendList <userID>;
+CommandToGetPendingIncomingFriendList <userID>; spongebob
+CommandToRejectFriendRequest <userID> spongebob;
+CommandToGetPendingIncomingFriendList <userID>;
+CommandToPersistChanges;
+CommandToSelectUser spongebob pw1;
+CommandToGetPendingOutgoingFriendList <userID>; sandy
+** Undo Changes
+CommandToSelectUser spongebob pw1;
+CommandToUnFriend <userID> krabs;
+CommandToRetrieveFriendList <userID>; squidward
+** End Test

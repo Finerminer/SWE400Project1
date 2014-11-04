@@ -37,3 +37,21 @@ CommandToCreateUser pika pw2 pika5678; pika:pw2:pika5678
 CommandToCreateUser Euler pw1 euler1234; Euler:pw1:euler1234
 CommandToCreateUser Archimedes pw2 archimedes5678; Archimedes:pw2:archimedes5678
 ***********************************************************************
+**ExistingFriendsTest
+CommandToCreateUser spongebob pw1 squarepants; spongebob:pw1:squarepants
+CommandToCreateUser patrick pw2 star; patrick:pw2:star
+CommandToCreateUser sandy pw3 cheeks; sandy:pw3:cheeks
+CommandToCreateUser squidward pw4 tentacles; squidward:pw4:tentacles
+CommandToCreateUser krabs pw5 eugene; krabs:pw5:eugene
+CommandToCreateUser plankton pw6 evil; plankton:pw6:evil
+CommandToSelectUser spongebob pw1;
+CommandToMakeFriendRequest <userID> squidward;
+CommandToMakeFriendRequest <userID> sandy;
+CommandToPersistChanges;
+CommandToSelectUser squidward pw4;
+CommandToAcceptFriendRequest <userID> spongebob;
+CommandToPersistChanges;
+CommandToSelectUser spongebob pw1;
+CommandToMakeFriendRequest <userID> spongebob;
+CommandToPersistChanges;
+***********************************************************************
