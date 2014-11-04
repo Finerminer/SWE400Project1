@@ -72,7 +72,6 @@ CommandToRetrieveFriendList <userID>; pikachu,ash
 ** Undo Changes
 CommandToSelectUser arcanine password3;
 CommandToUnFriend <userID> pikachu;
-CommandToRetrieveFriendList <userID>; ash
 CommandToUnFriend <userID> ash;
 CommandToRetrieveFriendList <userID>;
 CommandToPersistChanges;
@@ -171,7 +170,7 @@ CommandToRetrieveFriendList <userID>;
 CommandToSelectUser ga pw1;
 CommandToMakeFriendRequest <userID> pika;
 CommandToPersistChanges;
-CommandToSelectUser pika pw1;
+CommandToSelectUser pika pw2;
 CommandToMakeFriendRequest <userID> ga;
 CommandToPersistChanges;
 CommandToGetPendingOutgoingFriendList <userID>;
@@ -180,7 +179,7 @@ CommandToSelectUser ga pw1;
 CommandToAcceptFriendRequest <userID> pika;
 CommandToPersistChanges;
 CommandToRetrieveFriendList <userID>;
-CommandToSelectUser pika pw1;
+CommandToSelectUser pika pw2;
 CommandToRetrieveFriendList <userID>;
 ** Undo Changes
 CommandToUnFriend <userID> ga;
@@ -214,7 +213,7 @@ CommandToPersistChanges;
 CommandToSelectUser spongebob pw1;
 CommandToGetPendingIncomingFriendList <userID>; patrick,krabs
 CommandToMakeFriendRequest <userID> plankton;
-CommandToGetPendingOutgoingFriendList <userID>; sandy,plankton
+CommandToGetPendingOutgoingFriendList <userID>; plankton,sandy
 CommandToAcceptFriendRequest <userID> krabs;
 CommandToRetrieveFriendList <userID>; squidward,krabs
 CommandToGetPendingIncomingFriendList <userID>; patrick

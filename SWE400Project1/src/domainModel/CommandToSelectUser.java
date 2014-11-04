@@ -29,7 +29,12 @@ public class CommandToSelectUser implements Command
 	@Override
 	public void execute()
 	{		
-		UnitOfWork.getThread().findPerson(userName, password);
+		if(UnitOfWork.getThread() == null){
+			UnitOfWork.setThread(new UnitOfWork());
+			UnitOfWork.getThread().findPerson(userName, password);
+		}else{
+			UnitOfWork.getThread().findPerson(userName, password);
+		}
 	}
 
 	/**

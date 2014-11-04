@@ -45,14 +45,15 @@ public class CommandToGetPendingIncomingFriendList implements Command
 	public String getResult()
 	{
 		ArrayList<Friend> initialFriends = UnitOfWork.getThread().getPerson().getInitialIncomingFriends();
-		ArrayList<Friend> friends = UnitOfWork.getThread().getIncomingRequests();
+		ArrayList<Friend> friends = new ArrayList<Friend>();
 		
-		for(Friend f : UnitOfWork.getThread().getOutgoingRequests()) {
+		for(Friend f : UnitOfWork.getThread().getIncomingRequests()) {
 			friends.add(f);
 		}
 		
 		for(Friend f : initialFriends){
-			friends.add(f);
+			if(!UnitOfWork.getThread().getDeletedPendingRequests().contains(f))
+				friends.add(f);
 		}
 		
 		String result="";
@@ -67,7 +68,7 @@ public class CommandToGetPendingIncomingFriendList implements Command
 			}
 		}
 		return result;
-		//return UnitOfWork.getThread().printFriendsInLists(initialFriends, friends);
+		//return UnitOfWork.getThread().printFriendsInLists(initialFriends, UnitOfWork.getThread().getIncomingRequests());
 	}
 
 	/**
