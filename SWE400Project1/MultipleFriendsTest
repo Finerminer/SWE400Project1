@@ -1,31 +1,43 @@
-CommandToCreateUser ethan password finerminer; ethan:password:finerminer
-CommandToCreateUser ryan pw2 rweav; ryan:pw2:rweav
-CommandToCreateUser nate password3 nk; nate:password3:nk
-CommandToSelectUser nate password3;
+CommandToCreateUser pikachu password mouse; pikachu:password:mouse
+CommandToCreateUser ash pw2 trainer; ryan:pw2:rweav
+CommandToCreateUser arcanine password3 firetiger; arcanine:password3:firetiger
+CommandToSelectUser arcanine password3;
 CommandToGetPendingIncomingFriendList <userID>;
-CommandToMakeFriendRequest <userID> ethan;
-CommandToMakeFriendRequest <userID> ryan;
-CommandToGetPendingOutgoingFriendList <userID>; ethan,ryan
+CommandToMakeFriendRequest <userID> pikachu;
+CommandToMakeFriendRequest <userID> ash;
+CommandToGetPendingOutgoingFriendList <userID>; pikachu,ash
 CommandToPersistChanges;
-CommandToSelectUser ethan password;
+CommandToSelectUser pikachu password;
 CommandToRetrieveFriendList <userID>;
 CommandToGetPendingOutgoingFriendList <userID>;
-CommandToGetPendingIncomingFriendList <userID>; nate
-CommandToAcceptFriendRequest <userID> nate;
+CommandToGetPendingIncomingFriendList <userID>; arcanine
+CommandToAcceptFriendRequest <userID> arcanine;
 CommandToGetPendingIncomingFriendList <userID>;
-CommandToRetrieveFriendList <userID>; nate
+CommandToRetrieveFriendList <userID>; arcanine
 CommandToPersistChanges;
-CommandToSelectUser nate password3;
-CommandToRetrieveFriendList <userID>; ethan
-CommandToGetPendingOutgoingFriendList <userID>; ryan
+CommandToSelectUser arcanine password3;
+CommandToRetrieveFriendList <userID>; pikachu
+CommandToGetPendingOutgoingFriendList <userID>; ash
 CommandToGetPendingIncomingFriendList <userID>;
-CommandToSelectUser ryan pw2;
+CommandToSelectUser ash pw2;
 CommandToRetrieveFriendList <userID>;
 CommandToGetPendingOutgoingFriendList <userID>;
-CommandToGetPendingIncomingFriendList <userID>; nate
-CommandToAcceptFriendRequest <userID> nate;
-CommandToRetrieveFriendList <userID>; nate
+CommandToGetPendingIncomingFriendList <userID>; arcanine
+CommandToAcceptFriendRequest <userID> arcanine;
+CommandToRetrieveFriendList <userID>; arcanine
 CommandToGetPendingIncomingFriendList <userID>;
 CommandToPersistChanges;
-CommandToSelectUser nate password3;
-CommandToRetrieveFriendList <userID>; ethan,ryan
+CommandToSelectUser arcanine password3;
+CommandToRetrieveFriendList <userID>; pikachu,ash
+** Undo Changes
+CommandToSelectUser arcanine password3;
+CommandToUnFriend <userID> pikachu;
+CommandToRetrieveFriendList <userID>; ash
+CommandToUnFriend <userID> ash;
+CommandToRetrieveFriendList <userID>;
+CommandToPersistChanges;
+CommandToSelectUser ash pw2;
+CommandToRetrieveFriendList <userID>;
+CommandToSelectUser pikachu password;
+CommandToRetrieveFriendList <userID>;
+** End Test
