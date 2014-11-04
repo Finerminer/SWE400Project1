@@ -1,15 +1,15 @@
-CommandToCreateUser pepperoni pw1 ryanW; ryan:pw1:ryanW
-CommandToCreateUser thegrimdisaster pw2 circleflyer; frisbee:pw2:circleflyer;
-CommandToSelectUser pepperoni pw1;
+CommandToCreateUser mozzerela pw1 ryanW; mozzerela:pw1:ryanW
+CommandToCreateUser thegrimdisaster pw2 circleflyer; thegrimdisaster:pw2:circleflyer;
+CommandToSelectUser mozzerela pw1;
 CommandToMakeFriendRequest <userID> thegrimdisaster;
 CommandToPersistChanges;
 CommandToSelectUser thegrimdisaster pw2;
-CommandToGetPendingIncomingFriendList <userID>; pepperoni
-CommandToAcceptFriendRequest <userID> pepperoni;
+CommandToGetPendingIncomingFriendList <userID>; mozzerela
+CommandToAcceptFriendRequest <userID> mozzerela;
 CommandToPersistChanges;
-CommandToRetrieveFriendList <userID>; pepperoni
+CommandToRetrieveFriendList <userID>; mozzerela
 CommandToPersistChanges;
-CommandToSelectUser pepperoni pw1;
+CommandToSelectUser mozzerela pw1;
 CommandToRetrieveFriendList <userID>; thegrimdisaster
 CommandToPersistChanges;
 CommandToUnFriend <userID> thegrimdisaster;
