@@ -1,0 +1,209 @@
+***********************************************************************
+**CancelChangesTest
+CommandToSelectUser Newton pw1;
+CommandToMakeFriendRequest <userID> Euclid;
+CommandToPersistChanges;
+CommandToSelectUser Euclid pw2;
+CommandToGetPendingIncomingFriendList <userID>; Newton
+CommandToAcceptFriendRequest <userID> Newton;
+CommandToPersistChanges;
+CommandToSelectUser Newton pw1;
+CommandToRetrieveFriendList <userID>; Euclid
+CommandToUnFriend <userID> Euclid;
+CommandToRetrieveFriendList <userID>;
+CommandToCancelChanges;
+CommandToRetrieveFriendList <userID>; Euclid
+** Undo Changes
+CommandToUnFriend <userID> Euclid;
+CommandToPersistChanges;
+** End Test
+***********************************************************************
+**CreateUserTest
+CommandToSelectUser ga pw1;
+CommandToGetPendingOutgoingFriendList <userID>;
+CommandToGetPendingIncomingFriendList <userID>;
+CommandToRetrieveFriendList <userID>;
+CommandToPersistChanges;
+**End Test
+***********************************************************************
+**ModifyUserTest
+CommandToSelectUser pepperoni pw1;
+CommandToModifyUser <userID> scapegoat666;
+CommandToPersistChanges;
+CommandToModifyUser <userID> toenails;
+CommandToModifyUser <userID> gutteraljuice;
+CommandToModifyUser <userID> bobandweaver;
+CommandToPersistChanges;
+CommandToModifyUser <userID> gettindatbooty;
+CommandToCancelChanges;
+CommandToModifyUser <userID> ryanW;
+CommandToPersistChanges;
+** End Test
+***********************************************************************
+**MultipleFriendsTest
+CommandToSelectUser arcanine password3;
+CommandToGetPendingIncomingFriendList <userID>;
+CommandToMakeFriendRequest <userID> pikachu;
+CommandToMakeFriendRequest <userID> ash;
+CommandToGetPendingOutgoingFriendList <userID>; pikachu,ash
+CommandToPersistChanges;
+CommandToSelectUser pikachu password;
+CommandToRetrieveFriendList <userID>;
+CommandToGetPendingOutgoingFriendList <userID>;
+CommandToGetPendingIncomingFriendList <userID>; arcanine
+CommandToAcceptFriendRequest <userID> arcanine;
+CommandToGetPendingIncomingFriendList <userID>;
+CommandToRetrieveFriendList <userID>; arcanine
+CommandToPersistChanges;
+CommandToSelectUser arcanine password3;
+CommandToRetrieveFriendList <userID>; pikachu
+CommandToGetPendingOutgoingFriendList <userID>; ash
+CommandToGetPendingIncomingFriendList <userID>;
+CommandToSelectUser ash pw2;
+CommandToRetrieveFriendList <userID>;
+CommandToGetPendingOutgoingFriendList <userID>;
+CommandToGetPendingIncomingFriendList <userID>; arcanine
+CommandToAcceptFriendRequest <userID> arcanine;
+CommandToRetrieveFriendList <userID>; arcanine
+CommandToGetPendingIncomingFriendList <userID>;
+CommandToPersistChanges;
+CommandToSelectUser arcanine password3;
+CommandToRetrieveFriendList <userID>; pikachu,ash
+** Undo Changes
+CommandToSelectUser arcanine password3;
+CommandToUnFriend <userID> pikachu;
+CommandToRetrieveFriendList <userID>; ash
+CommandToUnFriend <userID> ash;
+CommandToRetrieveFriendList <userID>;
+CommandToPersistChanges;
+CommandToSelectUser ash pw2;
+CommandToRetrieveFriendList <userID>;
+CommandToSelectUser pikachu password;
+CommandToRetrieveFriendList <userID>;
+** End Test
+***********************************************************************
+**NatesTest
+CommandToSelectUser Washington pw1;
+CommandToMakeFriendRequest <userID> Mussolini;
+CommandToGetPendingOutgoingFriendList <userID>; Mussolini
+CommandToPersistChanges;
+CommandToSelectUser Mussolini pw2;
+CommandToGetPendingIncomingFriendList <userID>; Washington
+CommandToAcceptFriendRequest <userID> Washington;
+CommandToGetPendingIncomingFriendList <userID>;
+CommandToRetrieveFriendList <userID>; Washington
+CommandToPersistChanges;
+CommandToPersistChanges;
+CommandToSelectUser KungUn pw1;
+CommandToGetPendingOutgoingFriendList <userID>; 
+CommandToMakeFriendRequest <userID> Buchanan;
+CommandToPersistChanges;
+CommandToGetPendingOutgoingFriendList <userID>; Buchanan
+CommandToGetPendingIncomingFriendList <userID>;
+CommandToRetrieveFriendList <userID>;
+CommandToSelectUser Buchanan pw2;
+CommandToGetPendingIncomingFriendList <userID>; KungUn
+CommandToAcceptFriendRequest <userID> KungUn;
+CommandToRetrieveFriendList <userID>; KungUn
+CommandToCancelChanges;
+CommandToRetrieveFriendList <userID>;
+CommandToSelectUser Mussolini pw2;
+CommandToRetrieveFriendList <userID>; Washington
+CommandToGetPendingOutgoingFriendList <userID>;
+CommandToPersistChanges;
+CommandToSelectUser QueenElizabeth pw3;
+CommandToMakeFriendRequest <userID> Washington;
+CommandToPersistChanges;
+CommandToGetPendingOutgoingFriendList <userID>; Washington
+CommandToSelectUser Washington pw1;
+CommandToGetPendingIncomingFriendList <userID>; QueenElizabeth
+CommandToUnFriend <userID> Mussolini;
+CommandToPersistChanges;
+CommandToRetrieveFriendList <userID>;
+CommandToAcceptFriendRequest <userID> QueenElizabeth;
+CommandToPersistChanges;
+CommandToRetrieveFriendList <userID> QueenElizabeth;
+** Undo Changes
+CommandToSelectUser Buchanan pw2;
+CommandToRejectFriendRequest <userID> KungUn;
+CommandToPersistChanges;
+CommandToSelectUser Washington pw1;
+CommandToUnFriend <userID> QueenElizabeth;
+CommandToPersistChanges;
+** End Test
+***********************************************************************
+**PersistChangesTest
+CommandToSelectUser mozzerella pw1;
+CommandToMakeFriendRequest <userID> thegrimdisaster;
+CommandToPersistChanges;
+CommandToSelectUser thegrimdisaster pw2;
+CommandToGetPendingIncomingFriendList <userID>; mozzerella
+CommandToAcceptFriendRequest <userID> mozzerella;
+CommandToPersistChanges;
+CommandToRetrieveFriendList <userID>; mozzerella
+CommandToPersistChanges;
+CommandToSelectUser mozzerella pw1;
+CommandToRetrieveFriendList <userID>; thegrimdisaster
+CommandToPersistChanges;
+** Undo Changes
+CommandToUnFriend <userID> thegrimdisaster;
+CommandToPersistChanges;
+** End Test
+***********************************************************************
+**RejectFriendRequestTest
+CommandToSelectUser charmander pw2;
+CommandToMakeFriendRequest <userID> squirtle;
+CommandToGetPendingOutgoingFriendList <userID>; squirtle
+CommandToPersistChanges;
+CommandToSelectUser squirtle password;
+CommandToGetPendingIncomingFriendList <userID>; charmander
+CommandToRejectFriendRequest <userID> charmander;
+CommandToGetPendingIncomingFriendList <userID>;
+CommandToRetrieveFriendList <userID>;
+CommandToPersistChanges;
+CommandToSelectUser charmander pw2;
+CommandToGetPendingOutgoingFriendList <userID>;
+CommandToRetrieveFriendList <userID>;
+** Nothing to Undo
+** End Test
+***********************************************************************
+**SelectUserTest
+CommandToSelectUser ga pw1;
+CommandToMakeFriendRequest <userID> pika;
+CommandToPersistChanges;
+CommandToSelectUser pika pw1;
+CommandToMakeFriendRequest <userID> ga;
+CommandToPersistChanges;
+CommandToGetPendingOutgoingFriendList <userID>;
+CommandToGetPendingIncomingFriendList <userID>;
+CommandToSelectUser ga pw1;
+CommandToAcceptFriendRequest <userID> pika;
+CommandToPersistChanges;
+CommandToRetrieveFriendList <userID>;
+CommandToSelectUser pika pw1;
+CommandToRetrieveFriendList <userID>;
+** Undo Changes
+CommandToUnFriend <userID> ga;
+CommandToSelectUser ga pw1;
+CommandToUnFriend <userID> pika;
+CommandToPersistChanges;
+** End Test
+***********************************************************************
+**UnfriendTest
+CommandToSelectUser Euler pw1;
+CommandToMakeFriendRequest <userID> Archimedes;
+CommandToPersistChanges;
+CommandToSelectUser Archimedes pw2;
+CommandToGetPendingIncomingFriendList <userID>; Euler
+CommandToAcceptFriendRequest <userID> Euler;
+CommandToPersistChanges;
+CommandToSelectUser Euler pw1;
+CommandToRetrieveFriendList <userID>; Archimedes
+CommandToUnFriend <userID> Archimedes;
+CommandToPersistChanges;
+CommandToRetrieveFriendList <userID>;
+CommandToSelectUser Archimedes pw2;
+CommandToRetrieveFriendList <userID>;
+** Nothing to undo
+** End Test
+***********************************************************************

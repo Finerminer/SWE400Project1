@@ -1,4 +1,3 @@
-CommandToCreateUser ryan pw1 ryanW; ryan:pw1:ryanW 
 CommandToSelectUser pepperoni pw1;
 CommandToModifyUser <userID> scapegoat666;
 CommandToPersistChanges;
@@ -8,6 +7,6 @@ CommandToModifyUser <userID> bobandweaver;
 CommandToPersistChanges;
 CommandToModifyUser <userID> gettindatbooty;
 CommandToCancelChanges;
-CommandToModifyUser <userID> scapegoat666;
+CommandToModifyUser <userID> ryanW;
 CommandToPersistChanges;
 ** End Test

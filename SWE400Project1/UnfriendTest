@@ -1,6 +1,3 @@
-CommandToCreateUser Euler pw1 euler1234; Euler:pw1:euler1234
-CommandToCreateUser Archimedes pw2 archimedes5678; Archimedes:pw2:archimedes5678
-
 CommandToSelectUser Euler pw1;
 CommandToMakeFriendRequest <userID> Archimedes;
 CommandToPersistChanges;
@@ -15,8 +12,5 @@ CommandToPersistChanges;
 CommandToRetrieveFriendList <userID>;
 CommandToSelectUser Archimedes pw2;
 CommandToRetrieveFriendList <userID>;
-**
-Nothing to undo
-**
-
-End Test
+** Nothing to undo
+** End Test

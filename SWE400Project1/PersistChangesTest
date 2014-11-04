@@ -1,17 +1,16 @@
-CommandToCreateUser mozzerela pw1 ryanW; mozzerela:pw1:ryanW
-CommandToCreateUser thegrimdisaster pw2 circleflyer; thegrimdisaster:pw2:circleflyer;
-CommandToSelectUser mozzerela pw1;
+CommandToSelectUser mozzerella pw1;
 CommandToMakeFriendRequest <userID> thegrimdisaster;
 CommandToPersistChanges;
 CommandToSelectUser thegrimdisaster pw2;
-CommandToGetPendingIncomingFriendList <userID>; mozzerela
-CommandToAcceptFriendRequest <userID> mozzerela;
+CommandToGetPendingIncomingFriendList <userID>; mozzerella
+CommandToAcceptFriendRequest <userID> mozzerella;
 CommandToPersistChanges;
-CommandToRetrieveFriendList <userID>; mozzerela
+CommandToRetrieveFriendList <userID>; mozzerella
 CommandToPersistChanges;
-CommandToSelectUser mozzerela pw1;
+CommandToSelectUser mozzerella pw1;
 CommandToRetrieveFriendList <userID>; thegrimdisaster
 CommandToPersistChanges;
+** Undo Changes
 CommandToUnFriend <userID> thegrimdisaster;
 CommandToPersistChanges;
 ** End Test

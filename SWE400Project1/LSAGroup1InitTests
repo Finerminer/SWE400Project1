@@ -1,0 +1,39 @@
+***********************************************************************
+**CancelChangesTest
+CommandToCreateUser Newton pw1 newton1234; Newton:pw1:newton1234 
+CommandToCreateUser Euclid pw2 euclid5678; Euclid:pw2:euclid5678
+***********************************************************************
+**CreateUserTest
+CommandToCreateUser ga pw1 ga1234; ga:pw1:ga1234
+***********************************************************************
+**ModifyUserTest
+CommandToCreateUser pepperoni pw1 ryanW; pepperoni:pw1:ryanW
+***********************************************************************
+**MultipleFriendsTest
+CommandToCreateUser pikachu password mouse; pikachu:password:mouse
+CommandToCreateUser ash pw2 trainer; ryan:pw2:rweav
+CommandToCreateUser arcanine password3 firetiger; arcanine:password3:firetiger
+***********************************************************************
+**NatesTest
+CommandToCreateUser Washington pw1 Washington; Washington:pw1:Washington
+CommandToCreateUser Mussolini pw2 Mussolini; Mussolini:pw2:Mussolini
+CommandToCreateUser KungUn pw1 KungUn; KungUn:pw1:KungUn
+CommandToCreateUser Buchanan pw2 Buchanan; Buchanan:pw2:Buchanan
+CommandToCreateUser QueenElizabeth pw3 QueenElizabeth; QueenElizabeth:pw3:QueenElizabeth
+***********************************************************************
+**PersistChangesTest
+CommandToCreateUser mozzerella pw1 ryanW; mozzerela:pw1:ryanW
+CommandToCreateUser thegrimdisaster pw2 circleflyer; thegrimdisaster:pw2:circleflyer
+***********************************************************************
+**RejectFriendRequestTest
+CommandToCreateUser squirtle password turtle; squirtle:password:turtle
+CommandToCreateUser charmander pw2 salamander; charmander:pw2:salamander
+***********************************************************************
+**SelectUserTest
+CommandToCreateUser ga pw1 ga1234; ga:pw1:ga1234
+CommandToCreateUser pika pw2 pika5678; pika:pw2:pika5678
+***********************************************************************
+*UnfriendTest
+CommandToCreateUser Euler pw1 euler1234; Euler:pw1:euler1234
+CommandToCreateUser Archimedes pw2 archimedes5678; Archimedes:pw2:archimedes5678
+***********************************************************************

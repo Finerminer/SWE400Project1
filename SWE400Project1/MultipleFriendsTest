@@ -1,6 +1,3 @@
-CommandToCreateUser pikachu password mouse; pikachu:password:mouse
-CommandToCreateUser ash pw2 trainer; ryan:pw2:rweav
-CommandToCreateUser arcanine password3 firetiger; arcanine:password3:firetiger
 CommandToSelectUser arcanine password3;
 CommandToGetPendingIncomingFriendList <userID>;
 CommandToMakeFriendRequest <userID> pikachu;

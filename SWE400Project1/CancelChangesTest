@@ -1,6 +1,3 @@
-CommandToCreateUser Newton pw1 newton1234; Newton:pw1:newton1234 
-CommandToCreateUser Euclid pw2 euclid5678; Euclid:pw2:euclid5678
-
 CommandToSelectUser Newton pw1;
 CommandToMakeFriendRequest <userID> Euclid;
 CommandToPersistChanges;
@@ -14,9 +11,7 @@ CommandToUnFriend <userID> Euclid;
 CommandToRetrieveFriendList <userID>;
 CommandToCancelChanges;
 CommandToRetrieveFriendList <userID>; Euclid
-**
+** Undo Changes
 CommandToUnFriend <userID> Euclid;
 CommandToPersistChanges;
-**
-
-End Test
+** End Test

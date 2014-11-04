@@ -1,8 +1,3 @@
-CommandToCreateUser Washington pw1 Washington; Washington:pw1:Washington
-CommandToCreateUser Mussolini pw2 Mussolini; Mussolini:pw2:Mussolini
-CommandToCreateUser KungUn pw1 KungUn; KungUn:pw1:KungUn
-CommandToCreateUser Buchanan pw2 Buchanan; Buchanan:pw2:Buchanan
-CommandToCreateUser QueenElizabeth pw3 QueenElizabeth; QueenElizabeth:pw3:QueenElizabeth
 CommandToSelectUser Washington pw1;
 CommandToMakeFriendRequest <userID> Mussolini;
 CommandToGetPendingOutgoingFriendList <userID>; Mussolini
@@ -50,3 +45,4 @@ CommandToPersistChanges;
 CommandToSelectUser Washington pw1;
 CommandToUnFriend <userID> QueenElizabeth;
 CommandToPersistChanges;
+** End Test

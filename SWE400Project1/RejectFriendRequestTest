@@ -1,5 +1,3 @@
-CommandToCreateUser squirtle password turtle; squirtle:password:turtle
-CommandToCreateUser charmander pw2 salamander; charmander:pw2:salamander
 CommandToSelectUser charmander pw2;
 CommandToMakeFriendRequest <userID> squirtle;
 CommandToGetPendingOutgoingFriendList <userID>; squirtle

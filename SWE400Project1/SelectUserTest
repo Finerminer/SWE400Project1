@@ -1,5 +1,3 @@
-CommandToCreateUser ga pw1 ga1234; ga:pw1:ga1234
-CommandToCreateUser pika pw2 pika5678; pika:pw2:pika5678
 CommandToSelectUser ga pw1;
 CommandToMakeFriendRequest <userID> pika;
 CommandToPersistChanges;
@@ -14,8 +12,9 @@ CommandToPersistChanges;
 CommandToRetrieveFriendList <userID>;
 CommandToSelectUser pika pw1;
 CommandToRetrieveFriendList <userID>;
-**
+** Undo Changes
 CommandToUnFriend <userID> ga;
 CommandToSelectUser ga pw1;
 CommandToUnFriend <userID> pika;
 CommandToPersistChanges;
+** End Test
