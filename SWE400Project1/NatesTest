@@ -1,46 +1,52 @@
-CommandToCreateUser nk3668 pw1 nk3668; nk3668:pw1:nk3668
-CommandToCreateUser rw8384 pw2 rw8384; rw8384:pw2:rw8384
-CommandToSelectUser nk3668 pw1;
-CommandToMakeFriendRequest <userID> rw8384;
-CommandToGetPendingOutgoingFriendList <userID>; rw8384
+CommandToCreateUser Washington pw1 Washington; Washington:pw1:Washington
+CommandToCreateUser Mussolini pw2 Mussolini; Mussolini:pw2:Mussolini
+CommandToCreateUser KungUn pw1 KungUn; KungUn:pw1:KungUn
+CommandToCreateUser Buchanan pw2 Buchanan; Buchanan:pw2:Buchanan
+CommandToCreateUser QueenElizabeth pw3 QueenElizabeth; QueenElizabeth:pw3:QueenElizabeth
+CommandToSelectUser Washington pw1;
+CommandToMakeFriendRequest <userID> Mussolini;
+CommandToGetPendingOutgoingFriendList <userID>; Mussolini
 CommandToPersistChanges;
-CommandToSelectUser rw8384 pw2;
-CommandToGetPendingIncomingFriendList <userID>; nk3668
-CommandToAcceptFriendRequest <userID> nk3668;
+CommandToSelectUser Mussolini pw2;
+CommandToGetPendingIncomingFriendList <userID>; Washington
+CommandToAcceptFriendRequest <userID> Washington;
 CommandToGetPendingIncomingFriendList <userID>;
-CommandToRetrieveFriendList <userID>; nk3668
+CommandToRetrieveFriendList <userID>; Washington
 CommandToPersistChanges;
-CommandToCreateUser gl8389 pw1 gl8389; gl8389:pw1:gl8389
-CommandToCreateUser ew2288 pw2 ew2288; ew2288:pw2:ew2288
 CommandToPersistChanges;
-CommandToSelectUser gl8389 pw1;
+CommandToSelectUser KungUn pw1;
 CommandToGetPendingOutgoingFriendList <userID>; 
-CommandToMakeFriendRequest <userID> ew2288;
+CommandToMakeFriendRequest <userID> Buchanan;
 CommandToPersistChanges;
-CommandToGetPendingOutgoingFriendList <userID>; ew2288
+CommandToGetPendingOutgoingFriendList <userID>; Buchanan
 CommandToGetPendingIncomingFriendList <userID>;
 CommandToRetrieveFriendList <userID>;
-CommandToSelectUser ew2288 pw2;
-CommandToGetPendingIncomingFriendList <userID>; gl8389
-CommandToAcceptFriendRequest <userID> gl8389;
-CommandToRetrieveFriendList <userID>; gl8389
+CommandToSelectUser Buchanan pw2;
+CommandToGetPendingIncomingFriendList <userID>; KungUn
+CommandToAcceptFriendRequest <userID> KungUn;
+CommandToRetrieveFriendList <userID>; KungUn
 CommandToCancelChanges;
 CommandToRetrieveFriendList <userID>;
-CommandToSelectUser rw8384 pw2;
-CommandToRetrieveFriendList <userID>; nk3668
+CommandToSelectUser Mussolini pw2;
+CommandToRetrieveFriendList <userID>; Washington
 CommandToGetPendingOutgoingFriendList <userID>;
-CommandToCreateUser ld7894 pw3 ld7894; ld7894:pw3:ld7894
 CommandToPersistChanges;
-CommandToSelectUser ld7894 pw3;
-CommandToMakeFriendRequest <userID> nk3668;
+CommandToSelectUser QueenElizabeth pw3;
+CommandToMakeFriendRequest <userID> Washington;
 CommandToPersistChanges;
-CommandToGetPendingOutgoingFriendList <userID>; nk3668
-CommandToGetPendingOutgoingFriendList <userID> nk3668;
-CommandToSelectUser nk3668 pw1;
-CommandToGetPendingIncomingFriendList <userID>; ld7894
-CommandToUnFriend <userID> rw8384;
+CommandToGetPendingOutgoingFriendList <userID>; Washington
+CommandToSelectUser Washington pw1;
+CommandToGetPendingIncomingFriendList <userID>; QueenElizabeth
+CommandToUnFriend <userID> Mussolini;
 CommandToPersistChanges;
 CommandToRetrieveFriendList <userID>;
-CommandToAcceptFriendRequest <userID> ld7894;
+CommandToAcceptFriendRequest <userID> QueenElizabeth;
 CommandToPersistChanges;
-CommandToRetrieveFriendList <userID> ld7894;
+CommandToRetrieveFriendList <userID> QueenElizabeth;
+** Undo Changes
+CommandToSelectUser Buchanan pw2;
+CommandToRejectFriendRequest <userID> KungUn;
+CommandToPersistChanges;
+CommandToSelectUser Washington pw1;
+CommandToUnFriend <userID> QueenElizabeth;
+CommandToPersistChanges;

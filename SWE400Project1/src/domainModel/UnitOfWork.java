@@ -66,13 +66,8 @@ public class UnitOfWork {
 			if( (!isFriendInThisList(deletedPendingRequest, friend.getUserName())) &&
 				(!isFriendInThisList(newFriends, friend.getUserName())) &&
 				(!isFriendInThisList(deletedFriends, friend.getUserName())) ){
-				// TODO: not deleting friend even when a match is found. I think its because the friends id's do not match
 				removeFriendInArrayList(incomingRequests, friend.getUserName());
 				removeFriendInArrayList(outgoingRequests, friend.getUserName());
-				
-				//incomingRequests.remove(friend);
-				//outgoingRequests.remove(friend);
-				
 				deletedPendingRequest.add(friend);
 				newFriends.add(friend);	
 			}

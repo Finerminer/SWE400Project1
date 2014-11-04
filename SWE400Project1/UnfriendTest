@@ -1,16 +1,22 @@
-CommandToCreateUser jane pw1 jane1234; jane:pw1:jane1234 
-CommandToCreateUser sally pw2 sally5678; sally:pw2:sally5678
-CommandToSelectUser jane pw1;
-CommandToMakeFriendRequest <userID> sally;
+CommandToCreateUser Euler pw1 euler1234; Euler:pw1:euler1234
+CommandToCreateUser Archimedes pw2 archimedes5678; Archimedes:pw2:archimedes5678
+
+CommandToSelectUser Euler pw1;
+CommandToMakeFriendRequest <userID> Archimedes;
 CommandToPersistChanges;
-CommandToSelectUser sally pw2;
-CommandToGetPendingIncomingFriendList <userID>; jane
-CommandToAcceptFriendRequest <userID> jane;
+CommandToSelectUser Archimedes pw2;
+CommandToGetPendingIncomingFriendList <userID>; Euler
+CommandToAcceptFriendRequest <userID> Euler;
 CommandToPersistChanges;
-CommandToSelectUser jane pw1;
-CommandToRetrieveFriendList <userID>; sally
-CommandToUnFriend <userID> sally;
+CommandToSelectUser Euler pw1;
+CommandToRetrieveFriendList <userID>; Archimedes
+CommandToUnFriend <userID> Archimedes;
 CommandToPersistChanges;
 CommandToRetrieveFriendList <userID>;
-CommandToSelectUser sally pw2;
+CommandToSelectUser Archimedes pw2;
 CommandToRetrieveFriendList <userID>;
+**
+Nothing to undo
+**
+
+End Test
