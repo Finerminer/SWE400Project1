@@ -15,6 +15,7 @@ public class UnitOfWork {
 	
 	public Person findPerson(String username, String password)
 	{
+		this.clearFriendsLists();
 		Person p = mapper.find(username, password);
 		if(p != null)
 		{
@@ -210,11 +211,11 @@ public class UnitOfWork {
 	 * and passes it the persons userId and friends ? 
 	 */
 	private void updatePending() {
-		for(Friend f: incomingRequests)
+		/*for(Friend f: incomingRequests)
 		{
 			System.out.println("Person: " + person.getUsername() + " " + person.getUserID() + " has a request from Friend: " + f.getUserName());
 			mapper.addIncomingRequest(person.getUserID(), f.getUserName());
-		}
+		}*/
 		for(Friend f: outgoingRequests)
 		{
 			System.out.println("Person: " + person.getUsername() + " " + person.getUserID() + " sent a request to Friend: " + f.getUserName());

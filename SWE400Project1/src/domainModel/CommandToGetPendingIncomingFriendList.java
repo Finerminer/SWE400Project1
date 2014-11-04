@@ -47,6 +47,10 @@ public class CommandToGetPendingIncomingFriendList implements Command
 		ArrayList<Friend> initialFriends = UnitOfWork.getThread().getPerson().getInitialIncomingFriends();
 		ArrayList<Friend> friends = UnitOfWork.getThread().getIncomingRequests();
 		
+		for(Friend f : UnitOfWork.getThread().getOutgoingRequests()) {
+			friends.add(f);
+		}
+		
 		for(Friend f : initialFriends){
 			friends.add(f);
 		}
