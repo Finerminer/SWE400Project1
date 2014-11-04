@@ -1,16 +1,22 @@
-CommandToCreateUser jane pw1 jane1234; jane:pw1:jane1234 
-CommandToCreateUser sally pw2 sally5678; sally:pw2:sally5678
-CommandToSelectUser jane pw1;
-CommandToMakeFriendRequest <userID> sally;
+CommandToCreateUser Newton pw1 newton1234; Newton:pw1:newton1234 
+CommandToCreateUser Euclid pw2 euclid5678; Euclid:pw2:euclid5678
+
+CommandToSelectUser Newton pw1;
+CommandToMakeFriendRequest <userID> Euclid;
 CommandToPersistChanges;
-CommandToSelectUser sally pw2;
-CommandToGetPendingIncomingFriendList <userID>; jane
-CommandToAcceptFriendRequest <userID> jane;
+CommandToSelectUser Euclid pw2;
+CommandToGetPendingIncomingFriendList <userID>; Newton
+CommandToAcceptFriendRequest <userID> Newton;
 CommandToPersistChanges;
-CommandToSelectUser jane pw1;
-CommandToRetrieveFriendList <userID>; sally
-CommandToUnFriend <userID> sally;
+CommandToSelectUser Newton pw1;
+CommandToRetrieveFriendList <userID>; Euclid
+CommandToUnFriend <userID> Euclid;
 CommandToRetrieveFriendList <userID>;
 CommandToCancelChanges;
+CommandToRetrieveFriendList <userID>; Euclid
+**
+CommandToUnFriend <userID> Euclid;
 CommandToPersistChanges;
-CommandToRetrieveFriendList <userID>; sally
+**
+
+End Test
