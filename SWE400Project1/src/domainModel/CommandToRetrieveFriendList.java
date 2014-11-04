@@ -11,6 +11,7 @@ import java.util.ArrayList;
 public class CommandToRetrieveFriendList implements Command
 {
 
+	@SuppressWarnings("unused")
 	private int userID;
 
 	/**
@@ -38,10 +39,32 @@ public class CommandToRetrieveFriendList implements Command
 	 * @see Command#getResult()
 	 */
 	@Override
-	public ArrayList<Friend> getResult()
+	public String getResult()
 	{
-		// TODO Auto-generated method stub
-		return null;
+		ArrayList<Friend> initialfriends = UnitOfWork.getThread().getPerson().getInitialFriends();
+		ArrayList<Friend> newFriends = UnitOfWork.getThread().getNewFriends();
+		ArrayList<Friend> deletedFriends = UnitOfWork.getThread().getDeletedFriends();
+		
+		for(Friend f : deletedFriends) {
+			initialfriends.remove(f);
+		}
+		for(Friend f : newFriends) {
+			initialfriends.add(f);
+		}
+		
+		String result = "";
+		Boolean first = true;
+		for(Friend f : initialfriends)
+		{
+			if(first) {
+				result = result + f.getUserName();
+				first = false;
+			} else {
+				result+= "," + f.getUserName();
+			}
+		}
+		return result;
+		//return UnitOfWork.getThread().printFriendsInLists(initialFriends, friends);
 	}
 
 }

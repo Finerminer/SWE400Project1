@@ -49,7 +49,7 @@ public class CommandToSelectUser implements Command
 	 * @see Command#getResult()
 	 */
 	@Override
-	public Person getResult()
+	public Object getResult()
 	{
 		return UnitOfWork.getThread().getPerson();
 	}

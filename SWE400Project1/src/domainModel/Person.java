@@ -2,9 +2,9 @@ package domainModel;
 import java.util.ArrayList;
 
 public class Person {
-	private ArrayList<Friend> friends = new ArrayList<Friend>();
-	private ArrayList<Friend> incomingFriends = new ArrayList<Friend>();
-	private ArrayList<Friend> outgoingFriends = new ArrayList<Friend>();
+	private ArrayList<Friend> initialFriends = new ArrayList<Friend>();
+	private ArrayList<Friend> initialIncomingFriends = new ArrayList<Friend>();
+	private ArrayList<Friend> initialOutgoingFriends = new ArrayList<Friend>();
 
 	private String username;
 	private String password;
@@ -22,19 +22,7 @@ public class Person {
 	public String getPassword(){
 		return password;
 	}
-	
-	public ArrayList<Friend> getFriends(){
-		return friends;
-	}
-	
-	public ArrayList<Friend> getIncomingFriends(){
-		return incomingFriends;
-	}
-	
-	public ArrayList<Friend> getOutgoingFriends(){
-		return outgoingFriends;
-	}
-	
+		
 	public void setUsername(String username) {
 		this.username = username;
 	}
@@ -55,83 +43,105 @@ public class Person {
 		this.displayName = displayName;
 	}
 	
+	public ArrayList<Friend> getInitialFriends(){
+		return initialFriends;
+	}
+	
+	public ArrayList<Friend> getInitialIncomingFriends(){
+		return initialIncomingFriends;
+	}
+	
+	public ArrayList<Friend> getInitialOutgoingFriends(){
+		return initialOutgoingFriends;
+	}
+	
+	public void loadInitialFriends(ArrayList<Friend> loadFriends) {
+		this.initialFriends = loadFriends;
+	}
+	
+	public void loadInitialIncomingRequests(ArrayList<Friend> friends) {
+		this.initialIncomingFriends = friends;
+	}
+
+	public void loadInitialOutgoingRequests(ArrayList<Friend> friends) {
+		this.initialOutgoingFriends = friends;
+	}
+	
 	public String toString()
 	{
 		return username + ":" + password + ":" + displayName;
 	}
-	
-	/**
-	 * Marks a friend as new
-	 * @param f a new friend 
-	 */
-	private void markNew(Friend f){
-		UnitOfWork.getThread().registerNewFriend(f);
-	}
-	
-	/**
-	 * Marks a friend as a incomingRequest
-	 * @param f the requester  
-	 */
-	private void markIncoming(Friend f){
-		UnitOfWork.getThread().registerIncomingRequest(f);
-	}
-	
-	/**
-	 * Marks a friend as a outgoingRequest
-	 * @param f the requested friend 
-	 */
-	private void markOutgoing(Friend f){
-		UnitOfWork.getThread().registerOutgoingRequests(f);
-	}
-	
-	/**
-	 * Marks a friend as deleted
-	 * @param f a deleted friend
-	 */
-	private void markRemoved(Friend f){
-		UnitOfWork.getThread().registerDeletedFriend(f);
-	}
-	
-	public void makeFriendRequest(int userIDOfRequester, String userNameOfRequestee, String displayNameOfRequestee){
-		if(!checkCurrent(userIDOfRequester)){
-		}else{
-			Friend f = new Friend(userNameOfRequestee, displayNameOfRequestee); 
-			outgoingFriends.add(f);
-			markOutgoing(f);
-		}
-	}
 
-	public void acceptFriendRequest(int userIDOfRequestee, String userNameOfRequester, String displayNameOfRequester) {
-		if(!checkCurrent(userIDOfRequestee)){
-		}else{
-			Friend f = new Friend(userNameOfRequester, displayNameOfRequester);
-			friends.add(f);
-			markNew(f);
-		}
-	}
+//	/**
+//	 * Marks a friend as new
+//	 * @param f a new friend 
+//	 */
+//	private void markNew(Friend f){
+//		UnitOfWork.getThread().registerNewFriend(f);
+//	}
+//	
+//	/**
+//	 * Marks a friend as a outgoingRequest
+//	 * @param f the requested friend 
+//	 */
+//	private void markOutgoing(Friend f){
+//		UnitOfWork.getThread().registerOutgoingRequests(f);
+//	}
+//	
+//	/**
+//	 * Marks a friend as deleted
+//	 * @param f a deleted friend
+//	 */
+//	private void markRemoved(Friend f){
+//		UnitOfWork.getThread().registerDeletedFriend(f);
+//	}
+//	
+//	private void markRemovePending(Friend f){
+//		UnitOfWork.getThread().registerDeletedPendingRequest(f);
+//	}
 	
-	public void deleteFriendInList(int userIDOfRequester, String userNameOfRequestee, String displayNameOfRequestee) {
-		if(!checkCurrent(userIDOfRequester)){
-		}else{
-			Friend f = new Friend(userNameOfRequestee, displayNameOfRequestee); 
-			friends.remove(f);
-			markRemoved(f);
-		}
-	}
+//	public void makeFriendRequest(int userIDOfRequester, String userNameOfRequestee, String displayNameOfRequestee){
+//		Friend f = new Friend(userNameOfRequestee, displayNameOfRequestee); 
+//		markOutgoing(f);
+//	}
+//	
+//	public void accepted(String userNameOfRequestee, String displayNameOfRequestee) {
+//		Friend f = new Friend(userNameOfRequestee, displayNameOfRequestee);
+//		initialOutgoingFriends.remove(f);
+//	}
+//	
+//	public void acceptFriendRequest(int userIDOfRequester, String userNameOfRequestee, String displayNameOfRequestee) {
+//		if(!checkCurrent(userIDOfRequester)){
+//		}else{
+//			Friend f = new Friend(userNameOfRequestee, displayNameOfRequestee);
+//			markNew(f);
+//			markRemovePending(f);
+//		}
+//	}
+//	
+//	public void deleteFriendInList(int userIDOfRequester, String userNameOfRequestee, String displayNameOfRequestee) {
+//		if(!checkCurrent(userIDOfRequester)){
+//		}else{
+//			Friend f = new Friend(userNameOfRequestee, displayNameOfRequestee); 
+//			markRemoved(f);
+//		}
+//	}
 	
-	public boolean checkCurrent(int userIDOfRequester){
-		if(userIDOfRequester==this.userID)
-			return true;
-		else
-			return false;
-	}
+	
+//	public boolean checkCurrent(int userIDOfRequester){
+//		if(userIDOfRequester==this.userID)
+//			return true;
+//		else
+//			return false;
+//	}
 
-	public void rejectFriendRequest(int userIDOfRequestee, String userNameOfRequester, String displayNameOfRequester) {
-		if(!checkCurrent(userIDOfRequestee)){	
-		}else{
-			Friend f = new Friend(userNameOfRequester, displayNameOfRequester);
-			incomingFriends.remove(f);
-			markRemoved(f);
-		}
-	}
+
+//	public void rejectFriendRequest(int userIDOfRequestee, String userNameOfRequester, String displayNameOfRequester) {
+//		if(!checkCurrent(userIDOfRequestee)){	
+//		}else{
+//			Friend f = new Friend(userNameOfRequester, displayNameOfRequester);
+//			//markRemoved(f);
+//			markRemovePending(f);
+//		}
+//	}
 }

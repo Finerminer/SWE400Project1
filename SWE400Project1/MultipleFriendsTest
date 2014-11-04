@@ -5,7 +5,7 @@ CommandToSelectUser nate password3;
 CommandToGetPendingIncomingFriendList <userID>;
 CommandToMakeFriendRequest <userID> ethan;
 CommandToMakeFriendRequest <userID> ryan;
-CommandToGetPendingOutgoingFriendList <userID>; ethan ryan
+CommandToGetPendingOutgoingFriendList <userID>; ethan,ryan
 CommandToPersistChanges;
 CommandToSelectUser ethan password;
 CommandToRetrieveFriendList <userID>;
@@ -28,4 +28,4 @@ CommandToRetrieveFriendList <userID>; nate
 CommandToGetPendingIncomingFriendList <userID>;
 CommandToPersistChanges;
 CommandToSelectUser nate password3;
-CommandToRetrieveFriendList <userID>; ethan ryan
+CommandToRetrieveFriendList <userID>; ethan,ryan

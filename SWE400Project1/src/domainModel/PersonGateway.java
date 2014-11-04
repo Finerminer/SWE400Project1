@@ -144,21 +144,25 @@ public class PersonGateway {
 			stmt.setString(3, displayName);
 			stmt.executeUpdate();
 			stmt.close();
+			// TODO return UserID (auto incremented when inserting into table), might help with in-memory problems?
 		} catch (SQLException e) {
 			System.out.println("Error inserting person.");
 			e.printStackTrace();
 		}
 	}
 	
-	public void update(int userID, String username, String password, String displayName) {
-		String SQL = "Update fitness1.Person Username = ?, Password = ?, Display_Name = ?, Where User_ID = ?;";
+	/**
+	 * Updates the display name for a User, takes in the userID and new display name.
+	 * @param userID
+	 * @param displayName
+	 */
+	public void update(int userID, String displayName) {
+		String SQL = "Update fitness1.Person set Display_Name = ? Where User_ID = ?;";
 		PreparedStatement stmt = null;
 		try {
 			stmt = DB.getConnection().prepareStatement(SQL);
-			stmt.setString(1, username);
-			stmt.setString(2, password);
-			stmt.setString(3, displayName);
-			stmt.setInt(4, userID);
+			stmt.setString(1, displayName);
+			stmt.setInt(2, userID);
 			stmt.executeUpdate();
 			stmt.close();
 		} catch (SQLException e) {
@@ -200,12 +204,19 @@ public class PersonGateway {
 		return userID;
 	}
 
-	public int getIDFromUsername(String userNameOfRequestee) {
-		// TODO Complete this Nate-o
-		return 0;
-	}
-
-	public void modifyName(int userID, String newDisplayName) {
-		// TODO Complete plz Nate-o
+	
+	
+	public void deleteEverythingFromTable() {
+		String SQL = "delete from fitness1.Person where User_ID > 0;";
+		PreparedStatement stmt = null;
+		try {
+			stmt = DB.getConnection().prepareStatement(SQL);
+			stmt.executeUpdate();
+			stmt.close();
+		} catch (SQLException e) {
+			System.out.println("Error clearing table.");
+			e.printStackTrace();
+		}
+		
 	}
 }

@@ -40,8 +40,10 @@ public class CommandToCreateUser implements Command {
 		if(UnitOfWork.getThread() == null){
 			UnitOfWork.setThread(new UnitOfWork());
 			UnitOfWork.getThread().createPerson(userName, password, displayName);
+			UnitOfWork.getThread().findPerson(userName, password);
 		}else{
 			UnitOfWork.getThread().createPerson(userName, password, displayName);
+			UnitOfWork.getThread().findPerson(userName, password);
 		}
 	}
 

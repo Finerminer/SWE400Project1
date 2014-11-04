@@ -1,6 +1,6 @@
 CommandToCreateUser ga pw1 ga1234; ga:pw1:ga1234
 CommandToPersistChanges;
-CommandToSelectUser ga pw1; ga
+CommandToSelectUser ga pw1;
 CommandToGetPendingOutgoingFriendList <userID>;
 CommandToGetPendingIncomingFriendList <userID>;
 CommandToRetrieveFriendList <userID>;

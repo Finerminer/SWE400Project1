@@ -42,17 +42,21 @@ public class FriendGateway {
 	 * @param friendID
 	 */
 	public void addFriend(int userID, int friendID) {
-		String SQL = "insert into fitness1.Friends (User_ID_Requester, User_ID_Requestee) values(?, ?);";
-		PreparedStatement stmt = null;
-		try {
-			stmt = DB.getConnection().prepareStatement(SQL);
-			stmt.setInt(1, userID);
-			stmt.setInt(2, friendID);
-			stmt.executeUpdate();
-			stmt.close();
-		} catch (SQLException e) {
-			System.out.println("Error adding friend.");
-			e.printStackTrace();
+		if (userID != friendID) {
+			String SQL = "insert into fitness1.Friends (User_ID_Requester, User_ID_Requestee) values(?, ?);";
+			PreparedStatement stmt = null;
+			try {
+				stmt = DB.getConnection().prepareStatement(SQL);
+				stmt.setInt(1, userID);
+				stmt.setInt(2, friendID);
+				stmt.executeUpdate();
+				stmt.close();
+			} catch (SQLException e) {
+				System.out.println("Error adding friend.");
+				e.printStackTrace();
+			}
+		} else {
+			System.out.println("Can't add self as a friend!" + userID + " " + friendID);
 		}
 	}
 
@@ -133,17 +137,21 @@ public class FriendGateway {
 	 * @param userIDRequestee
 	 */
 	public void addRequest(int userIDRequester, int userIDRequestee) {
-		String SQL = "insert into fitness1.PendingFriendRequests (User_ID_Requester, User_ID_Requestee) values(?, ?);";
-		PreparedStatement stmt = null;
-		try {
-			stmt = DB.getConnection().prepareStatement(SQL);
-			stmt.setInt(1, userIDRequester);
-			stmt.setInt(2, userIDRequestee);
-			stmt.executeUpdate();
-			stmt.close();
-		} catch (SQLException e) {
-			System.out.println("Error adding friend request.");
-			e.printStackTrace();
+		if(userIDRequester != userIDRequestee) {
+			String SQL = "insert into fitness1.PendingFriendRequests (User_ID_Requester, User_ID_Requestee) values(?, ?);";
+			PreparedStatement stmt = null;
+			try {
+				stmt = DB.getConnection().prepareStatement(SQL);
+				stmt.setInt(1, userIDRequester);
+				stmt.setInt(2, userIDRequestee);
+				stmt.executeUpdate();
+				stmt.close();
+			} catch (SQLException e) {
+				System.out.println("Error adding friend request.");
+				e.printStackTrace();
+			}
+		} else {
+			System.out.println("Error: Can't request self, loser." + userIDRequester + " " + userIDRequestee);
 		}
 	}
 	
@@ -165,6 +173,32 @@ public class FriendGateway {
 			System.out.println("Error finding friend request to delete.");
 			e.printStackTrace();
 		}
+	}
+
+	
+	public void deleteEverythingFromTable() {
+		String SQL = "delete from fitness1.PendingFriendRequests where User_ID_Requester > 0;";
+		PreparedStatement stmt = null;
+		try {
+			stmt = DB.getConnection().prepareStatement(SQL);
+			stmt.executeUpdate();
+			stmt.close();
+		} catch (SQLException e) {
+			System.out.println("Error Clearing PendingFriend Table.");
+			e.printStackTrace();
+		}
+		
+		SQL = "delete from fitness1.Friends where User_ID_Requester > 0;";
+		stmt = null;
+		try {
+			stmt = DB.getConnection().prepareStatement(SQL);
+			stmt.executeUpdate();
+			stmt.close();
+		} catch (SQLException e) {
+			System.out.println("Error Clearing Friend Table.");
+			e.printStackTrace();
+		}
+		
 	}
 
 }
