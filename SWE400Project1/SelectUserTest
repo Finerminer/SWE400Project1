@@ -1,16 +1,21 @@
-CommandToCreateUser jane pw1 jane1234; jane:pw1:jane1234
-CommandToCreateUser sally pw2 sally5678; sally:pw2:sally5678
-CommandToSelectUser jane pw1;
-CommandToMakeFriendRequest <userID> sally;
+CommandToCreateUser ga pw1 ga1234; ga:pw1:ga1234
+CommandToCreateUser pika pw2 pika5678; pika:pw2:pika5678
+CommandToSelectUser ga pw1;
+CommandToMakeFriendRequest <userID> pika;
 CommandToPersistChanges;
-CommandToSelectUser sally pw1;
-CommandToMakeFriendRequest <userID> jane;
+CommandToSelectUser pika pw1;
+CommandToMakeFriendRequest <userID> ga;
 CommandToPersistChanges;
 CommandToGetPendingOutgoingFriendList <userID>;
 CommandToGetPendingIncomingFriendList <userID>;
-CommandToSelectUser jane pw1;
-CommandToAcceptFriendRequest <userID> sally;
+CommandToSelectUser ga pw1;
+CommandToAcceptFriendRequest <userID> pika;
 CommandToPersistChanges;
 CommandToRetrieveFriendList <userID>;
-CommandToSelectUser sally pw1;
+CommandToSelectUser pika pw1;
 CommandToRetrieveFriendList <userID>;
+**
+CommandToUnFriend <userID> ga;
+CommandToSelectUser ga pw1;
+CommandToUnFriend <userID> pika;
+CommandToPersistChanges;

@@ -127,12 +127,14 @@ public class Person {
 //		}
 //	}
 	
+	
 //	public boolean checkCurrent(int userIDOfRequester){
 //		if(userIDOfRequester==this.userID)
 //			return true;
 //		else
 //			return false;
 //	}
+
 
 //	public void rejectFriendRequest(int userIDOfRequestee, String userNameOfRequester, String displayNameOfRequester) {
 //		if(!checkCurrent(userIDOfRequestee)){	
