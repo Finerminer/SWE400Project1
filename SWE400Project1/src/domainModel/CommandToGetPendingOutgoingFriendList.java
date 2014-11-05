@@ -43,20 +43,20 @@ public class CommandToGetPendingOutgoingFriendList implements Command
 	@Override
 	public String getResult()
 	{
-		ArrayList<Friend> initialFriends = UnitOfWork.getThread().getPerson().getInitialOutgoingFriends();
-		ArrayList<Friend> friends = new ArrayList<Friend>();
+		ArrayList<Friend> intialRequests = UnitOfWork.getThread().getPerson().getInitialOutgoingFriends();
+		ArrayList<Friend> currentRequests = new ArrayList<Friend>();
 		
 		for(Friend f : UnitOfWork.getThread().getOutgoingRequests()) {
-			friends.add(f);
+			currentRequests.add(f);
 		}
 		
-		for(Friend f : initialFriends){
-			friends.add(f);
+		for(Friend f : intialRequests){
+			currentRequests.add(f);
 		}
 		
 		String result="";
 		Boolean first = true;
-		for(Friend f : friends)
+		for(Friend f : currentRequests)
 		{
 			if(first) {
 				result = result + f.getUserName();

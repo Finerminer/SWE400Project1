@@ -44,21 +44,28 @@ public class CommandToGetPendingIncomingFriendList implements Command
 	@Override
 	public String getResult()
 	{
-		ArrayList<Friend> initialFriends = UnitOfWork.getThread().getPerson().getInitialIncomingFriends();
-		ArrayList<Friend> friends = new ArrayList<Friend>();
+		ArrayList<Friend> initialIncomingRequests = UnitOfWork.getThread().getPerson().getInitialIncomingFriends();
+		ArrayList<Friend> currentRequests = new ArrayList<Friend>();
+		ArrayList<Friend> removedRequests = UnitOfWork.getThread().getDeletedPendingRequests();
 		
 		for(Friend f : UnitOfWork.getThread().getIncomingRequests()) {
-			friends.add(f);
+			currentRequests.add(f);
 		}
 		
-		for(Friend f : initialFriends){
-			if(!UnitOfWork.getThread().getDeletedPendingRequests().contains(f))
-				friends.add(f);
+		for(Friend f : initialIncomingRequests){
+			currentRequests.add(f);
+			for(Friend d : removedRequests) {
+				if(f.getUserName().equals(d.getUserName())) {
+					currentRequests.remove(f);
+					break;
+				}
+			}
 		}
+//		currentRequests.removeAll(removedRequests);
 		
 		String result="";
 		Boolean first = true;
-		for(Friend f : friends)
+		for(Friend f : currentRequests)
 		{
 			if(first) {
 				result = result + f.getUserName();
