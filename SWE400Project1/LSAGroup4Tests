@@ -1,4 +1,4 @@
-*******Cancel Changes*******
+*****Cancel Changes*******
 CommandToPersistChanges;
 CommandToSelectUser ferdinand pw1;
 CommandToMakeFriendRequest <userID> augustus;
@@ -70,7 +70,7 @@ CommandToRetrieveFriendList <userID>; russia murica
 CommandToUnFriend <userID> russia;
 CommandToUnFriend <userID> murica;
 CommandToPersistChanges;
-*******Nateâ€™s test*******
+*******Nate’s test*******
 CommandToPersistChanges;
 CommandToSelectUser dracula pw1;
 CommandToMakeFriendRequest <userID> frisbee;
