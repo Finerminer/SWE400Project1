@@ -1,17 +1,20 @@
+***********************************************************************
+**CancelChangesTest
 CommandToSelectUser Newton pw1;
 CommandToMakeFriendRequest <userID> Euclid;
 CommandToPersistChanges;
 CommandToSelectUser Euclid pw2;
-CommandToGetPendingIncomingFriendList <userID>; Newton
+CommandToGetPendingIncomingFriendList <userID>; newton1234
 CommandToAcceptFriendRequest <userID> Newton;
 CommandToPersistChanges;
 CommandToSelectUser Newton pw1;
-CommandToRetrieveFriendList <userID>; Euclid
+CommandToRetrieveFriendList <userID>; euclid5678
 CommandToUnFriend <userID> Euclid;
 CommandToRetrieveFriendList <userID>;
 CommandToCancelChanges;
-CommandToRetrieveFriendList <userID>; Euclid
+CommandToRetrieveFriendList <userID>; euclid5678
 ** Undo Changes
 CommandToUnFriend <userID> Euclid;
 CommandToPersistChanges;
 ** End Test
+***********************************************************************

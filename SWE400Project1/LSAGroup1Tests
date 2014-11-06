@@ -4,65 +4,18 @@ CommandToSelectUser Newton pw1;
 CommandToMakeFriendRequest <userID> Euclid;
 CommandToPersistChanges;
 CommandToSelectUser Euclid pw2;
-CommandToGetPendingIncomingFriendList <userID>; Newton
+CommandToGetPendingIncomingFriendList <userID>; newton1234
 CommandToAcceptFriendRequest <userID> Newton;
 CommandToPersistChanges;
 CommandToSelectUser Newton pw1;
-CommandToRetrieveFriendList <userID>; Euclid
+CommandToRetrieveFriendList <userID>; euclid5678
 CommandToUnFriend <userID> Euclid;
 CommandToRetrieveFriendList <userID>;
 CommandToCancelChanges;
-CommandToRetrieveFriendList <userID>; Euclid
+CommandToRetrieveFriendList <userID>; euclid5678
 ** Undo Changes
 CommandToUnFriend <userID> Euclid;
 CommandToPersistChanges;
-** End Test
-***********************************************************************
-**ExistingFriendsList
-CommandToSelectUser krabs pw5;
-CommandToMakeFriendRequest <userID> spongebob;
-CommandToPersistChanges;
-CommandToSelectUser spongebob pw1;
-CommandToGetPendingIncomingFriendList <userID>; patrick,krabs
-CommandToMakeFriendRequest <userID> plankton;
-CommandToGetPendingOutgoingFriendList <userID>; plankton,sandy
-CommandToAcceptFriendRequest <userID> krabs;
-CommandToRetrieveFriendList <userID>; squidward,krabs
-CommandToGetPendingIncomingFriendList <userID>; patrick
-CommandToPersistChanges;
-CommandToSelectUser patrick pw2;
-CommandToGetPendingOutgoingFriendList <userID>; spongebob
-CommandToRetrieveFriendList <userID>;
-CommandToGetPendingIncomingFriendList <userID>;
-CommandToPersistChanges;
-CommandToSelectUser sandy pw3;
-CommandToGetPendingOutgoingFriendList <userID>;
-CommandToRetrieveFriendList <userID>;
-CommandToGetPendingIncomingFriendList <userID>; spongebob
-CommandToPersistChanges;
-CommandToSelectUser squidward pw4;
-CommandToGetPendingOutgoingFriendList <userID>;
-CommandToRetrieveFriendList <userID>; spongebob
-CommandToGetPendingIncomingFriendList <userID>;
-CommandToPersistChanges;
-CommandToSelectUser krabs pw5;
-CommandToGetPendingOutgoingFriendList <userID>;
-CommandToRetrieveFriendList <userID>; spongebob
-CommandToGetPendingIncomingFriendList <userID>;
-CommandToPersistChanges;
-CommandToSelectUser plankton pw6;
-CommandToGetPendingOutgoingFriendList <userID>;
-CommandToRetrieveFriendList <userID>;
-CommandToGetPendingIncomingFriendList <userID>; spongebob
-CommandToRejectFriendRequest <userID> spongebob;
-CommandToGetPendingIncomingFriendList <userID>;
-CommandToPersistChanges;
-CommandToSelectUser spongebob pw1;
-CommandToGetPendingOutgoingFriendList <userID>; sandy
-** Undo Changes
-CommandToSelectUser spongebob pw1;
-CommandToUnFriend <userID> krabs;
-CommandToRetrieveFriendList <userID>; squidward
 ** End Test
 ***********************************************************************
 **CreateUserTest
@@ -72,6 +25,53 @@ CommandToGetPendingIncomingFriendList <userID>;
 CommandToRetrieveFriendList <userID>;
 CommandToPersistChanges;
 **End Test
+***********************************************************************
+**ExistingFriendsList
+CommandToSelectUser krabs pw5;
+CommandToMakeFriendRequest <userID> spongebob;
+CommandToPersistChanges;
+CommandToSelectUser spongebob pw1;
+CommandToGetPendingIncomingFriendList <userID>; star,eugene
+CommandToMakeFriendRequest <userID> plankton;
+CommandToGetPendingOutgoingFriendList <userID>; evil,cheeks
+CommandToAcceptFriendRequest <userID> krabs;
+CommandToRetrieveFriendList <userID>; tentacles,eugene
+CommandToGetPendingIncomingFriendList <userID>; star
+CommandToPersistChanges;
+CommandToSelectUser patrick pw2;
+CommandToGetPendingOutgoingFriendList <userID>; squarepants
+CommandToRetrieveFriendList <userID>;
+CommandToGetPendingIncomingFriendList <userID>;
+CommandToPersistChanges;
+CommandToSelectUser sandy pw3;
+CommandToGetPendingOutgoingFriendList <userID>;
+CommandToRetrieveFriendList <userID>;
+CommandToGetPendingIncomingFriendList <userID>; squarepants
+CommandToPersistChanges;
+CommandToSelectUser squidward pw4;
+CommandToGetPendingOutgoingFriendList <userID>;
+CommandToRetrieveFriendList <userID>; squarepants
+CommandToGetPendingIncomingFriendList <userID>;
+CommandToPersistChanges;
+CommandToSelectUser krabs pw5;
+CommandToGetPendingOutgoingFriendList <userID>;
+CommandToRetrieveFriendList <userID>; squarepants
+CommandToGetPendingIncomingFriendList <userID>;
+CommandToPersistChanges;
+CommandToSelectUser plankton pw6;
+CommandToGetPendingOutgoingFriendList <userID>;
+CommandToRetrieveFriendList <userID>;
+CommandToGetPendingIncomingFriendList <userID>; squarepants
+CommandToRejectFriendRequest <userID> spongebob;
+CommandToGetPendingIncomingFriendList <userID>;
+CommandToPersistChanges;
+CommandToSelectUser spongebob pw1;
+CommandToGetPendingOutgoingFriendList <userID>; cheeks
+** Undo Changes
+CommandToSelectUser spongebob pw1;
+CommandToUnFriend <userID> krabs;
+CommandToRetrieveFriendList <userID>; tentacles
+** End Test
 ***********************************************************************
 **ModifyUserTest
 CommandToSelectUser pepperoni pw1;
@@ -92,30 +92,30 @@ CommandToSelectUser arcanine password3;
 CommandToGetPendingIncomingFriendList <userID>;
 CommandToMakeFriendRequest <userID> pikachu;
 CommandToMakeFriendRequest <userID> ash;
-CommandToGetPendingOutgoingFriendList <userID>; pikachu,ash
+CommandToGetPendingOutgoingFriendList <userID>; mouse,trainer
 CommandToPersistChanges;
 CommandToSelectUser pikachu password;
 CommandToRetrieveFriendList <userID>;
 CommandToGetPendingOutgoingFriendList <userID>;
-CommandToGetPendingIncomingFriendList <userID>; arcanine
+CommandToGetPendingIncomingFriendList <userID>; firetiger
 CommandToAcceptFriendRequest <userID> arcanine;
 CommandToGetPendingIncomingFriendList <userID>;
-CommandToRetrieveFriendList <userID>; arcanine
+CommandToRetrieveFriendList <userID>; firetiger
 CommandToPersistChanges;
 CommandToSelectUser arcanine password3;
-CommandToRetrieveFriendList <userID>; pikachu
-CommandToGetPendingOutgoingFriendList <userID>; ash
+CommandToRetrieveFriendList <userID>; mouse
+CommandToGetPendingOutgoingFriendList <userID>; trainer
 CommandToGetPendingIncomingFriendList <userID>;
 CommandToSelectUser ash pw2;
 CommandToRetrieveFriendList <userID>;
 CommandToGetPendingOutgoingFriendList <userID>;
-CommandToGetPendingIncomingFriendList <userID>; arcanine
+CommandToGetPendingIncomingFriendList <userID>; firetiger
 CommandToAcceptFriendRequest <userID> arcanine;
-CommandToRetrieveFriendList <userID>; arcanine
+CommandToRetrieveFriendList <userID>; firetiger
 CommandToGetPendingIncomingFriendList <userID>;
 CommandToPersistChanges;
 CommandToSelectUser arcanine password3;
-CommandToRetrieveFriendList <userID>; pikachu,ash
+CommandToRetrieveFriendList <userID>; mouse,trainer
 ** Undo Changes
 CommandToSelectUser arcanine password3;
 CommandToUnFriend <userID> pikachu;
@@ -183,13 +183,13 @@ CommandToSelectUser mozzerella pw1;
 CommandToMakeFriendRequest <userID> thegrimdisaster;
 CommandToPersistChanges;
 CommandToSelectUser thegrimdisaster pw2;
-CommandToGetPendingIncomingFriendList <userID>; mozzerella
+CommandToGetPendingIncomingFriendList <userID>; ryanW
 CommandToAcceptFriendRequest <userID> mozzerella;
 CommandToPersistChanges;
-CommandToRetrieveFriendList <userID>; mozzerella
+CommandToRetrieveFriendList <userID>; ryanW
 CommandToPersistChanges;
 CommandToSelectUser mozzerella pw1;
-CommandToRetrieveFriendList <userID>; thegrimdisaster
+CommandToRetrieveFriendList <userID>; circleflyer
 CommandToPersistChanges;
 ** Undo Changes
 CommandToUnFriend <userID> thegrimdisaster;
@@ -199,10 +199,10 @@ CommandToPersistChanges;
 **RejectFriendRequestTest
 CommandToSelectUser charmander pw2;
 CommandToMakeFriendRequest <userID> squirtle;
-CommandToGetPendingOutgoingFriendList <userID>; squirtle
+CommandToGetPendingOutgoingFriendList <userID>; turtle
 CommandToPersistChanges;
 CommandToSelectUser squirtle password;
-CommandToGetPendingIncomingFriendList <userID>; charmander
+CommandToGetPendingIncomingFriendList <userID>; salamander
 CommandToRejectFriendRequest <userID> charmander;
 CommandToGetPendingIncomingFriendList <userID>;
 CommandToRetrieveFriendList <userID>;
@@ -240,11 +240,11 @@ CommandToSelectUser Euler pw1;
 CommandToMakeFriendRequest <userID> Archimedes;
 CommandToPersistChanges;
 CommandToSelectUser Archimedes pw2;
-CommandToGetPendingIncomingFriendList <userID>; Euler
+CommandToGetPendingIncomingFriendList <userID>; euler1234
 CommandToAcceptFriendRequest <userID> Euler;
 CommandToPersistChanges;
 CommandToSelectUser Euler pw1;
-CommandToRetrieveFriendList <userID>; Archimedes
+CommandToRetrieveFriendList <userID>; archimedes5678
 CommandToUnFriend <userID> Archimedes;
 CommandToPersistChanges;
 CommandToRetrieveFriendList <userID>;

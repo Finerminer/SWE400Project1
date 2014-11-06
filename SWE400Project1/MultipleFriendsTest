@@ -1,32 +1,33 @@
+***********************************************************************
 **MultipleFriendsTest
 CommandToSelectUser arcanine password3;
 CommandToGetPendingIncomingFriendList <userID>;
 CommandToMakeFriendRequest <userID> pikachu;
 CommandToMakeFriendRequest <userID> ash;
-CommandToGetPendingOutgoingFriendList <userID>; pikachu,ash
+CommandToGetPendingOutgoingFriendList <userID>; mouse,trainer
 CommandToPersistChanges;
 CommandToSelectUser pikachu password;
 CommandToRetrieveFriendList <userID>;
 CommandToGetPendingOutgoingFriendList <userID>;
-CommandToGetPendingIncomingFriendList <userID>; arcanine
+CommandToGetPendingIncomingFriendList <userID>; firetiger
 CommandToAcceptFriendRequest <userID> arcanine;
 CommandToGetPendingIncomingFriendList <userID>;
-CommandToRetrieveFriendList <userID>; arcanine
+CommandToRetrieveFriendList <userID>; firetiger
 CommandToPersistChanges;
 CommandToSelectUser arcanine password3;
-CommandToRetrieveFriendList <userID>; pikachu
-CommandToGetPendingOutgoingFriendList <userID>; ash
+CommandToRetrieveFriendList <userID>; mouse
+CommandToGetPendingOutgoingFriendList <userID>; trainer
 CommandToGetPendingIncomingFriendList <userID>;
 CommandToSelectUser ash pw2;
 CommandToRetrieveFriendList <userID>;
 CommandToGetPendingOutgoingFriendList <userID>;
-CommandToGetPendingIncomingFriendList <userID>; arcanine
+CommandToGetPendingIncomingFriendList <userID>; firetiger
 CommandToAcceptFriendRequest <userID> arcanine;
-CommandToRetrieveFriendList <userID>; arcanine
+CommandToRetrieveFriendList <userID>; firetiger
 CommandToGetPendingIncomingFriendList <userID>;
 CommandToPersistChanges;
 CommandToSelectUser arcanine password3;
-CommandToRetrieveFriendList <userID>; pikachu,ash
+CommandToRetrieveFriendList <userID>; mouse,trainer
 ** Undo Changes
 CommandToSelectUser arcanine password3;
 CommandToUnFriend <userID> pikachu;
@@ -38,3 +39,4 @@ CommandToRetrieveFriendList <userID>;
 CommandToSelectUser pikachu password;
 CommandToRetrieveFriendList <userID>;
 ** End Test
+***********************************************************************
