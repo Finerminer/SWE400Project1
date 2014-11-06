@@ -1,6 +1,6 @@
 **
 **
-CommandToSelectUser tedTedMovie pw2
+CommandToSelectUser tedTedMovie pw2;
 CommandToMakeFriendRequest <userID> johnTedMovie;
 CommandToGetPendingOutgoingFriendList <userID>; johnTedMovie
 CommandToPersistChanges;
@@ -20,7 +20,7 @@ CommandToGetPendingIncomingFriendList <userID>; tedTedMovie
 CommandToRejectFriendRequest <userID> tedTedMovie;
 CommandToGetPendingIncomingFriendList <userID>; 
 CommandToRetrieveFriendList <userID>;
-CommandToPersistChanges; 
+CommandToPersistChanges;
 CommandToSelectUser tedTedMovie pw2;
 CommandToRetrieveFriendList <userID>; johnTedMovie
 CommandToSelectUser loriTedMovie pw3;
@@ -31,7 +31,7 @@ CommandToSelectUser johnTedMovie pw1;
 CommandToGetPendingIncomingFriendList <userID>; loriTedMovie
 CommandToAcceptFriendRequest <userID> loriTedMovie;
 CommandToGetPendingIncomingFriendList <userID>;
-CommandToRetrieveFriendList <userID>; tedTedMovie loriTedMovie
+CommandToRetrieveFriendList <userID>; tedTedMovie,loriTedMovie
 CommandToPersistChanges;
 CommandToSelectUser loriTedMovie pw3;
 CommandToRetrieveFriendList <userID>; johnTedMovie
@@ -103,13 +103,13 @@ CommandToGetPendingIncomingFriendList <userID>;
 CommandToRetrieveFriendList <userID>; simonPegg
 CommandToPersistChanges;
 CommandToSelectUser simonPegg pw1;
-CommandToRetrieveFriendList <userID>; nickFrost kateAshfield lucyDavis
+CommandToRetrieveFriendList <userID>; nickFrost,kateAshfield,lucyDavis
 CommandToSelectUser kateAshfield pw3;
 CommandToUnFriend <userID> simonPegg;
 CommandToRetrieveFriendList <userID>; 
 CommandToPersistChanges;
 CommandToSelectUser simonPegg pw1;
-CommandToRetrieveFriendList <userID>; nickFrost lucyDavis
+CommandToRetrieveFriendList <userID>; nickFrost,lucyDavis
 CommandToUnFriend <userID> lucyDavis;
 CommandToRetrieveFriendList <userID>; nickFrost
 CommandToPersistChanges;
@@ -211,13 +211,13 @@ CommandToGetPendingIncomingFriendList <userID>;
 CommandToRetrieveFriendList <userID>; simonPegg
 CommandToPersistChanges;
 CommandToSelectUser simonPegg pw1;
-CommandToRetrieveFriendList <userID>; nickFrost kateAshfield lucyDavis
+CommandToRetrieveFriendList <userID>; nickFrost,kateAshfield,lucyDavis
 CommandToSelectUser kateAshfield pw3;
 CommandToUnFriend <userID> simonPegg;
 CommandToRetrieveFriendList <userID>; 
 CommandToPersistChanges;
 CommandToSelectUser simonPegg pw1;
-CommandToRetrieveFriendList <userID>; nickFrost lucyDavis
+CommandToRetrieveFriendList <userID>; nickFrost,lucyDavis
 CommandToUnFriend <userID> lucyDavis;
 CommandToRetrieveFriendList <userID>; nickFrost
 CommandToPersistChanges;
