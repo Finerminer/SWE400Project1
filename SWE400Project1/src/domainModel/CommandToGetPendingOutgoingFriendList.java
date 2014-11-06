@@ -59,10 +59,10 @@ public class CommandToGetPendingOutgoingFriendList implements Command
 		for(Friend f : currentRequests)
 		{
 			if(first) {
-				result = result + f.getUserName();
+				result = result + f.getDisplayName();
 				first = false;
 			} else {
-				result+= "," + f.getUserName();
+				result+= "," + f.getDisplayName();
 			}
 		}
 		return result;

@@ -5,13 +5,13 @@ CommandToSelectUser matthewcroft pw1;
 CommandToGetPendingIncomingFriendList <userID>; bobbyboy
 CommandToAcceptFriendRequest <userID> bobbyboy;
 CommandToRetrieveFriendList <userID>; bobbyboy
-CommandToPresistChanges;
+CommandToPersistChanges;
 ********************************************
 CommandToSelectUser mark pw2;
 CommandToMakeFriendRequest <userID> phil;
 CommandToGetOutgoingFriendsList <userID>; phil
 CommandToCancelChanges;
-CommandToPresistChanges;
+CommandToPersistChanges;
 CommandToGetOutgoingFriendsList <userID>;
 *******************************************
 CommandToSelectUser dad pw2;
@@ -21,7 +21,7 @@ CommandToSelectUser lenny pw1;
 CommandToGetPendingIncomingFriendList <userID>; dad
 CommandToRejectFriendRequest <userID> dad;
 CommandToRetrieveFriendList <userID>;
-CommandToPresistChanges;
+CommandToPersistChanges;
 *******************************************
 CommandToSelectUser mattkujo pw;
 CommandToMakeFriendRequest <userID> IronMan;

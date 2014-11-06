@@ -15,7 +15,9 @@ public class CommandToPersistChanges implements Command
 	@Override
 	public void execute()
 	{
-		UnitOfWork.getThread().commit();
+		if(UnitOfWork.getThread() != null) {
+			UnitOfWork.getThread().commit();
+		}
 	}
 
 	/**

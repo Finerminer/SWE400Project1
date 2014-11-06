@@ -63,10 +63,10 @@ public class CommandToRetrieveFriendList implements Command
 		for(Friend f : initialfriends)
 		{
 			if(first) {
-				result = result + f.getUserName();
+				result = result + f.getDisplayName();
 				first = false;
 			} else {
-				result+= "," + f.getUserName();
+				result+= "," + f.getDisplayName();
 			}
 		}
 		return result;

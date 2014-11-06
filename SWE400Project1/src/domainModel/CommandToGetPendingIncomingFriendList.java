@@ -61,21 +61,19 @@ public class CommandToGetPendingIncomingFriendList implements Command
 				}
 			}
 		}
-//		currentRequests.removeAll(removedRequests);
 		
 		String result="";
 		Boolean first = true;
 		for(Friend f : currentRequests)
 		{
 			if(first) {
-				result = result + f.getUserName();
+				result = result + f.getDisplayName();
 				first = false;
 			} else {
-				result+= "," + f.getUserName();
+				result+= "," + f.getDisplayName();
 			}
 		}
 		return result;
-		//return UnitOfWork.getThread().printFriendsInLists(initialFriends, UnitOfWork.getThread().getIncomingRequests());
 	}
 
 	/**
