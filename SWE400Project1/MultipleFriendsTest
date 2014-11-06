@@ -1,3 +1,4 @@
+**MultipleFriendsTest
 CommandToSelectUser arcanine password3;
 CommandToGetPendingIncomingFriendList <userID>;
 CommandToMakeFriendRequest <userID> pikachu;
@@ -29,7 +30,6 @@ CommandToRetrieveFriendList <userID>; pikachu,ash
 ** Undo Changes
 CommandToSelectUser arcanine password3;
 CommandToUnFriend <userID> pikachu;
-CommandToRetrieveFriendList <userID>; ash
 CommandToUnFriend <userID> ash;
 CommandToRetrieveFriendList <userID>;
 CommandToPersistChanges;

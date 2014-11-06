@@ -1,7 +1,8 @@
+**SelectUserTest
 CommandToSelectUser ga pw1;
 CommandToMakeFriendRequest <userID> pika;
 CommandToPersistChanges;
-CommandToSelectUser pika pw1;
+CommandToSelectUser pika pw2;
 CommandToMakeFriendRequest <userID> ga;
 CommandToPersistChanges;
 CommandToGetPendingOutgoingFriendList <userID>;
@@ -10,7 +11,7 @@ CommandToSelectUser ga pw1;
 CommandToAcceptFriendRequest <userID> pika;
 CommandToPersistChanges;
 CommandToRetrieveFriendList <userID>;
-CommandToSelectUser pika pw1;
+CommandToSelectUser pika pw2;
 CommandToRetrieveFriendList <userID>;
 ** Undo Changes
 CommandToUnFriend <userID> ga;

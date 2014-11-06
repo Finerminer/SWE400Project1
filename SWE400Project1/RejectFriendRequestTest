@@ -1,3 +1,4 @@
+**RejectFriendRequestTest
 CommandToSelectUser charmander pw2;
 CommandToMakeFriendRequest <userID> squirtle;
 CommandToGetPendingOutgoingFriendList <userID>; squirtle

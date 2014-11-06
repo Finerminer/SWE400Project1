@@ -1,3 +1,4 @@
+**PersistChangesTest
 CommandToSelectUser mozzerella pw1;
 CommandToMakeFriendRequest <userID> thegrimdisaster;
 CommandToPersistChanges;

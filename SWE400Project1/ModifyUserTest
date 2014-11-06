@@ -1,3 +1,4 @@
+**ModifyUserTest
 CommandToSelectUser pepperoni pw1;
 CommandToModifyUser <userID> scapegoat666;
 CommandToPersistChanges;

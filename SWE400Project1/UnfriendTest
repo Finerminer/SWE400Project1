@@ -1,3 +1,4 @@
+**UnfriendTest
 CommandToSelectUser Euler pw1;
 CommandToMakeFriendRequest <userID> Archimedes;
 CommandToPersistChanges;

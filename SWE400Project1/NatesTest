@@ -1,3 +1,4 @@
+**NatesTest
 CommandToSelectUser Washington pw1;
 CommandToMakeFriendRequest <userID> Mussolini;
 CommandToGetPendingOutgoingFriendList <userID>; Mussolini

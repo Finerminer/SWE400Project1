@@ -1,5 +1,7 @@
-CommandToSelectUser galim pw1;
+**CreateUserTest
+CommandToSelectUser ga pw1;
 CommandToGetPendingOutgoingFriendList <userID>;
 CommandToGetPendingIncomingFriendList <userID>;
 CommandToRetrieveFriendList <userID>;
 CommandToPersistChanges;
+**End Test
