@@ -1,31 +1,32 @@
-*****Cancel Changes*******
-CommandToPersistChanges;
+*****Cancel Changes*******1
 CommandToSelectUser ferdinand pw1;
 CommandToMakeFriendRequest <userID> augustus;
 CommandToPersistChanges;
 CommandToSelectUser augustus pw2;
-CommandToGetPendingIncomingFriendList <userID>; ferdinand
+CommandToGetPendingIncomingFriendList <userID>; ferdy123
 CommandToAcceptFriendRequest <userID> ferdinand;
 CommandToPersistChanges;
 CommandToSelectUser ferdinand pw1;
-CommandToRetrieveFriendList <userID>; augustus
+CommandToRetrieveFriendList <userID>; auggie5678
 CommandToUnFriend <userID> augustus;
 CommandToRetrieveFriendList <userID>;
 CommandToCancelChanges;
 CommandToPersistChanges;
-CommandToRetrieveFriendList <userID>; augustus
+CommandToRetrieveFriendList <userID>; auggie5678
 CommandToUnFriend <userID> augustus;
 CommandToPersistChanges;
-*******Create User Test*******
-CommandToPersistChanges;
-CommandToSelectUser fidelia pw1; fidelia
+*******Create User Test*******2
+CommandToSelectUser fidelia pw1; 
 CommandToGetPendingOutgoingFriendList <userID>;
 CommandToGetPendingIncomingFriendList <userID>;
 CommandToRetrieveFriendList <userID>;
-*******Modify User Test*******
-CommandToPersistChanges;
+*******Modify User Test*******3
 CommandToSelectUser kent pw1;
 CommandToMakeFriendRequest <userID> olivia;
+CommandToPersistChanges;
+CommandToSelectUser olivia pw2;
+CommandToGetPendingIncomingFriendList <userID>; kentith
+CommandToSelectUser kent pw1;
 CommandToModifyUser <userID> toenails;
 CommandToPersistChanges;
 CommandToSelectUser olivia pw2;
@@ -37,75 +38,80 @@ CommandToSelectUser olivia pw2;
 CommandToGetPendingIncomingFriendList <userID>; toenails
 CommandToRejectFriendRequest <userID> kent;
 CommandToPersistChanges;
-*******Multiple Friends Test*******
+CommandToSelectUser kent pw1;
+CommandToModifyUser <userID> kentith;
 CommandToPersistChanges;
+*******Multiple Friends Test*******4
 CommandToSelectUser puertorico password3;
 CommandToGetPendingIncomingFriendList <userID>;
 CommandToMakeFriendRequest <userID> russia;
 CommandToMakeFriendRequest <userID> murica;
-CommandToGetPendingOutgoingFriendList <userID>; russia murica
 CommandToPersistChanges;
+CommandToGetPendingOutgoingFriendList <userID>; destroyerofworlds,lolyolo
 CommandToSelectUser russia password;
 CommandToRetrieveFriendList <userID>;
 CommandToGetPendingOutgoingFriendList <userID>;
-CommandToGetPendingIncomingFriendList <userID>; puertorico
+CommandToGetPendingIncomingFriendList <userID>; ayiyi
 CommandToAcceptFriendRequest <userID> puertorico;
+CommandToPersistChanges;
 CommandToGetPendingIncomingFriendList <userID>;
-CommandToRetrieveFriendList <userID>; puertorico
+CommandToRetrieveFriendList <userID>; ayiyi
 CommandToPersistChanges;
 CommandToSelectUser puertorico password3;
-CommandToRetrieveFriendList <userID>; russia
-CommandToGetPendingOutgoingFriendList <userID>; murica
+CommandToRetrieveFriendList <userID>; destroyerofworlds
+CommandToGetPendingOutgoingFriendList <userID>; lolyolo
 CommandToGetPendingIncomingFriendList <userID>;
 CommandToSelectUser murica pw2;
 CommandToRetrieveFriendList <userID>;
 CommandToGetPendingOutgoingFriendList <userID>;
-CommandToGetPendingIncomingFriendList <userID>; puertorico
+CommandToGetPendingIncomingFriendList <userID>; ayiyi
 CommandToAcceptFriendRequest <userID> puertorico;
-CommandToRetrieveFriendList <userID>; puertorico
+CommandToPersistChanges;
+CommandToRetrieveFriendList <userID>; ayiyi
 CommandToGetPendingIncomingFriendList <userID>;
 CommandToPersistChanges;
 CommandToSelectUser puertorico password3;
-CommandToRetrieveFriendList <userID>; russia murica
+CommandToRetrieveFriendList <userID>; destroyerofworlds,lolyolo
 CommandToUnFriend <userID> russia;
 CommandToUnFriend <userID> murica;
 CommandToPersistChanges;
-*******Nate’s test*******
-CommandToPersistChanges;
+*******Nate’s test*******5
 CommandToSelectUser dracula pw1;
 CommandToMakeFriendRequest <userID> frisbee;
 CommandToPersistChanges;
 CommandToSelectUser frisbee pw2;
-CommandToGetPendingIncomingFriendList <userID>; dracula
+CommandToGetPendingIncomingFriendList <userID>; batmaan
 CommandToAcceptFriendRequest <userID> dracula;
 CommandToPersistChanges;
-CommandToRetrieveFriendList <userID>; dracula
+CommandToRetrieveFriendList <userID>; batmaan
 CommandToSelectUser dracula pw1;
-CommandToRetrieveFriendList <userID>; frisbee
+CommandToRetrieveFriendList <userID>; circleflyer
 CommandToUnFriend <userID> frisbee;
 CommandToPersistChanges;
-*******Persist Changes Test*******
-CommandToPersistChanges;
+*******Persist Changes Test*******6
 CommandToSelectUser artemis pw1;
 CommandToMakeFriendRequest <userID> holly;
-CommandToGetPendingOutgoingFriendList <userID>; holly
+CommandToPersistChanges;
+CommandToGetPendingOutgoingFriendList <userID>; fairygurl123
 CommandToPersistChanges;
 CommandToSelectUser holly pw2;
-CommandToGetPendingIncomingFriendList <userID>; artemis
+CommandToGetPendingIncomingFriendList <userID>; arty24
 CommandToAcceptFriendRequest <userID> artemis;
+CommandToPersistChanges;
 CommandToGetPendingIncomingFriendList <userID>;
-CommandToRetrieveFriendList <userID>; artemis
+CommandToRetrieveFriendList <userID>; arty24
 CommandToPersistChanges;
 CommandToSelectUser mulch pw3;
 CommandToMakeFriendRequest <userID> artemis;
 CommandToPersistChanges;
-CommandToGetOutgoingFriendList <userID> artemis;
+CommandToGetPendingOutgoingFriendList <userID>; arty24
 CommandToSelectUser artemis pw1;
-CommandToGetPendingIncomingFriendList <userID>; mulch
+CommandToGetPendingIncomingFriendList <userID>; klepto
 CommandToAcceptFriendRequest <userID> mulch;
-CommandToUnfriend <userID> holly;
 CommandToPersistChanges;
-CommandToRetrieveFriendList <userID>; mulch
+CommandToUnFriend <userID> holly;
+CommandToPersistChanges;
+CommandToRetrieveFriendList <userID>; klepto
 CommandToSelectUser holly pw2;
 CommandToRetrieveFriendList <userID>;
 CommandToSelectUser artemis pw1;
@@ -115,30 +121,28 @@ CommandToSelectUser foaly pw5;
 CommandToGetPendingOutgoingFriendList <userID>; 
 CommandToMakeFriendRequest <userID> root;
 CommandToPersistChanges;
-CommandToGetPendingOutgoingFriendList <userID>; root
+CommandToGetPendingOutgoingFriendList <userID>; commander
 CommandToGetPendingIncomingFriendList <userID>;
 CommandToRetrieveFriendList <userID>;
 CommandToSelectUser root pw4;
-CommandToGetPendingIncomingFriendList <userID>; foaly
+CommandToGetPendingIncomingFriendList <userID>; ponyboy
 CommandToAcceptFriendRequest <userID> foaly;
-CommandToRetrieveFriendList <userID>; foaly
 CommandToCancelChanges;
 CommandToRetrieveFriendList <userID>;
-CommandToGetPendingIncomingFriendList <userID>; foaly
+CommandToGetPendingIncomingFriendList <userID>; ponyboy
 CommandToPersistChanges;
 CommandToSelectUser foaly pw5;
 CommandToRetrieveFriendList <userID>;
-CommandToGetPendingOutgoingFriendList <userID>; root
+CommandToGetPendingOutgoingFriendList <userID>; commander
 CommandToSelectUser root pw4;
 CommandToRejectFriendRequest <userID> foaly;
 CommandToPersistChanges;
-*******Tons of Changes and Persists Test*******
-CommandToPersistChanges;
+*******Tons of Changes and Persists Test*******7
 CommandToSelectUser frodo pw1;
 CommandToMakeFriendRequest <userID> sam;
 CommandToPersistChanges;
 CommandToSelectUser sam pw2;
-CommandToGetPendingIncomingFriendList <userID>; frodo
+CommandToGetPendingIncomingFriendList <userID>; ringbearer
 CommandToAcceptFriendRequest <userID> frodo;
 CommandToPersistChanges;
 CommandToSelectUser frodo pw1;
@@ -157,50 +161,50 @@ CommandToAcceptFriendRequest <userID> gandalf;
 CommandToPersistChanges;
 CommandToUnFriend <userID> gandalf;
 CommandToPersistChanges;
-*******Unfriend Test*******
-CommandToPersistChanges;
+*******Unfriend Test*******8
 CommandToSelectUser SanicTheHodgehege pw1;
 CommandToMakeFriendRequest <userID> Vorpidile;
 CommandToPersistChanges;
 CommandToSelectUser Vorpidile pw2;
-CommandToGetPendingIncomingFriendList <userID>; SanicTheHodgehege
+CommandToGetPendingIncomingFriendList <userID>; SanicTheHodgehege1234
 CommandToAcceptFriendRequest <userID> SanicTheHodgehege;
 CommandToPersistChanges;
 CommandToSelectUser SanicTheHodgehege pw1;
-CommandToRetrieveFriendList <userID>; Vorpidile
+CommandToRetrieveFriendList <userID>; Vorpidile5678
 CommandToUnFriend <userID> Vorpidile;
 CommandToPersistChanges;
 CommandToRetrieveFriendList <userID>;
 CommandToSelectUser Vorpidile pw2;
 CommandToRetrieveFriendList <userID>;
 CommandToPersistChanges;
-*******Command To Select User Test*******
-CommandToPersistChanges;
-CommandToSelectUser Thrall pw1;
-CommandToMakeFriendRequest <userID> GhengisKhan;
-CommandToPersistChanges;
-CommandToSelectUser GhengisKhan pw1;
-CommandToMakeFriendRequest <userID> Thrall;
-CommandToPersistChanges;
-CommandToGetPendingOutgoingFriendList <userID>;
-CommandToGetPendingIncomingFriendList <userID>;
-CommandToSelectUser Thrall pw1;
-CommandToAcceptFriendRequest <userID> GhengisKhan;
-CommandToPersistChanges;
-CommandToRetrieveFriendList <userID>;
-CommandToSelectUser GhengisKhan pw1;
-CommandToRetrieveFriendList <userID>;
-CommandToUnFriend <userID> Thrall;
-CommandToPersistChanges;
-*******Command To Reject Friend Request Test*******
+*******Command To Select User Test*******9
+**CommandToSelectUser Thrall pw1;
+**CommandToMakeFriendRequest <userID> GhengisKhan;
+**CommandToPersistChanges;
+**CommandToSelectUser GhengisKhan pw1;
+**CommandToMakeFriendRequest <userID> Thrall;
+**CommandToPersistChanges;
+**CommandToGetPendingOutgoingFriendList <userID>;
+**CommandToGetPendingIncomingFriendList <userID>;
+**CommandToSelectUser Thrall pw1;
+**CommandToAcceptFriendRequest <userID> GhengisKhan;
+**CommandToPersistChanges;
+**CommandToRetrieveFriendList <userID>; GhengisKhan5678
+**CommandToSelectUser GhengisKhan pw1;
+**CommandToRetrieveFriendList <userID>; Thrall1234
+**CommandToUnFriend <userID> Thrall;
+**CommandToPersistChanges;
+*******Command To Reject Friend Request Test*******10
 CommandToPersistChanges;
 CommandToSelectUser fartblaster pw2;
 CommandToMakeFriendRequest <userID> Morbo;
-CommandToGetPendingOutgoingFriendList <userID>; Morbo
+CommandToPersistChanges;
+CommandToGetPendingOutgoingFriendList <userID>; finerminer
 CommandToPersistChanges;
 CommandToSelectUser Morbo password;
-CommandToGetPendingIncomingFriendList <userID>; fartblaster
+CommandToGetPendingIncomingFriendList <userID>; rweav
 CommandToRejectFriendRequest <userID> fartblaster;
+CommandToPersistChanges;
 CommandToGetPendingIncomingFriendList <userID>;
 CommandToRetrieveFriendList <userID>;
 CommandToPersistChanges;
@@ -214,11 +218,12 @@ CommandToSelectUser jellyjiggler pw1;
 CommandToMakeFriendRequest <userID> RandySavage;
 CommandToPersistChanges;
 CommandToSelectUser RandySavage pw2;
-CommandToGetPendingIncomingFriendList <userID>; RandySavage
+CommandToGetPendingIncomingFriendList <userID>; jellyjigglerW
 CommandToAcceptFriendRequest <userID> jellyjiggler;
 CommandToPersistChanges;
-CommandToRetrieveFriendList <userID>; jellyjiggler
+CommandToRetrieveFriendList <userID>; jellyjigglerW
 CommandToPersistChanges;
 CommandToSelectUser jellyjiggler pw1;
-CommandToRetrieveFriendList <userID>; RandySavage
+CommandToRetrieveFriendList <userID>; randysavage
+CommandToUnFriend <userID> RandySavage;
 CommandToPersistChanges;
