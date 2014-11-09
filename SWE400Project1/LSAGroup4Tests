@@ -1,4 +1,4 @@
-*****Cancel Changes*******1
+*****1*******
 CommandToSelectUser ferdinand pw1;
 CommandToMakeFriendRequest <userID> augustus;
 CommandToPersistChanges;
@@ -15,12 +15,12 @@ CommandToPersistChanges;
 CommandToRetrieveFriendList <userID>; auggie5678
 CommandToUnFriend <userID> augustus;
 CommandToPersistChanges;
-*******Create User Test*******2
-CommandToSelectUser fidelia pw1; 
+*******2*******
+CommandToSelectUser fidelia pw1;
 CommandToGetPendingOutgoingFriendList <userID>;
 CommandToGetPendingIncomingFriendList <userID>;
 CommandToRetrieveFriendList <userID>;
-*******Modify User Test*******3
+*******3*******
 CommandToSelectUser kent pw1;
 CommandToMakeFriendRequest <userID> olivia;
 CommandToPersistChanges;
@@ -41,7 +41,7 @@ CommandToPersistChanges;
 CommandToSelectUser kent pw1;
 CommandToModifyUser <userID> kentith;
 CommandToPersistChanges;
-*******Multiple Friends Test*******4
+*******4*******
 CommandToSelectUser puertorico password3;
 CommandToGetPendingIncomingFriendList <userID>;
 CommandToMakeFriendRequest <userID> russia;
@@ -75,7 +75,7 @@ CommandToRetrieveFriendList <userID>; destroyerofworlds,lolyolo
 CommandToUnFriend <userID> russia;
 CommandToUnFriend <userID> murica;
 CommandToPersistChanges;
-*******Nate’s test*******5
+*******5*******
 CommandToSelectUser dracula pw1;
 CommandToMakeFriendRequest <userID> frisbee;
 CommandToPersistChanges;
@@ -88,7 +88,7 @@ CommandToSelectUser dracula pw1;
 CommandToRetrieveFriendList <userID>; circleflyer
 CommandToUnFriend <userID> frisbee;
 CommandToPersistChanges;
-*******Persist Changes Test*******6
+*******6*******
 CommandToSelectUser artemis pw1;
 CommandToMakeFriendRequest <userID> holly;
 CommandToPersistChanges;
@@ -137,7 +137,7 @@ CommandToGetPendingOutgoingFriendList <userID>; commander
 CommandToSelectUser root pw4;
 CommandToRejectFriendRequest <userID> foaly;
 CommandToPersistChanges;
-*******Tons of Changes and Persists Test*******7
+*******7*******
 CommandToSelectUser frodo pw1;
 CommandToMakeFriendRequest <userID> sam;
 CommandToPersistChanges;
@@ -161,7 +161,7 @@ CommandToAcceptFriendRequest <userID> gandalf;
 CommandToPersistChanges;
 CommandToUnFriend <userID> gandalf;
 CommandToPersistChanges;
-*******Unfriend Test*******8
+*******8*******
 CommandToSelectUser SanicTheHodgehege pw1;
 CommandToMakeFriendRequest <userID> Vorpidile;
 CommandToPersistChanges;
@@ -177,7 +177,7 @@ CommandToRetrieveFriendList <userID>;
 CommandToSelectUser Vorpidile pw2;
 CommandToRetrieveFriendList <userID>;
 CommandToPersistChanges;
-*******Command To Select User Test*******9
+*******9*******
 **CommandToSelectUser Thrall pw1;
 **CommandToMakeFriendRequest <userID> GhengisKhan;
 **CommandToPersistChanges;
@@ -194,7 +194,7 @@ CommandToPersistChanges;
 **CommandToRetrieveFriendList <userID>; Thrall1234
 **CommandToUnFriend <userID> Thrall;
 **CommandToPersistChanges;
-*******Command To Reject Friend Request Test*******10
+*******10*******
 CommandToPersistChanges;
 CommandToSelectUser fartblaster pw2;
 CommandToMakeFriendRequest <userID> Morbo;
@@ -212,7 +212,7 @@ CommandToSelectUser fartblaster pw2;
 CommandToGetPendingOutgoingFriendList <userID>;
 CommandToRetrieveFriendList <userID>;
 CommandToPersistChanges;
-*******Command To Persist Changes Test Again*******
+*******11*******
 CommandToPersistChanges;
 CommandToSelectUser jellyjiggler pw1;
 CommandToMakeFriendRequest <userID> RandySavage;

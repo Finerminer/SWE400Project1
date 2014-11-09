@@ -30,7 +30,7 @@ CommandToMakeFriendRequest <userID> snapple;
 CommandToPersistChanges;
 CommandToGetPendingOutgoingFriendList <userID>; snapsmcgee
 CommandToMakeFriendRequest <userID> buttercup;
-CommandToGetPendingOutgoingFriendList <userID>; snapsmcgee optimus
+CommandToGetPendingOutgoingFriendList <userID>; snapsmcgee,optimus
 CommandToCancelChanges;
 CommandToGetPendingOutgoingFriendList <userID>; snapsmcgee
 CommandToSelectUser snapple snappass;
