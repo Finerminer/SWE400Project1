@@ -1,13 +1,14 @@
+***********************************************************************
 **UnfriendTest
 CommandToSelectUser Euler pw1;
 CommandToMakeFriendRequest <userID> Archimedes;
 CommandToPersistChanges;
 CommandToSelectUser Archimedes pw2;
-CommandToGetPendingIncomingFriendList <userID>; Euler
+CommandToGetPendingIncomingFriendList <userID>; euler1234
 CommandToAcceptFriendRequest <userID> Euler;
 CommandToPersistChanges;
 CommandToSelectUser Euler pw1;
-CommandToRetrieveFriendList <userID>; Archimedes
+CommandToRetrieveFriendList <userID>; archimedes5678
 CommandToUnFriend <userID> Archimedes;
 CommandToPersistChanges;
 CommandToRetrieveFriendList <userID>;
@@ -15,3 +16,4 @@ CommandToSelectUser Archimedes pw2;
 CommandToRetrieveFriendList <userID>;
 ** Nothing to undo
 ** End Test
+***********************************************************************

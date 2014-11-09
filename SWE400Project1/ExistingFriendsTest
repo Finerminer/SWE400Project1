@@ -1,46 +1,48 @@
+***********************************************************************
 **ExistingFriendsList
 CommandToSelectUser krabs pw5;
 CommandToMakeFriendRequest <userID> spongebob;
 CommandToPersistChanges;
 CommandToSelectUser spongebob pw1;
-CommandToGetPendingIncomingFriendList <userID>; patrick,krabs
+CommandToGetPendingIncomingFriendList <userID>; star,eugene
 CommandToMakeFriendRequest <userID> plankton;
-CommandToGetPendingOutgoingFriendList <userID>; plankton,sandy
+CommandToGetPendingOutgoingFriendList <userID>; evil,cheeks
 CommandToAcceptFriendRequest <userID> krabs;
-CommandToRetrieveFriendList <userID>; squidward,krabs
-CommandToGetPendingIncomingFriendList <userID>; patrick
+CommandToRetrieveFriendList <userID>; tentacles,eugene
+CommandToGetPendingIncomingFriendList <userID>; star
 CommandToPersistChanges;
 CommandToSelectUser patrick pw2;
-CommandToGetPendingOutgoingFriendList <userID>; spongebob
+CommandToGetPendingOutgoingFriendList <userID>; squarepants
 CommandToRetrieveFriendList <userID>;
 CommandToGetPendingIncomingFriendList <userID>;
 CommandToPersistChanges;
 CommandToSelectUser sandy pw3;
 CommandToGetPendingOutgoingFriendList <userID>;
 CommandToRetrieveFriendList <userID>;
-CommandToGetPendingIncomingFriendList <userID>; spongebob
+CommandToGetPendingIncomingFriendList <userID>; squarepants
 CommandToPersistChanges;
 CommandToSelectUser squidward pw4;
 CommandToGetPendingOutgoingFriendList <userID>;
-CommandToRetrieveFriendList <userID>; spongebob
+CommandToRetrieveFriendList <userID>; squarepants
 CommandToGetPendingIncomingFriendList <userID>;
 CommandToPersistChanges;
 CommandToSelectUser krabs pw5;
 CommandToGetPendingOutgoingFriendList <userID>;
-CommandToRetrieveFriendList <userID>; spongebob
+CommandToRetrieveFriendList <userID>; squarepants
 CommandToGetPendingIncomingFriendList <userID>;
 CommandToPersistChanges;
 CommandToSelectUser plankton pw6;
 CommandToGetPendingOutgoingFriendList <userID>;
 CommandToRetrieveFriendList <userID>;
-CommandToGetPendingIncomingFriendList <userID>; spongebob
+CommandToGetPendingIncomingFriendList <userID>; squarepants
 CommandToRejectFriendRequest <userID> spongebob;
 CommandToGetPendingIncomingFriendList <userID>;
 CommandToPersistChanges;
 CommandToSelectUser spongebob pw1;
-CommandToGetPendingOutgoingFriendList <userID>; sandy
+CommandToGetPendingOutgoingFriendList <userID>; cheeks
 ** Undo Changes
 CommandToSelectUser spongebob pw1;
 CommandToUnFriend <userID> krabs;
-CommandToRetrieveFriendList <userID>; squidward
+CommandToRetrieveFriendList <userID>; tentacles
 ** End Test
+***********************************************************************

@@ -1,17 +1,19 @@
+***********************************************************************
 **PersistChangesTest
 CommandToSelectUser mozzerella pw1;
 CommandToMakeFriendRequest <userID> thegrimdisaster;
 CommandToPersistChanges;
 CommandToSelectUser thegrimdisaster pw2;
-CommandToGetPendingIncomingFriendList <userID>; mozzerella
+CommandToGetPendingIncomingFriendList <userID>; ryanW
 CommandToAcceptFriendRequest <userID> mozzerella;
 CommandToPersistChanges;
-CommandToRetrieveFriendList <userID>; mozzerella
+CommandToRetrieveFriendList <userID>; ryanW
 CommandToPersistChanges;
 CommandToSelectUser mozzerella pw1;
-CommandToRetrieveFriendList <userID>; thegrimdisaster
+CommandToRetrieveFriendList <userID>; circleflyer
 CommandToPersistChanges;
 ** Undo Changes
 CommandToUnFriend <userID> thegrimdisaster;
 CommandToPersistChanges;
 ** End Test
+***********************************************************************

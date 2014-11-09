@@ -56,7 +56,7 @@ CommandToCreateUser loriTedMovie pw3 patriotsFan12; loriTedMovie:pw3:patriotsFan
 CommandToCreateUser daveUsrNme pw1 eaglesFan14; daveUsrNme:pw1:eaglesFan14
 CommandToCreateUser brianUsrNme pw2 steelersFan06; brianUsrNme:pw2:steelersFan06
 CommandToCreateUser simonPegg pw1 shaun; simonPegg:pw1:shaun
-CommandToCreateUser nickFrost pw2 ed; nickFrost:pw2:ed
+CommandToCreateUser nickFrost pw2 ed; nickFrost:pw2:ed  
 CommandToCreateUser kateAshfield pw3 liz; kateAshfield:pw3:liz
 CommandToCreateUser lucyDavis pw4 dianne; lucyDavis:pw4:dianne
 CommandToCreateUser dylanMoran pw5 david; dylanMoran:pw5:david
@@ -64,7 +64,7 @@ CommandToCreateUser ezUser ezPass ezDisp; ezUser:ezPass:ezDisp
 CommandToCreateUser jeUser jePass jeDisp; jeUser:jePass:jeDisp
 CommandToCreateUser edUser edPass edDisp; edUser:edPass:edDisp
 CommandToCreateUser caUser caPass caDisp; caUser:caPass:caDisp
-**
+** 
 ** Group 1
 **
 ***********************************************************************
@@ -74,6 +74,24 @@ CommandToCreateUser Euclid pw2 euclid5678; Euclid:pw2:euclid5678
 ***********************************************************************
 **CreateUserTest
 CommandToCreateUser galim pw1 garam; galim:pw1:garam
+***********************************************************************
+**ExistingFriendsTest
+CommandToCreateUser spongebob pw1 squarepants; spongebob:pw1:squarepants
+CommandToCreateUser patrick pw2 star; patrick:pw2:star
+CommandToCreateUser sandy pw3 cheeks; sandy:pw3:cheeks
+CommandToCreateUser squidward pw4 tentacles; squidward:pw4:tentacles
+CommandToCreateUser krabs pw5 eugene; krabs:pw5:eugene
+CommandToCreateUser plankton pw6 evil; plankton:pw6:evil
+CommandToSelectUser spongebob pw1;
+CommandToMakeFriendRequest <userID> squidward;
+CommandToMakeFriendRequest <userID> sandy;
+CommandToPersistChanges;
+CommandToSelectUser squidward pw4;
+CommandToAcceptFriendRequest <userID> spongebob;
+CommandToPersistChanges;
+CommandToSelectUser patrick pw2;
+CommandToMakeFriendRequest <userID> spongebob;
+CommandToPersistChanges;
 ***********************************************************************
 **ModifyUserTest
 CommandToCreateUser pepperoni pw1 ryanW; pepperoni:pw1:ryanW
@@ -106,27 +124,9 @@ CommandToCreateUser pika pw2 pika5678; pika:pw2:pika5678
 CommandToCreateUser Euler pw1 euler1234; Euler:pw1:euler1234
 CommandToCreateUser Archimedes pw2 archimedes5678; Archimedes:pw2:archimedes5678
 ***********************************************************************
-**ExistingFriendsTest
-CommandToCreateUser spongebob pw1 squarepants; spongebob:pw1:squarepants
-CommandToCreateUser patrick pw2 star; patrick:pw2:star
-CommandToCreateUser sandy pw3 cheeks; sandy:pw3:cheeks
-CommandToCreateUser squidward pw4 tentacles; squidward:pw4:tentacles
-CommandToCreateUser krabs pw5 eugene; krabs:pw5:eugene
-CommandToCreateUser plankton pw6 evil; plankton:pw6:evil
-CommandToPersistChanges;
-CommandToSelectUser spongebob pw1;
-CommandToMakeFriendRequest <userID> squidward;
-CommandToMakeFriendRequest <userID> sandy;
-CommandToPersistChanges;
-CommandToSelectUser squidward pw4;
-CommandToAcceptFriendRequest <userID> spongebob;
-CommandToPersistChanges;
-CommandToSelectUser patrick pw2;
-CommandToMakeFriendRequest <userID> spongebob;
-CommandToPersistChanges;
-***********************************************************************
-**Group 5
+** Group 5
 CommandToCreateUser bradpitt pittspass pittyboi; bradpitt:pittspass:pittyboi
 CommandToCreateUser seniormaximus maxpass shorts; seniormaximus:maxpass:shorts
 CommandToCreateUser snapple snappass snapsmcgee; snapple:snappass:snapsmcgee
 CommandToCreateUser buttercup butterpass optimus; buttercup:butterpass:optimus
+CommandToPersistChanges;

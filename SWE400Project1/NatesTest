@@ -1,3 +1,4 @@
+***********************************************************************
 **NatesTest
 CommandToSelectUser Washington pw1;
 CommandToMakeFriendRequest <userID> Mussolini;
@@ -47,3 +48,4 @@ CommandToSelectUser Washington pw1;
 CommandToUnFriend <userID> QueenElizabeth;
 CommandToPersistChanges;
 ** End Test
+***********************************************************************

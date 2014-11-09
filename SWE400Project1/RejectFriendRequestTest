@@ -1,10 +1,11 @@
+***********************************************************************
 **RejectFriendRequestTest
 CommandToSelectUser charmander pw2;
 CommandToMakeFriendRequest <userID> squirtle;
-CommandToGetPendingOutgoingFriendList <userID>; squirtle
+CommandToGetPendingOutgoingFriendList <userID>; turtle
 CommandToPersistChanges;
 CommandToSelectUser squirtle password;
-CommandToGetPendingIncomingFriendList <userID>; charmander
+CommandToGetPendingIncomingFriendList <userID>; salamander
 CommandToRejectFriendRequest <userID> charmander;
 CommandToGetPendingIncomingFriendList <userID>;
 CommandToRetrieveFriendList <userID>;
@@ -14,3 +15,4 @@ CommandToGetPendingOutgoingFriendList <userID>;
 CommandToRetrieveFriendList <userID>;
 ** Nothing to Undo
 ** End Test
+***********************************************************************
