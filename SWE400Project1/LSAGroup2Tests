@@ -26,6 +26,7 @@ CommandToPersistChanges;
 *******************************************
 CommandToSelectUser mattkujo pw;
 CommandToMakeFriendRequest <userID> IronMan;
+CommandToPersistChanges;
 CommandToSelectUser IronMan pw2;
 CommandToGetPendingIncomingFriendList <userID>; matt40
 CommandToCancelChanges;
@@ -35,6 +36,7 @@ CommandToGetPendingIncomingFriendList <userID>;
 *******************************************
 CommandToSelectUser Earls pw;
 CommandToMakeFriendRequest <userID> SteelMan;
+CommandToPersistChanges;
 CommandToSelectUser SteelMan pw2;
 CommandToGetPendingIncomingFriendList <userID>; matt43
 CommandToPersistChanges;
@@ -45,9 +47,10 @@ CommandToSelectUser SteelMan pw2;
 CommandToRetrieveFriendList <userID>; matt43
 CommandToSelectUser BronzeMan pw3;
 CommandToMakeFriendRequest <userID> SteelMan;
-CommandToSelectUser SteelMan pw2;
-CommandToGetPendingIncomingFriendList <userID>; ManOfBronze
 CommandToCancelChanges;
+CommandToPersistChanges;
+CommandToSelectUser SteelMan pw2;
+CommandToGetPendingIncomingFriendList <userID>;
 CommandToSelectUser SteelMan pw2;
 CommandToGetPendingIncomingFriendList <userID>;
 *******************************************
@@ -109,10 +112,10 @@ CommandToMakeFriendRequest <userID> frankfort;
 CommandToMakeFriendRequest <userID> frankfort;
 CommandToMakeFriendRequest <userID> frankfort;
 CommandToMakeFriendRequest <userID> frankfort;
-CommandToGetPendingOutgoingFriendList <userID>; noShoes09,noShoes09,noShoes09,noShoes09
+CommandToGetPendingOutgoingFriendList <userID>; noShoes09
 CommandToPersistChanges;
 CommandToSelectUser frankfort pw1;
-CommandToGetPendingIncomingFriendList <userID>; josh44,josh44,josh44,josh44
+CommandToGetPendingIncomingFriendList <userID>; josh44
 *******************************************
 CommandToSelectUser Morphius pw;
 CommandToModifyUser <userID> MattyMatt;
@@ -120,5 +123,5 @@ CommandToPersistChanges;
 CommandToSelectUser Georgie pw;
 CommandToMakeFriendRequest <userID> Bourney;
 CommandToMakeFriendRequest <userID> Bourney;
-CommandToGetPendingOutgoingFriendList <userID>; noShoesNoPants,noShoesNoPants
+CommandToGetPendingOutgoingFriendList <userID>; noShoesNoPants
 CommandToPersistChanges;

@@ -30,7 +30,7 @@ CommandToMakeFriendRequest <userID> snapple;
 CommandToPersistChanges;
 CommandToGetPendingOutgoingFriendList <userID>; snapsmcgee
 CommandToMakeFriendRequest <userID> buttercup;
-CommandToGetPendingOutgoingFriendList <userID>; snapsmcgee,optimus
+CommandToGetPendingOutgoingFriendList <userID>; optimus,snapsmcgee
 CommandToCancelChanges;
 CommandToGetPendingOutgoingFriendList <userID>; snapsmcgee
 CommandToSelectUser snapple snappass;
@@ -48,7 +48,7 @@ CommandToPersistChanges;
 CommandToSelectUser bradpitt pittspass;
 CommandToMakeFriendRequest <userID> snapple;
 CommandToPersistChanges;
-CommandToGetPendingOutgoingFriendList <userId>; snapsmcgee
+CommandToGetPendingOutgoingFriendList <userID>; snapsmcgee
 CommandToRejectFriendRequest <userID> snapple;
 CommandToPersistChanges;
 CommandToGetPendingOutgoingFriendList <userID>;
@@ -57,20 +57,20 @@ CommandToSelectUser bradpitt pittspass;
 CommandToModifyUser <userID> timothy;
 CommandToPersistChanges;
 ** TestCreateMultipleUsers
-CommandToCreateUser bradpitt pittspass pittyboi; null
+** Duplicate create user, not sure what we want to do in this situation -- CommandToCreateUser bradpitt pittspass pittyboi; null
 CommandToPersistChanges;
 ** TestMultipleFriendRequests
 CommandToSelectUser bradpitt pittspass;
 CommandToMakeFriendRequest <userID> snapple;
 CommandToPersistChanges;
 CommandToGetPendingOutgoingFriendList <userID>; snapsmcgee
-CommandToMakeFriendRequest <userID> snapple;
+** Duplicate friend request, not sure what we want to do in this situation -- CommandToMakeFriendRequest <userID> snapple;
 CommandToPersistChanges;
 CommandToGetPendingOutgoingFriendList <userID>; snapsmcgee
 CommandToSelectUser snapple snappass;
 CommandToAcceptFriendRequest <userID> bradpitt;
 CommandToPersistChanges;
-CommandToRetrieveFriendList <userID>; bradpitt
+CommandToRetrieveFriendList <userID>; timothy
 CommandToUnFriend <userID> bradpitt;
 CommandToPersistChanges;
 ** TestSelectingUserMultipleTimes

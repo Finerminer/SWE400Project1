@@ -39,9 +39,11 @@ CommandToRetrieveFriendList <userID>; redSoxFan12
 CommandToSelectUser loriTedMovie pw3;
 CommandToUnFriend <userID> johnTedMovie;
 CommandToRetrieveFriendList <userID>;
+CommandToPersistChanges;
 CommandToSelectUser johnTedMovie pw1;
 CommandToUnFriend <userID> tedTedMovie;
 CommandToRetrieveFriendList <userID>;
+CommandToPersistChanges;
 CommandToSelectUser tedTedMovie pw1;
 CommandToRetrieveFriendList <userID>;
 **

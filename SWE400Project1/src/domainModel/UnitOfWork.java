@@ -9,6 +9,9 @@ public class UnitOfWork {
 	private ArrayList<Friend> outgoingRequests = new ArrayList<Friend>();
 	private ArrayList<Friend> deletedPendingRequest = new ArrayList<Friend>();
 	
+	private int modifyPersonID;
+	private String modifyPersonDisplayName;
+	
 	protected PersonMapper mapper = new PersonMapper();
 	protected Person person;
 	private static ThreadLocal<UnitOfWork> thread = new ThreadLocal<UnitOfWork>();
@@ -170,6 +173,9 @@ public class UnitOfWork {
 		incomingRequests.clear();
 		outgoingRequests.clear();
 		deletedPendingRequest.clear();
+		
+		modifyPersonDisplayName = "#0*";
+		modifyPersonID = -100;
 	}
 	
 	public void reloadPersonsList(){
@@ -185,6 +191,7 @@ public class UnitOfWork {
 	public void commit(){
 		addNew();
 		updatePending();
+		updateModifications();
 		removeDeletedPending();
 		removeDelete();
 		clearFriendsLists();
@@ -301,7 +308,17 @@ public class UnitOfWork {
 	}
 
 	public void modifyName(int userID, String newDisplayName) {
-		mapper.modifyName(userID, newDisplayName);
+		modifyPersonID = userID;
+		modifyPersonDisplayName =  newDisplayName;
+	}
+	
+	private void updateModifications() {
+		if(modifyPersonDisplayName.equalsIgnoreCase("#0*") || modifyPersonID == -100){
+			
+		}else{
+			mapper.modifyName(modifyPersonID, modifyPersonDisplayName);
+		}
+		
 	}
 
 	public void makeFriendRequest(int userIDOfRequester, String userNameOfRequestee) {
