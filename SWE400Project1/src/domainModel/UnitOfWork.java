@@ -322,8 +322,22 @@ public class UnitOfWork {
 	}
 
 	public void makeFriendRequest(int userIDOfRequester, String userNameOfRequestee) {
-		Friend f = mapper.makeFriendRequest(person, userIDOfRequester, userNameOfRequestee);
-		this.registerOutgoingRequests(f);
+		boolean accept = false;
+		//When a user makes a friend request to another person and they've already requested the first user
+		//	Accept the request instead of sending a new friend request
+		for(Friend f : person.getInitialIncomingFriends()){
+			if(f.getUserName().equals(userNameOfRequestee)) {
+				accept = true;
+			}
+		}
+		if(accept) {
+			Friend f = mapper.acceptFriendRequest(person, userIDOfRequester, userNameOfRequestee);
+			this.registerNewFriend(f);
+		} 
+		else {
+			Friend f = mapper.makeFriendRequest(person, userIDOfRequester, userNameOfRequestee);
+			this.registerOutgoingRequests(f);
+		}
 	}
 	
 	public void acceptFriendRequest(int userIDOfRequester, String userNameOfRequestee){

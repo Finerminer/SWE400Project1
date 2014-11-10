@@ -202,7 +202,7 @@ CommandToGetPendingIncomingFriendList <userID>;
 CommandToRetrieveFriendList <userID>; shaun
 CommandToPersistChanges;
 CommandToSelectUser simonPegg pw1;
-CommandToRetrieveFriendList <userID>; ed liz
+CommandToRetrieveFriendList <userID>; ed,liz
 CommandToMakeFriendRequest <userID> lucyDavis;
 CommandToGetPendingOutgoingFriendList <userID>; dianne
 CommandToPersistChanges;
@@ -249,7 +249,7 @@ CommandToGetPendingOutgoingFriendList <userID>; liz
 CommandToPersistChanges;
 CommandToSelectUser kateAshfield pw3;
 CommandToGetPendingIncomingFriendList <userID>; zombieDavid
-CommandToRejectFreindRequest <userID> dylanMoran;
+CommandToRejectFriendRequest <userID> dylanMoran;
 CommandToGetPendingIncomingFriendList <userID>;
 CommandToRetrieveFriendList <userID>;
 CommandToSelectUser dylanMoran pw5;
@@ -280,6 +280,7 @@ CommandToGetPendingIncomingFriendList <userID>; ezDisp
 CommandToAcceptFriendRequest <userID> ezUser;
 CommandToGetPendingIncomingFriendList <userID>;
 CommandToRetrieveFriendList <userID>; ezDisp
+CommandToPersistChanges;
 **
 CommandToSelectUser ezUser ezPass;
 CommandToGetPendingIncomingFriendList <userID>;
@@ -313,7 +314,7 @@ CommandToGetPendingIncomingFriendList <userID>;
 CommandToCancelChanges;
 CommandToGetPendingIncomingFriendList <userID>; edDisp
 CommandToAcceptFriendRequest <userID> edUser;
-CommandToRetrieveFriendList <userID>; edUser
+CommandToRetrieveFriendList <userID>; edDisp
 CommandToPersistChanges;
 **
 CommandToSelectUser edUser edPass;

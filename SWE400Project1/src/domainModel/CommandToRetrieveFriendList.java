@@ -44,14 +44,19 @@ public class CommandToRetrieveFriendList implements Command
 		ArrayList<Friend> initialfriends = UnitOfWork.getThread().getPerson().getInitialFriends();
 		ArrayList<Friend> newFriends = UnitOfWork.getThread().getNewFriends();
 		ArrayList<Friend> deletedFriends = UnitOfWork.getThread().getDeletedFriends();
+		ArrayList<Friend> remove = new ArrayList<Friend>();
 		
 		for(Friend f : initialfriends) {
 			for(Friend d : deletedFriends) {
 				if(f.getUserName().equals(d.getUserName())) {
-					initialfriends.remove(f);
+					remove.add(f);
 					break;
 				}
 			}
+		}
+		
+		for(Friend f : remove) {
+			initialfriends.remove(f);
 		}
 		
 		for(Friend f : newFriends) {
